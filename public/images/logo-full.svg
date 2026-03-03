@@ -1,13 +1,11 @@
-<svg width="200" height="48" viewBox="0 0 200 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="24" cy="24" r="16" stroke="rgba(255,255,255,0.1)" stroke-width="1.5" fill="none"/>
-  <path d="M24 36V12" stroke="url(#orbitGrad)" stroke-width="2.5" stroke-linecap="round"/>
-  <path d="M18 18L24 12L30 18" stroke="url(#orbitGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <ellipse cx="24" cy="24" rx="20" ry="8" stroke="url(#orbitGrad)" stroke-width="1" fill="none" opacity="0.3" transform="rotate(-20 24 24)"/>
-  <text x="52" y="31" font-family="'Outfit', sans-serif" font-weight="500" font-size="23" fill="#e8e8ed" letter-spacing="0.06em">ASCENT</text>
+<svg width="180" height="48" viewBox="0 0 180 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M8 38L20 8L26 22L32 8L44 38" stroke="url(#peakGradFull)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M14 38L20 24L26 30L32 18L38 38" stroke="url(#peakGradFull)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.3"/>
+  <text x="54" y="32" font-family="'Outfit', sans-serif" font-weight="600" font-size="24" fill="#e8e8ed" letter-spacing="-0.02em">Ascent</text>
   <defs>
-    <linearGradient id="orbitGrad" x1="24" y1="36" x2="24" y2="12">
+    <linearGradient id="peakGradFull" x1="0" y1="38" x2="44" y2="8">
       <stop offset="0%" stop-color="#38bdf8"/>
-      <stop offset="100%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#818cf8"/>
     </linearGradient>
   </defs>
 </svg>

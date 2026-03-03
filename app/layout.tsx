@@ -11,16 +11,14 @@ export const metadata: Metadata = {
 
 function AscentLogo() {
   return (
-    <svg width="160" height="38" viewBox="0 0 200 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Ascent">
-      <circle cx="24" cy="24" r="16" stroke="rgba(255,255,255,0.1)" strokeWidth="1.5" fill="none"/>
-      <path d="M24 36V12" stroke="url(#navOrbitGrad)" strokeWidth="2.5" strokeLinecap="round"/>
-      <path d="M18 18L24 12L30 18" stroke="url(#navOrbitGrad)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <ellipse cx="24" cy="24" rx="20" ry="8" stroke="url(#navOrbitGrad)" strokeWidth="1" fill="none" opacity="0.3" transform="rotate(-20 24 24)"/>
-      <text x="52" y="31" fontFamily="'Outfit', sans-serif" fontWeight="500" fontSize="23" fill="#e8e8ed" letterSpacing="0.06em">ASCENT</text>
+    <svg width="160" height="38" viewBox="0 0 180 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Ascent">
+      <path d="M8 38L20 8L26 22L32 8L44 38" stroke="url(#navPeakGrad)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+      <path d="M14 38L20 24L26 30L32 18L38 38" stroke="url(#navPeakGrad)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" fill="none" opacity="0.3"/>
+      <text x="54" y="32" fontFamily="'Outfit', sans-serif" fontWeight="600" fontSize="24" fill="#e8e8ed" letterSpacing="-0.02em">Ascent</text>
       <defs>
-        <linearGradient id="navOrbitGrad" x1="24" y1="36" x2="24" y2="12">
+        <linearGradient id="navPeakGrad" x1="0" y1="38" x2="44" y2="8">
           <stop offset="0%" stopColor="#38bdf8"/>
-          <stop offset="100%" stopColor="#a78bfa"/>
+          <stop offset="100%" stopColor="#818cf8"/>
         </linearGradient>
       </defs>
     </svg>
