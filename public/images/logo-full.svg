@@ -1,0 +1,13 @@
+<svg width="200" height="48" viewBox="0 0 200 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="24" cy="24" r="16" stroke="rgba(255,255,255,0.1)" stroke-width="1.5" fill="none"/>
+  <path d="M24 36V12" stroke="url(#orbitGrad)" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M18 18L24 12L30 18" stroke="url(#orbitGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <ellipse cx="24" cy="24" rx="20" ry="8" stroke="url(#orbitGrad)" stroke-width="1" fill="none" opacity="0.3" transform="rotate(-20 24 24)"/>
+  <text x="52" y="31" font-family="'Outfit', sans-serif" font-weight="500" font-size="23" fill="#e8e8ed" letter-spacing="0.06em">ASCENT</text>
+  <defs>
+    <linearGradient id="orbitGrad" x1="24" y1="36" x2="24" y2="12">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#a78bfa"/>
+    </linearGradient>
+  </defs>
+</svg>
