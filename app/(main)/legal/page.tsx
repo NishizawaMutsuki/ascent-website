@@ -4,7 +4,7 @@ export default function Legal() {
       <div className="legal-content">
         <a href="/" className="back-link">← トップに戻る</a>
         <h1>特定商取引法に基づく表記</h1>
-        <p className="updated">最終更新日: 2025年3月3日</p>
+        <p className="updated">最終更新日: 2026年3月15日</p>
 
         <table>
           <tbody>
@@ -34,7 +34,7 @@ export default function Legal() {
             </tr>
             <tr>
               <th>販売価格</th>
-              <td>各サービスページに記載（税込価格）<br />Talk Trainer Proプラン: 月額990円（税込）</td>
+              <td>各サービスページに記載（税込価格）<br />クリニック向けHP制作: 初期費用 30,000〜50,000円（税込）/ 月額 5,000〜8,000円（税込）<br />Talk Trainer Proプラン: 月額990円（税込）</td>
             </tr>
             <tr>
               <th>販売価格以外の<br />必要料金</th>
@@ -42,15 +42,15 @@ export default function Legal() {
             </tr>
             <tr>
               <th>支払方法</th>
-              <td>クレジットカード決済（Stripe経由）<br />対応ブランド: Visa, Mastercard, American Express, JCB</td>
+              <td>クレジットカード決済（Stripe経由）<br />対応ブランド: Visa, Mastercard, American Express, JCB<br />※クリニック向けHP制作は銀行振込にも対応</td>
             </tr>
             <tr>
               <th>支払時期</th>
-              <td>サブスクリプション登録時に初回決済、以降毎月自動決済</td>
+              <td>Talk Trainer: サブスクリプション登録時に初回決済、以降毎月自動決済<br />クリニック向けHP制作: 契約時に初期費用、以降毎月月額費用をお支払い</td>
             </tr>
             <tr>
               <th>サービス提供時期</th>
-              <td>決済完了後、即時ご利用いただけます。</td>
+              <td>Talk Trainer: 決済完了後、即時ご利用いただけます。<br />クリニック向けHP制作: 契約後2〜3週間で公開</td>
             </tr>
             <tr>
               <th>返品・キャンセル</th>

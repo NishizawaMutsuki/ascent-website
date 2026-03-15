@@ -8,12 +8,13 @@ export default function Home() {
           Software Studio
         </div>
         <h1>
-          AIで、もっと<br />
-          <strong>スマートに学ぶ</strong>
+          テクノロジーで、<br />
+          <strong>ビジネスを加速する</strong>
         </h1>
         <p>
-          Ascent（アセント）は、AI技術を活用したソフトウェアの企画・開発・運営を行っています。
-          学習や業務を支援するプロダクトを通じて、一人ひとりの成長をテクノロジーで加速させます。
+          Ascent（アセント）は、AI技術を活用したソフトウェア開発と、
+          開業医向けウェブサイト制作・運用を行っています。
+          テクノロジーの力で、個人と医療機関の成長を支援します。
         </p>
       </section>
 
@@ -22,6 +23,11 @@ export default function Home() {
         <section id="services" className="section">
           <p className="section-title">Services — 事業内容</p>
           <div className="service-grid">
+            <div className="service-card">
+              <div className="icon">🏥</div>
+              <h3>クリニック向け HP制作</h3>
+              <p>開業医向けのウェブサイトを低コストで制作・運用。Googleに表示される状態を作り、患者さんとの接点を増やします。</p>
+            </div>
             <div className="service-card">
               <div className="icon">🤖</div>
               <h3>AI アプリケーション開発</h3>
@@ -32,17 +38,35 @@ export default function Home() {
               <h3>Web サービス運営</h3>
               <p>SaaS型サービスの企画からインフラ構築・運用まで、プロダクトのライフサイクル全体を担当。</p>
             </div>
-            <div className="service-card">
-              <div className="icon">📊</div>
-              <h3>データ分析・自動化</h3>
-              <p>業務プロセスの分析と自動化ソリューションの提供。効率化とコスト削減を実現。</p>
-            </div>
           </div>
         </section>
 
         {/* Products */}
         <section id="products" className="section">
           <p className="section-title">Products — プロダクト</p>
+
+          <div className="product-card" style={{ marginBottom: '1.5rem' }}>
+            <div className="tag">クリニック向け — ウェブサイト制作・運用</div>
+            <h3>開業医向けホームページ制作</h3>
+            <p>
+              ウェブサイトを持たないクリニック向けに、Googleに表示されるプロフェッショナルなホームページを制作します。
+              ドメイン取得・SSL証明書・Googleビジネスプロフィール設定まで含めたワンストップサービス。
+              月額費用で継続的な更新・保守・SEO/MEO対策も対応します。
+            </p>
+            <p>
+              初期費用 30,000〜50,000円（税込）。月額 5,000〜8,000円（税込）で、
+              ドメイン・SSL・コンテンツ更新・Googleビジネスプロフィール管理を含みます。
+              契約から2〜3週間で公開可能です。
+            </p>
+            <div className="features">
+              <span className="feature-tag">レスポンシブ対応</span>
+              <span className="feature-tag">SEO / MEO対策</span>
+              <span className="feature-tag">SSL対応</span>
+              <span className="feature-tag">Googleビジネスプロフィール</span>
+              <span className="feature-tag">月次レポート</span>
+            </div>
+          </div>
+
           <div className="product-card">
             <div className="tag">SaaS — 月額サブスクリプション</div>
             <h3>Talk Trainer</h3>
