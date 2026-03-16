@@ -9,7 +9,6 @@ export default function HpLandingPage() {
   const [formFeedback, setFormFeedback] = useState("");
   const revealRefs = useRef<(HTMLElement | null)[]>([]);
 
-  // Sticky header scroll state
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 10);
     onScroll();
@@ -17,7 +16,6 @@ export default function HpLandingPage() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Intersection Observer for reveal animations
   useEffect(() => {
     if (!("IntersectionObserver" in window)) {
       revealRefs.current.forEach((el) => el?.classList.add("is-visible"));
@@ -46,9 +44,7 @@ export default function HpLandingPage() {
     }
   }, []);
 
-  const closeMenu = () => {
-    setMenuOpen(false);
-  };
+  const closeMenu = () => setMenuOpen(false);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -56,25 +52,30 @@ export default function HpLandingPage() {
   };
 
   const faqItems = [
+    { q: "相談だけでも可能ですか？", a: "はい、可能です。現状の課題整理や、何から着手すべきかのご相談だけでもお気軽にお問い合わせください。費用は一切かかりません。" },
+    { q: "既存サイトの改善だけでも依頼できますか？", a: "可能です。全面リニューアルではなく、スマホ対応、SSL対応、予約導線の追加など一部の見直しにも対応しています。" },
+    { q: "制作期間はどれくらいですか？", a: "ベースプランは2〜3週間、プレミアムプランは1〜2ヶ月が目安です。お急ぎの場合もご相談ください。" },
+    { q: "月額費用には何が含まれますか？", a: "ドメイン管理・サーバー費用・SSL維持・テキスト更新（月2〜4回）・セキュリティ監視が含まれます。追加の費用は発生しません。" },
+    { q: "解約金はありますか？", a: "解約金はありません。ドメインは先生の名義で取得しますので、解約後もそのままご利用いただけます。" },
+    { q: "ドメインは誰の名義になりますか？", a: "先生（医院）の名義で取得します。弊社名義で取得して『ドメイン人質』になるようなことはありません。解約時もスムーズに移管できます。" },
+    { q: "WordPressを使わないのはなぜですか？", a: "WordPressはプラグインやコアの更新を怠るとセキュリティリスクが高まります。弊社では静的サイト生成を採用しており、サーバー側の処理がないため、改ざん・不正アクセスのリスクが根本的に低い構成です。" },
+    { q: "写真は自分で用意する必要がありますか？", a: "プロカメラマンによる撮影をオプションでご用意しています。お手持ちのスマホ写真でも、こちらで補正して使用できます。" },
+    { q: "医療広告ガイドラインへの対応はしてもらえますか？", a: "はい。掲載テキストは医療広告ガイドラインに沿った表現チェックを行います。書面掲示事項のウェブ掲載にも対応しています。" },
+    { q: "補助金は使えますか？", a: "個人開業医の先生は小規模事業者持続化補助金（補助率2/3、上限50万円）が活用できる場合があります。申請のサポートも可能です。" },
+  ];
+
+  const demoSites = [
     {
-      q: "相談だけでも可能ですか？",
-      a: "はい、可能です。現状の課題整理や、何から着手すべきかのご相談だけでもお気軽にお問い合わせください。",
+      name: "ベースプラン デモ（架空の医院）",
+      desc: "1ページ完結型。スマホで即電話できるCTA設計。Lighthouse高スコア。",
+      url: "https://dist-chi-ten-25.vercel.app/",
+      tags: ["1ページ LP", "レスポンシブ", "SSL対応", "構造化データ"],
     },
     {
-      q: "既存サイトの改善だけでも依頼できますか？",
-      a: "可能です。全面リニューアルではなく、スマホ対応、導線整理、表示改善など一部の見直しにも対応しています。",
-    },
-    {
-      q: "医療業界のWeb制作に詳しくなくても大丈夫ですか？",
-      a: "問題ありません。こちらで必要事項を整理しながら進めますので、専門知識がなくても安心してご相談いただけます。",
-    },
-    {
-      q: "制作期間はどれくらいですか？",
-      a: "内容によりますが、LP改善であれば数週間程度、サイト制作や大きな改善では1〜2か月程度が目安です。",
-    },
-    {
-      q: "SEO対策はどこまで含まれますか？",
-      a: "基本的には、タイトル・見出し・構造・内部テキスト整理などの内部改善を中心に対応します。必要に応じて優先順位をご案内します。",
+      name: "プレミアムプラン デモ（架空の医院）",
+      desc: "9ページ構成。診療科別ページ・院長紹介・施設紹介・スライダー。",
+      url: "https://clinic-premium-demo.vercel.app/",
+      tags: ["9ページ", "スライダー", "下層ページ", "WEB予約対応"],
     },
   ];
 
@@ -98,14 +99,12 @@ export default function HpLandingPage() {
               aria-controls="site-nav"
               onClick={() => setMenuOpen(!menuOpen)}
             >
-              <span></span>
-              <span></span>
-              <span></span>
+              <span></span><span></span><span></span>
               <span className="sr-only">メニューを開閉</span>
             </button>
             <nav className={`site-nav${menuOpen ? " is-open" : ""}`} id="site-nav" aria-label="主要メニュー">
-              <a href="#issues" onClick={closeMenu}>課題</a>
-              <a href="#services" onClick={closeMenu}>サービス</a>
+              <a href="#demo" onClick={closeMenu}>制作例</a>
+              <a href="#security" onClick={closeMenu}>セキュリティ</a>
               <a href="#pricing" onClick={closeMenu}>料金</a>
               <a href="#flow" onClick={closeMenu}>流れ</a>
               <a href="#faq" onClick={closeMenu}>FAQ</a>
@@ -119,66 +118,66 @@ export default function HpLandingPage() {
           <section className="lp-hero">
             <div className="lp-container hero-grid">
               <div className="hero-copy reveal" ref={addRevealRef}>
-                <p className="eyebrow">クリニック・病院向けホームページ制作 / 改善</p>
-                <h1>医院の信頼感が、<br />きちんと伝わるWeb導線へ。</h1>
+                <p className="eyebrow">開業医専門ホームページ制作</p>
+                <h1>先生の医院を、患者さんに届ける。</h1>
                 <p className="hero-lead">
-                  古く見えるホームページ、弱いスマホ対応、伝わりにくい診療内容。
-                  アセントは、医療機関に求められる清潔感と安心感を大切にしながら、
-                  見やすさ・導線・基本的なSEOを整え、相談につながりやすいサイトへ改善します。
+                  患者さんの8割近くがネットで医院を探す時代。
+                  セキュリティ・スマホ対応・SEO/MEOを標準装備した
+                  ホームページを、月額6,000円から制作・運用します。
                 </p>
                 <div className="hero-actions">
                   <a className="lp-button lp-button-primary" href="#contact">無料で相談する</a>
-                  <a className="lp-button lp-button-secondary" href="#contact">お問い合わせはこちら</a>
+                  <a className="lp-button lp-button-secondary" href="#demo">制作例を見る</a>
                 </div>
                 <ul className="hero-points" aria-label="サービスの特徴">
-                  <li>新規制作にも既存サイト改善にも対応</li>
-                  <li>スマホ最適化・表示速度・導線見直しを一括で整理</li>
-                  <li>専門用語に偏らず、丁寧な進行で伴走</li>
+                  <li>WordPress不使用 — 改ざんリスクゼロの静的サイト</li>
+                  <li>SSL / DDoS防御 / WAF をすべて標準装備</li>
+                  <li>医療広告ガイドライン・書面掲示事項に対応</li>
                 </ul>
               </div>
               <div className="hero-visual reveal" ref={addRevealRef}>
                 <div className="hero-card hero-card-main">
                   <div className="hero-card-header">
                     <span className="status-dot"></span>
-                    <span>医療機関向けサイト改善プラン</span>
+                    <span>制作サイト パフォーマンス</span>
                   </div>
                   <div className="hero-card-body">
                     <div className="mock-screen">
                       <div className="mock-screen-top">
-                        <span>診療案内</span>
-                        <span>アクセス</span>
-                        <span>お問い合わせ</span>
+                        <span>Performance</span>
+                        <span>Accessibility</span>
+                        <span>SEO</span>
                       </div>
                       <div className="mock-hero-panel">
                         <div>
-                          <p className="mock-label">改善ポイント</p>
-                          <strong>信頼感のある第一印象</strong>
+                          <p className="mock-label">Lighthouse Score</p>
+                          <strong>100 / 100 / 100</strong>
                         </div>
-                        <span className="mock-badge">スマホ対応済み</span>
+                        <span className="mock-badge">全項目最高点</span>
                       </div>
                       <div className="mock-metrics">
                         <article>
-                          <strong>導線設計</strong>
-                          <p>相談導線を明確化</p>
-                        </article>
-                        <article>
-                          <strong>SEO基本改善</strong>
-                          <p>内部構造を整理</p>
+                          <strong>JS出力</strong>
+                          <p>ほぼゼロ</p>
                         </article>
                         <article>
                           <strong>表示速度</strong>
-                          <p>閲覧時のストレスを軽減</p>
+                          <p>FCP 0.5秒</p>
+                        </article>
+                        <article>
+                          <strong>セキュリティ</strong>
+                          <p>Cloudflare CDN</p>
                         </article>
                       </div>
                     </div>
                   </div>
                 </div>
                 <aside className="hero-note" aria-label="補足情報">
-                  <p>こんなお悩みに対応</p>
+                  <p>WordPressとの違い</p>
                   <ul>
-                    <li>古い印象のままで更新が止まっている</li>
-                    <li>スマホで見づらく、問い合わせ導線が弱い</li>
-                    <li>医院の強みや診療方針が伝わりにくい</li>
+                    <li>サーバー処理なし → 改ざんリスクがゼロ</li>
+                    <li>プラグイン更新不要 → 保守コストが低い</li>
+                    <li>CDN配信 → 世界330拠点で高速表示</li>
                   </ul>
                 </aside>
               </div>
@@ -189,21 +188,17 @@ export default function HpLandingPage() {
           <section className="lp-section issues" id="issues">
             <div className="lp-container">
               <div className="section-heading reveal" ref={addRevealRef}>
-                <p className="section-tag">課題整理</p>
-                <h2>ホームページに、こんな課題はありませんか。</h2>
-                <p>
-                  医療機関のサイトは、単に情報を載せるだけでなく、
-                  患者さまやご家族が安心して閲覧できる導線づくりが大切です。
-                </p>
+                <p className="section-tag">よくある課題</p>
+                <h2>こんなお悩み、ありませんか？</h2>
               </div>
               <div className="issue-grid">
                 {[
-                  { title: "古いデザインのままで、医院の印象に不安が出る", desc: "サイト全体の見た目が古いと、診療内容や院内の丁寧さまで伝わりにくくなることがあります。" },
-                  { title: "スマホで見づらく、必要な情報にたどり着きにくい", desc: "診療時間・アクセス・予約方法が探しにくいと、離脱につながりやすくなります。" },
-                  { title: "問い合わせや相談の導線が弱い", desc: "連絡先や相談窓口が目立たないと、相談したい方が行動に移りにくくなります。" },
-                  { title: "検索流入が弱く、必要な方に見つけてもらいにくい", desc: "タイトルや見出し、内部構造の整理が不十分な場合、基本的なSEOでも機会損失が起こります。" },
-                  { title: "セキュリティや更新体制に不安がある", desc: "最低限の保守や表示環境への配慮が不足すると、閲覧時の安心感にも影響します。" },
-                  { title: "医院ごとの強みが十分に伝わっていない", desc: "診療方針、得意分野、院内の雰囲気などが整理されていないと、他院との差が見えにくくなります。" },
+                  { title: "ホームページがない・壊れている", desc: "Googleで医院名を検索しても出てこない。サイトはあるがSSLエラーで警告が出る。患者さんが不安になって離脱している可能性があります。" },
+                  { title: "スマホで見づらい", desc: "患者さんの大半はスマホで医院を探します。スマホで文字が小さい・ボタンが押しにくいサイトは、それだけで選ばれなくなります。" },
+                  { title: "フォームのセキュリティが不安", desc: "患者の個人情報を暗号化せずに送信しているサイトが多数あります。HTTP通信のフォームは盗聴リスクがあり、早急な対応が必要です。" },
+                  { title: "WordPressの更新が放置されている", desc: "古いバージョンのWordPressは改ざん・マルウェア感染のリスクが高い。プラグインの脆弱性も攻撃の入口になります。" },
+                  { title: "書面掲示事項がウェブに未掲載", desc: "2025年6月から、サイトを持つ医療機関は院内掲示事項のウェブ掲載が義務化されています。未対応の場合、監査で指摘される可能性があります。" },
+                  { title: "サイトの更新が業者任せで高い", desc: "テキスト1行の修正に数万円。更新依頼から反映まで1週間。そんな運用体制では、医院の情報が常に古くなります。" },
                 ].map((item, i) => (
                   <article className="issue-card reveal" key={i} ref={addRevealRef}>
                     <h3>{item.title}</h3>
@@ -214,28 +209,68 @@ export default function HpLandingPage() {
             </div>
           </section>
 
-          {/* Services */}
-          <section className="lp-section services" id="services">
+          {/* Demo Sites */}
+          <section className="lp-section demo-section" id="demo">
             <div className="lp-container">
               <div className="section-heading reveal" ref={addRevealRef}>
-                <p className="section-tag">サービス内容</p>
-                <h2>新規制作から改善まで、必要な範囲を整理してご提案します。</h2>
-                <p>
-                  大がかりなリニューアルだけでなく、今あるサイトを活かした部分改善にも対応。
-                  医療機関に必要な「見やすさ」と「信頼感」を軸に整えます。
-                </p>
+                <p className="section-tag">制作例</p>
+                <h2>実際に動くデモサイトをご覧ください</h2>
+                <p>スマホでそのまま操作できます。表示速度・デザイン・導線をお確かめください。<br />※ デモサイト内の医院名・情報はすべて架空のものです。</p>
               </div>
-              <div className="service-grid">
+              <div className="demo-grid">
+                {demoSites.map((site, i) => (
+                  <article className="demo-card reveal" key={i} ref={addRevealRef}>
+                    <div className="demo-card-browser">
+                      <div className="demo-browser-bar">
+                        <span className="demo-dot"></span>
+                        <span className="demo-dot"></span>
+                        <span className="demo-dot"></span>
+                        <span className="demo-url">{site.url.replace('https://', '')}</span>
+                      </div>
+                      <div className="demo-preview">
+                        <iframe
+                          src={site.url}
+                          title={site.name}
+                          loading="lazy"
+                          sandbox="allow-scripts allow-same-origin"
+                        ></iframe>
+                      </div>
+                    </div>
+                    <div className="demo-card-info">
+                      <h3>{site.name}</h3>
+                      <p>{site.desc}</p>
+                      <div className="demo-tags">
+                        {site.tags.map((tag, j) => (
+                          <span className="demo-tag" key={j}>{tag}</span>
+                        ))}
+                      </div>
+                      <a href={site.url} target="_blank" rel="noopener noreferrer" className="lp-button lp-button-secondary demo-link">
+                        デモサイトを開く &#8599;
+                      </a>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Security */}
+          <section className="lp-section security" id="security">
+            <div className="lp-container">
+              <div className="section-heading reveal" ref={addRevealRef}>
+                <p className="section-tag">セキュリティ</p>
+                <h2>患者さんの個人情報を守る、堅牢な基盤。</h2>
+                <p>医療機関のサイトだからこそ、セキュリティは妥協しません。</p>
+              </div>
+              <div className="security-grid">
                 {[
-                  { title: "新規ホームページ制作", desc: "医院案内、診療内容、アクセス、採用情報などを整理し、開業時や刷新時の基盤を構築します。" },
-                  { title: "既存ホームページ改善", desc: "見た目・導線・情報設計を見直し、今のサイトを活かしながら印象と使いやすさを改善します。" },
-                  { title: "LP作成 / 改善", desc: "自由診療、検診、採用、特定施策など、目的に合わせたランディングページを設計します。" },
-                  { title: "SEO内部改善", desc: "タイトル、見出し、構造、テキスト整理など、基本的な検索評価につながる要素を整えます。" },
-                  { title: "スマホ最適化", desc: "スマートフォンでの閲覧性を高め、診療時間やアクセス情報をすぐ確認しやすくします。" },
-                  { title: "表示速度 / 安定性の見直し", desc: "読み込みの重さやレイアウト崩れの原因を整理し、閲覧時の負担を軽減します。" },
-                  { title: "導線改善・基本保守", desc: "お問い合わせ、LINE、採用応募などの動線を見直し、必要に応じて軽微な修正や運用も支援します。" },
+                  { icon: "🔒", title: "SSL / HTTPS 標準装備", desc: "すべての通信を暗号化。患者さんの名前・メールアドレスが盗み見されるリスクをゼロにします。" },
+                  { icon: "🛡️", title: "DDoS防御 + WAF", desc: "Cloudflareの世界水準のセキュリティ基盤で、不正アクセスや攻撃を自動でブロックします。" },
+                  { icon: "⚡", title: "WordPress不使用", desc: "静的サイト生成により、サーバー側の処理がありません。改ざん・マルウェア感染のリスクが根本的にゼロです。" },
+                  { icon: "🌐", title: "世界330+拠点のCDN", desc: "Cloudflareの CDN で日本を含む世界中のエッジサーバーから配信。高速かつ安定した表示を実現します。" },
                 ].map((item, i) => (
-                  <article className="service-card reveal" key={i} ref={addRevealRef}>
+                  <article className="security-card reveal" key={i} ref={addRevealRef}>
+                    <span className="security-icon">{item.icon}</span>
                     <h3>{item.title}</h3>
                     <p>{item.desc}</p>
                   </article>
@@ -249,14 +284,14 @@ export default function HpLandingPage() {
             <div className="lp-container">
               <div className="section-heading reveal" ref={addRevealRef}>
                 <p className="section-tag">選ばれる理由</p>
-                <h2>医療機関に合った、落ち着いた設計と丁寧な進行を大切にしています。</h2>
+                <h2>開業医専門だから、話が早い。</h2>
               </div>
               <div className="reason-grid">
                 {[
-                  { title: "医療機関向けに最適化した情報設計", desc: "診療案内、アクセス、予約導線など、患者さまが確認したい情報を優先して整理します。" },
-                  { title: "清潔感と信頼感を損なわないデザイン", desc: "過度な演出を避け、医院の雰囲気や診療姿勢が落ち着いて伝わる見た目を目指します。" },
-                  { title: "お問い合わせ導線まで含めてご提案", desc: "見た目だけで終わらず、相談しやすさや必要な情報への到達しやすさまで一緒に整えます。" },
-                  { title: "専門用語に寄りすぎず、丁寧に進行", desc: "Web制作に詳しくない場合でも安心してご相談いただけるよう、要点を分かりやすく共有します。" },
+                  { title: "医療広告ガイドライン対応", desc: "誇大表現のチェック、ビフォーアフター写真の掲載基準、書面掲示事項のウェブ掲載まで、制度面を理解した上で制作します。" },
+                  { title: "先生の手間はゼロ", desc: "診療時間が変わったら一言ご連絡いただくだけ。テキスト更新・セキュリティ保守・サーバー管理、すべてお任せください。" },
+                  { title: "ドメインは先生の名義", desc: "制作会社名義でドメインを取得して『人質』にすることはしません。解約時もスムーズに移管できます。" },
+                  { title: "月額6,000円からの明朗会計", desc: "ドメイン・サーバー・SSL・保守すべて込み。追加費用なし。月1新患が増えれば元が取れる価格設計です。" },
                 ].map((item, i) => (
                   <article className="reason-card reveal" key={i} ref={addRevealRef}>
                     <span className="reason-number">{String(i + 1).padStart(2, "0")}</span>
@@ -273,53 +308,121 @@ export default function HpLandingPage() {
             <div className="lp-container">
               <div className="section-heading reveal" ref={addRevealRef}>
                 <p className="section-tag">料金プラン</p>
-                <h2>ご予算と目的に合わせて、3つのプランをご用意しています。</h2>
-                <p>内容は一例です。医院の状況やページ数に応じて、無理のない形で調整いたします。</p>
+                <h2>3つのプランをご用意しています。</h2>
+                <p>すべてのプランにSSL・セキュリティ・保守が含まれます。最低契約期間は12ヶ月です。</p>
               </div>
               <div className="pricing-grid">
                 <article className="plan-card reveal" ref={addRevealRef}>
-                  <h3>ライト</h3>
-                  <p className="plan-price">&yen;180,000<span>〜</span></p>
-                  <p className="plan-copy">必要最低限のLP作成 / 改善に。小規模クリニック向けの導入プランです。</p>
+                  <h3>Lite</h3>
+                  <p className="plan-price-group">
+                    <span className="plan-price-label">初期費用</span>
+                    <span className="plan-price">&yen;80,000</span>
+                  </p>
+                  <p className="plan-price-group">
+                    <span className="plan-price-label">月額</span>
+                    <span className="plan-price plan-price-monthly">&yen;6,000</span>
+                  </p>
+                  <p className="plan-copy">まずはGoogleに医院が表示される状態を作ります。</p>
                   <ul className="plan-features">
-                    <li>1ページ構成のLP作成 / 改善</li>
-                    <li>スマホ表示の最適化</li>
-                    <li>CTA導線の基本整理</li>
-                    <li>簡易SEO設定</li>
-                    <li>軽微な修正 1回</li>
+                    <li>1ページ構成のLP制作</li>
+                    <li>スマホ最適化</li>
+                    <li>診療内容の整理</li>
+                    <li>問い合わせ導線の設置</li>
+                    <li>基本SEO設定</li>
+                    <li>軽微修正 月1回</li>
                   </ul>
                   <a href="#contact" className="lp-button lp-button-tertiary">このプランで相談する</a>
                 </article>
                 <article className="plan-card plan-card-featured reveal" ref={addRevealRef}>
                   <span className="plan-badge">おすすめ</span>
-                  <h3>スタンダード</h3>
-                  <p className="plan-price">&yen;420,000<span>〜</span></p>
-                  <p className="plan-copy">構成改善・デザイン改善・SEO基本対応を含む、最もご相談の多いプランです。</p>
+                  <h3>Standard</h3>
+                  <p className="plan-price-group">
+                    <span className="plan-price-label">初期費用</span>
+                    <span className="plan-price">&yen;300,000</span>
+                  </p>
+                  <p className="plan-price-group">
+                    <span className="plan-price-label">月額</span>
+                    <span className="plan-price plan-price-monthly">&yen;12,000</span>
+                  </p>
+                  <p className="plan-copy">診療科別ページ・医師紹介を揃えた本格的なホームページ。</p>
                   <ul className="plan-features">
-                    <li>5〜7ページ程度のサイト制作 / 改善</li>
-                    <li>構成見直しとデザイン改善</li>
-                    <li>SEO基本改善</li>
-                    <li>お問い合わせ導線の最適化</li>
-                    <li>表示速度・閲覧性のチェック</li>
-                    <li>軽微な修正 2回</li>
+                    <li>5〜7ページのサイト制作</li>
+                    <li>スマホ最適化</li>
+                    <li>診療内容の整理・構成設計</li>
+                    <li>問い合わせ導線の最適化</li>
+                    <li>基本SEO設定</li>
+                    <li>軽微修正 月2回</li>
                   </ul>
                   <a href="#contact" className="lp-button lp-button-primary">まずは相談する</a>
                 </article>
                 <article className="plan-card reveal" ref={addRevealRef}>
-                  <h3>プレミアム</h3>
-                  <p className="plan-price">&yen;780,000<span>〜</span></p>
-                  <p className="plan-copy">Web集客をより丁寧に整えたい医院向け。戦略設計や追加ページにも対応します。</p>
+                  <h3>Premium</h3>
+                  <p className="plan-price-group">
+                    <span className="plan-price-label">初期費用</span>
+                    <span className="plan-price">&yen;580,000</span>
+                  </p>
+                  <p className="plan-price-group">
+                    <span className="plan-price-label">月額</span>
+                    <span className="plan-price plan-price-monthly">&yen;18,000</span>
+                  </p>
+                  <p className="plan-copy">MEO運用・予約システム・写真撮影・ロゴ制作まで含むフルパッケージ。</p>
                   <ul className="plan-features">
-                    <li>ページ追加を含む本格制作 / 改善</li>
-                    <li>戦略設計と導線強化</li>
-                    <li>SEO基本改善 + コンテンツ整理</li>
-                    <li>優先対応 / 細かな改善提案</li>
-                    <li>運用を見据えた更新設計</li>
-                    <li>軽微な修正 3回</li>
+                    <li>10〜15ページのサイト制作</li>
+                    <li>スマホ最適化</li>
+                    <li>診療内容の整理・構成設計</li>
+                    <li>問い合わせ導線の最適化</li>
+                    <li>基本SEO + MEO運用</li>
+                    <li>予約システム導入</li>
+                    <li>院内写真撮影</li>
+                    <li>ロゴ制作</li>
+                    <li>軽微修正 月4回</li>
                   </ul>
                   <a href="#contact" className="lp-button lp-button-tertiary">詳細を相談する</a>
                 </article>
               </div>
+
+              {/* Options */}
+              <div className="options-section reveal" ref={addRevealRef}>
+                <h3 className="options-title">オプションサービス</h3>
+                <div className="options-grid">
+                  {[
+                    { name: "追加ページ", price: "¥20,000 / ページ" },
+                    { name: "院内写真撮影", price: "¥30,000" },
+                    { name: "MEO運用", price: "¥8,000 / 月" },
+                    { name: "ロゴ制作", price: "¥20,000" },
+                    { name: "軽微修正（追加）", price: "¥20,000 / 回" },
+                    { name: "予約システム導入", price: "¥50,000" },
+                    { name: "AIチャットbot導入", price: "¥100,000" },
+                  ].map((opt, i) => (
+                    <div className="option-item" key={i}>
+                      <span className="option-name">{opt.name}</span>
+                      <span className="option-price">{opt.price}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Referral */}
+              <div className="referral-section reveal" ref={addRevealRef}>
+                <h3 className="referral-title">紹介制度</h3>
+                <p className="referral-desc">ご紹介いただいた医師が契約された場合、双方に特典をご用意しています。</p>
+                <div className="referral-grid">
+                  <div className="referral-card">
+                    <span className="referral-label">紹介した医師</span>
+                    <p className="referral-benefit">初期費用の<strong>20%</strong>をキャッシュバック</p>
+                  </div>
+                  <div className="referral-card">
+                    <span className="referral-label">紹介された医師</span>
+                    <p className="referral-benefit">月額料金<strong>2ヶ月分</strong>無料</p>
+                  </div>
+                </div>
+              </div>
+
+              <p className="pricing-note reveal" ref={addRevealRef}>
+                ※ すべてのプランにドメイン管理・サーバー費用・SSL・セキュリティ保守が含まれます。<br />
+                ※ 最低契約期間は12ヶ月です。解約時のドメイン移管費用は¥20,000です。<br />
+                ※ 個人開業医の先生は<strong>小規模事業者持続化補助金</strong>（補助率2/3、上限50万円）が活用できる場合があります。
+              </p>
             </div>
           </section>
 
@@ -328,16 +431,16 @@ export default function HpLandingPage() {
             <div className="lp-container">
               <div className="section-heading reveal" ref={addRevealRef}>
                 <p className="section-tag">制作の流れ</p>
-                <h2>ご相談から公開まで、段階を分けて丁寧に進めます。</h2>
+                <h2>ご相談から公開まで、6つのステップ</h2>
               </div>
               <div className="flow-grid">
                 {[
-                  { step: "STEP 1", title: "お問い合わせ", desc: "まずは現状のお悩みやご希望をお聞かせください。" },
-                  { step: "STEP 2", title: "ヒアリング", desc: "診療内容、ターゲット、課題、運用状況などを整理します。" },
-                  { step: "STEP 3", title: "ご提案", desc: "必要な対応範囲、スケジュール、概算費用をご案内します。" },
-                  { step: "STEP 4", title: "制作 / 改善", desc: "情報設計、デザイン、実装、調整を進めます。" },
-                  { step: "STEP 5", title: "公開 / 納品", desc: "最終確認後に公開し、必要な操作方法も共有します。" },
-                  { step: "STEP 6", title: "運用サポート", desc: "必要に応じて更新や軽微修正、追加改善もご相談いただけます。" },
+                  { step: "STEP 1", title: "お問い合わせ", desc: "フォームまたはお電話で、現状のお悩みをお聞かせください。相談は無料です。" },
+                  { step: "STEP 2", title: "ヒアリング（30分）", desc: "医院の特徴・診療科目・ご要望を伺います。訪問またはオンラインで対応。" },
+                  { step: "STEP 3", title: "デザイン提案", desc: "実際にスマホで触れるデモサイトをお見せします。デザインは複数案からお選びいただけます。" },
+                  { step: "STEP 4", title: "制作（2〜3週間）", desc: "先生の確認→修正→完成。先生にお願いするのは写真と診療時間の確認だけです。" },
+                  { step: "STEP 5", title: "公開", desc: "ドメイン設定・SSL・Google登録まですべて対応。公開日に最終確認します。" },
+                  { step: "STEP 6", title: "運用・保守", desc: "公開後のテキスト更新・セキュリティ監視・サーバー保守を継続的にサポートします。" },
                 ].map((item, i) => (
                   <article className="flow-step reveal" key={i} ref={addRevealRef}>
                     <span>{item.step}</span>
@@ -355,11 +458,10 @@ export default function HpLandingPage() {
               <div className="section-heading reveal" ref={addRevealRef}>
                 <p className="section-tag">FAQ</p>
                 <h2>よくあるご質問</h2>
-                <p>初回相談の段階で決まっていなくても問題ありません。状況を伺いながら整理いたします。</p>
               </div>
-              <div className="faq-list">
+              <div className="faq-list reveal" ref={addRevealRef}>
                 {faqItems.map((item, i) => (
-                  <article className={`faq-item reveal${openFaq === i ? " is-open" : ""}`} key={i} ref={addRevealRef}>
+                  <article className={`faq-item${openFaq === i ? " is-open" : ""}`} key={i}>
                     <button
                       className="faq-question"
                       type="button"
@@ -370,9 +472,7 @@ export default function HpLandingPage() {
                       <span className="faq-icon" aria-hidden="true"></span>
                     </button>
                     <div className="faq-answer">
-                      <div>
-                        <p>{item.a}</p>
-                      </div>
+                      <div><p>{item.a}</p></div>
                     </div>
                   </article>
                 ))}
@@ -388,26 +488,26 @@ export default function HpLandingPage() {
                 <h2>アセント</h2>
                 <p className="profile-names">代表：西澤、廿浦</p>
                 <p>
-                  アセントは、医院ごとの強みや診療方針を、患者さまにとって分かりやすい形で伝えることを大切にしています。
-                  見やすさや清潔感だけでなく、「必要な情報に迷わずたどり着けること」「安心して相談しやすいこと」まで含めて、
-                  信頼感のあるWeb導線を丁寧に設計します。
+                  アセントは「開業医専門」のウェブ制作です。
+                  医療広告ガイドライン・書面掲示義務・個人情報保護法 —
+                  医療機関特有の制約を理解した上で、先生の医院の強みを患者さんに届けるサイトを作ります。
                 </p>
                 <p>
-                  新規制作でも既存サイト改善でも、現場のご負担を増やしすぎない進め方を意識しながら、
-                  医院ごとに無理のない現実的な提案を行います。
+                  WordPressではなく静的サイト生成を採用し、セキュリティと表示速度を両立。
+                  ドメインは先生の名義で取得し、解約後もそのままお使いいただける透明な運営を行っています。
                 </p>
               </div>
               <div className="profile-card reveal" ref={addRevealRef}>
                 <img
-                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 420'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23e8f2fb'/%3E%3Cstop offset='100%25' stop-color='%23c8def1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='640' height='420' rx='32' fill='url(%23g)'/%3E%3Crect x='76' y='72' width='488' height='276' rx='24' fill='%23ffffff' opacity='0.92'/%3E%3Crect x='112' y='112' width='156' height='156' rx='78' fill='%230f3f73' opacity='0.12'/%3E%3Ccircle cx='190' cy='168' r='38' fill='%230f3f73' opacity='0.34'/%3E%3Cpath d='M130 256c20-34 48-51 84-51s64 17 84 51' fill='%230f3f73' opacity='0.34'/%3E%3Crect x='310' y='126' width='188' height='18' rx='9' fill='%230f3f73' opacity='0.25'/%3E%3Crect x='310' y='164' width='144' height='14' rx='7' fill='%230f3f73' opacity='0.18'/%3E%3Crect x='310' y='202' width='174' height='14' rx='7' fill='%230f3f73' opacity='0.18'/%3E%3Crect x='112' y='302' width='386' height='14' rx='7' fill='%230f3f73' opacity='0.12'/%3E%3C/svg%3E"
-                  alt="医院ごとの強みを整理し、信頼感のあるWeb導線を設計するアセントのイメージ"
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 420'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23e8f2fb'/%3E%3Cstop offset='100%25' stop-color='%23c8def1'/%3E%3C/linearGradient%3E%3ClinearGradient id='bar' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%23143f72'/%3E%3Cstop offset='100%25' stop-color='%23245d98'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='640' height='420' rx='32' fill='url(%23bg)'/%3E%3Crect x='60' y='50' width='520' height='320' rx='24' fill='%23ffffff' opacity='0.94'/%3E%3Ccircle cx='220' cy='160' r='50' fill='%230f3f73' opacity='0.10'/%3E%3Ccircle cx='220' cy='148' r='22' fill='%230f3f73' opacity='0.30'/%3E%3Cpath d='M180 200c12-20 28-30 40-30s28 10 40 30' fill='%230f3f73' opacity='0.30'/%3E%3Ccircle cx='420' cy='160' r='50' fill='%230f3f73' opacity='0.10'/%3E%3Ccircle cx='420' cy='148' r='22' fill='%230f3f73' opacity='0.30'/%3E%3Cpath d='M380 200c12-20 28-30 40-30s28 10 40 30' fill='%230f3f73' opacity='0.30'/%3E%3Crect x='160' y='228' width='120' height='12' rx='6' fill='%230f3f73' opacity='0.22'/%3E%3Crect x='360' y='228' width='120' height='12' rx='6' fill='%230f3f73' opacity='0.22'/%3E%3Crect x='180' y='250' width='80' height='8' rx='4' fill='%230f3f73' opacity='0.12'/%3E%3Crect x='380' y='250' width='80' height='8' rx='4' fill='%230f3f73' opacity='0.12'/%3E%3Crect x='120' y='290' width='400' height='2' rx='1' fill='%230f3f73' opacity='0.08'/%3E%3Crect x='160' y='310' width='320' height='10' rx='5' fill='%230f3f73' opacity='0.10'/%3E%3Crect x='200' y='330' width='240' height='10' rx='5' fill='%230f3f73' opacity='0.08'/%3E%3C/svg%3E"
+                  alt="アセント代表紹介 — 西澤・廿浦"
                 />
                 <div className="profile-card-body">
                   <strong>大切にしていること</strong>
                   <ul>
-                    <li>医院ごとの強みを、分かりやすく伝えること</li>
-                    <li>見やすく、信頼感のあるWeb導線をつくること</li>
-                    <li>丁寧で無理のない進行で伴走すること</li>
+                    <li>セキュリティを最優先に設計すること</li>
+                    <li>先生の手間をゼロにすること</li>
+                    <li>嘘をつかない透明な運営をすること</li>
                   </ul>
                 </div>
               </div>
@@ -421,29 +521,29 @@ export default function HpLandingPage() {
                 <p className="section-tag">お問い合わせ</p>
                 <h2>まずはお気軽にご相談ください。</h2>
                 <p>
-                  新規制作、部分改善、現状サイトの診断など、内容が固まっていなくても問題ありません。
-                  まずは現状を伺い、必要な対応を一緒に整理します。
+                  「ホームページがないんだけど」「今のサイトが古くて心配」「セキュリティが不安」 —
+                  内容が固まっていなくても問題ありません。現状を伺い、必要な対応を一緒に整理します。
                 </p>
                 <div className="contact-panels">
                   <div className="contact-panel">
-                    <strong>こんなご相談に</strong>
-                    <p>「古いサイトを今の医院に合う印象へ整えたい」「問い合わせ導線を見直したい」など。</p>
+                    <strong>無料相談</strong>
+                    <p>ご相談は無料です。お問い合わせ = 契約ではありませんので、お気軽にどうぞ。</p>
                   </div>
                   <div className="contact-panel">
-                    <strong>ご相談方法</strong>
-                    <p>フォームまたはLINE導線を想定したご相談窓口としてご利用いただけます。</p>
+                    <strong>2営業日以内に返信</strong>
+                    <p>フォームからのお問い合わせには、2営業日以内にご返信いたします。</p>
                   </div>
                 </div>
               </div>
               <div className="contact-form-wrap reveal" ref={addRevealRef}>
                 <form className="contact-form" onSubmit={handleSubmit}>
                   <div className="form-row">
-                    <label htmlFor="name">お名前</label>
-                    <input id="name" name="name" type="text" placeholder="例）山田 太郎" />
+                    <label htmlFor="name">お名前 <span className="form-required">必須</span></label>
+                    <input id="name" name="name" type="text" placeholder="例）山田 太郎" required />
                   </div>
                   <div className="form-row">
-                    <label htmlFor="email">メールアドレス</label>
-                    <input id="email" name="email" type="email" placeholder="example@clinic.jp" />
+                    <label htmlFor="email">メールアドレス <span className="form-required">必須</span></label>
+                    <input id="email" name="email" type="email" placeholder="example@clinic.jp" required />
                   </div>
                   <div className="form-row">
                     <label htmlFor="clinic">医院名</label>
@@ -454,7 +554,7 @@ export default function HpLandingPage() {
                     <textarea id="message" name="message" rows={5} placeholder="現状のお悩みやご希望をご記入ください。"></textarea>
                   </div>
                   <button className="lp-button lp-button-primary lp-button-submit" type="submit">送信する</button>
-                  <p className="form-note">こちらはデモ用フォームです。実装時にはフォーム送信やLINE連携を追加できます。</p>
+                  <p className="form-note">※ こちらはデモ用フォームです。お問い合わせはメール（nszw1101@gmail.com）でも受け付けております。</p>
                   {formFeedback && <p className="form-feedback" role="status" aria-live="polite">{formFeedback}</p>}
                 </form>
               </div>
@@ -468,15 +568,14 @@ export default function HpLandingPage() {
             <div>
               <a className="brand brand-footer" href="#top">アセント</a>
               <p>代表者名：西澤、廿浦</p>
-              <p>クリニック・病院向けホームページの新規作成、改善、LP制作、SEO基本改善に対応しています。</p>
+              <p>開業医専門のホームページ制作・運用。セキュリティ最優先の静的サイト設計。</p>
             </div>
             <div>
-              <p className="footer-title">サービス概要</p>
+              <p className="footer-title">サービス</p>
               <ul className="footer-list">
-                <li>ホームページ新規制作</li>
-                <li>既存サイト改善</li>
-                <li>LP作成 / 改善</li>
-                <li>導線設計・スマホ対応・速度改善</li>
+                <li>Lite（月額6,000円）</li>
+                <li>Standard（月額12,000円）</li>
+                <li>Premium（月額18,000円）</li>
               </ul>
             </div>
             <div>
@@ -484,6 +583,8 @@ export default function HpLandingPage() {
               <ul className="footer-list">
                 <li><a href="#contact">お問い合わせ</a></li>
                 <li><a href="/privacy">プライバシーポリシー</a></li>
+                <li><a href="/terms">利用規約</a></li>
+                <li><a href="/legal">特定商取引法</a></li>
               </ul>
             </div>
           </div>

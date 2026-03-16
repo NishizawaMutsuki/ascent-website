@@ -14,7 +14,7 @@ export default function Legal() {
             </tr>
             <tr>
               <th>運営責任者</th>
-              <td>西澤 睦生</td>
+              <td>Mutsuki Nishizawa</td>
             </tr>
             <tr>
               <th>所在地</th>

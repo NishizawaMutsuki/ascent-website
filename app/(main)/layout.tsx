@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 function AscentLogo() {
   return (
     <svg width="160" height="38" viewBox="0 0 180 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Ascent">
@@ -15,17 +19,32 @@ function AscentLogo() {
 }
 
 function Nav() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const closeMenu = () => setIsOpen(false);
+
   return (
     <nav className="nav">
       <div className="nav-inner">
         <a href="/" className="nav-logo-link">
           <AscentLogo />
         </a>
-        <ul className="nav-links">
-          <li><a href="/#services">サービス</a></li>
-          <li><a href="/#products">プロダクト</a></li>
-          <li><a href="/#contact">お問い合わせ</a></li>
+        <ul className={`nav-links${isOpen ? " is-open" : ""}`}>
+          <li><a href="/#about" onClick={closeMenu}>会社概要</a></li>
+          <li><a href="/#services" onClick={closeMenu}>サービス</a></li>
+          <li><a href="/#works" onClick={closeMenu}>実績</a></li>
+          <li><a href="/#products" onClick={closeMenu}>プロダクト</a></li>
+          <li><a href="/#contact" onClick={closeMenu}>お問い合わせ</a></li>
         </ul>
+        <a href="/#contact" className="nav-cta">無料相談</a>
+        <button
+          className={`nav-hamburger${isOpen ? " is-open" : ""}`}
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="メニューを開く"
+          aria-expanded={isOpen}
+        >
+          <span /><span /><span />
+        </button>
       </div>
     </nav>
   );
@@ -33,18 +52,34 @@ function Nav() {
 
 function Footer() {
   return (
-    <footer className="page-container">
+    <footer className="page-container" style={{ paddingBottom: '2rem' }}>
       <div className="footer">
-        <div className="footer-logo">
-          <AscentLogo />
+        <div className="footer-grid">
+          <div className="footer-brand">
+            <AscentLogo />
+            <p>テクノロジーで、医療をもっと身近に。医療機関向けWeb制作とAI開発を行っています。</p>
+          </div>
+          <div>
+            <div className="footer-nav-title">Services</div>
+            <div className="footer-nav-links">
+              <a href="/hp">医院HP制作</a>
+              <a href="/products/talk-trainer">Talk Trainer</a>
+            </div>
+          </div>
+          <div>
+            <div className="footer-nav-title">Company</div>
+            <div className="footer-nav-links">
+              <a href="/#about">会社概要</a>
+              <a href="/terms">利用規約</a>
+              <a href="/privacy">プライバシーポリシー</a>
+              <a href="/legal">特商法表記</a>
+            </div>
+          </div>
         </div>
-        <div className="footer-links">
-          <a href="/terms">利用規約</a>
-          <a href="/privacy">プライバシーポリシー</a>
-          <a href="/legal">特定商取引法に基づく表記</a>
-          <a href="/refund">返金・キャンセルポリシー</a>
+        <div className="footer-bottom">
+          <p className="footer-copy">&copy; {new Date().getFullYear()} Ascent. All rights reserved.</p>
+          <a href="mailto:info@ascent-web.jp" className="footer-email">info@ascent-web.jp</a>
         </div>
-        <p className="footer-copy">© {new Date().getFullYear()} Ascent. All rights reserved.</p>
       </div>
     </footer>
   );
