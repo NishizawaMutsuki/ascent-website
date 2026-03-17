@@ -184,43 +184,51 @@ export default function Home() {
       <div className="page-container">
         {/* ===== About ===== */}
         <section id="about" className="section">
-          <p className="section-title">About — 私たちについて</p>
-          <div className="about-mission reveal" ref={addRef}>
-            <h2 className="about-mission-en">Technology Accelerates Healthcare.</h2>
-            <p className="about-mission-ja">テクノロジーで、医療をもっと身近に。</p>
-            <p className="about-desc">
-              Ascentは、医療機関向けのWeb制作とAIアプリケーション開発を行う事業者です。<br />
-              「検索しても出てこない」をなくし、すべての医院に信頼されるデジタルの窓口を届けます。<br />
-              セキュリティ最優先の静的サイト設計と、最新のAI技術を組み合わせ、<br />
-              地域医療をもっと届きやすくすることが私たちのミッションです。
-            </p>
+          <p className="section-title">About</p>
+          <div className="about-layout reveal" ref={addRef}>
+            <div>
+              <span className="about-heading-en">Technology Accelerates Healthcare.</span>
+              <h2 className="about-heading">テクノロジーで、<br />医療をもっと身近に。</h2>
+            </div>
+            <div className="about-body">
+              <p className="about-desc">
+                Ascentは、医療機関向けのWeb制作とAIアプリケーション開発を行う事業者です。
+                「検索しても出てこない」をなくし、すべての医院に信頼されるデジタルの窓口を届けます。
+                セキュリティ最優先の静的サイト設計と、最新のAI技術を組み合わせ、
+                地域医療をもっと届きやすくすることが私たちのミッションです。
+              </p>
+            </div>
           </div>
 
           <div className="team-grid">
             <div className="team-card reveal" ref={addRef}>
               <div className="team-avatar">MN</div>
-              <div className="team-name">Mutsuki Nishizawa</div>
-              <div className="team-role">共同代表 / エンジニア</div>
-              <p className="team-bio">
-                電気通信大学卒。セキュリティとパフォーマンスを重視したWeb開発、
-                LLMを活用したAIアプリケーション開発を担当。
-              </p>
+              <div className="team-info">
+                <div className="team-name">Mutsuki Nishizawa</div>
+                <div className="team-role">共同代表 / エンジニア</div>
+                <p className="team-bio">
+                  電気通信大学卒。セキュリティとパフォーマンスを重視したWeb開発、
+                  LLMを活用したAIアプリケーション開発を担当。
+                </p>
+              </div>
             </div>
             <div className="team-card reveal" ref={addRef} style={{ animationDelay: "120ms" }}>
-              <div className="team-avatar" style={{ background: 'linear-gradient(135deg, #818cf8, #34d399)' }}>AT</div>
-              <div className="team-name">Aoi Tsuzuri</div>
-              <div className="team-role">共同代表 / 営業・事業開発</div>
-              <p className="team-bio">
-                早稲田大学卒。クライアントとの関係構築、営業戦略の策定、
-                事業開発を担当。医療機関のニーズに寄り添った提案を行う。
-              </p>
+              <div className="team-avatar">AT</div>
+              <div className="team-info">
+                <div className="team-name">Aoi Tsuzuri</div>
+                <div className="team-role">共同代表 / 営業・事業開発</div>
+                <p className="team-bio">
+                  早稲田大学卒。クライアントとの関係構築、営業戦略の策定、
+                  事業開発を担当。医療機関のニーズに寄り添った提案を行う。
+                </p>
+              </div>
             </div>
           </div>
         </section>
 
         {/* ===== Services ===== */}
         <section id="services" className="section">
-          <p className="section-title">Services — 事業内容</p>
+          <p className="section-title">Services</p>
           <div className="service-grid-new">
             {[
               {
@@ -264,15 +272,17 @@ export default function Home() {
         {/* ===== CTA ===== */}
         <div className="cta-section reveal" ref={addRef}>
           <div className="cta-box">
-            <h3>まずはお気軽にご相談ください</h3>
-            <p>「ホームページを持っていない」「検索しても出てこない」そんなお悩みを解決します。</p>
-            <a href="#contact" className="top-btn top-btn-primary">無料相談はこちら</a>
+            <div>
+              <h3>まずはお気軽にご相談ください</h3>
+              <p>「ホームページを持っていない」「検索しても出てこない」そんなお悩みを解決します。</p>
+            </div>
+            <a href="#contact" className="cta-inline-link">無料相談はこちら &rarr;</a>
           </div>
         </div>
 
         {/* ===== Works ===== */}
         <section id="works" className="section">
-          <p className="section-title">Works — 制作実績・デモ</p>
+          <p className="section-title">Works</p>
           <div className="works-grid">
             <div className="work-card reveal" ref={addRef}>
               <div className="work-browser">
@@ -332,7 +342,7 @@ export default function Home() {
 
         {/* ===== Products ===== */}
         <section id="products" className="section">
-          <p className="section-title">Products — プロダクト</p>
+          <p className="section-title">Products</p>
           <div className="product-link-grid">
             <a href="/hp" className="product-link-card reveal" ref={addRef}>
               <div className="tag">クリニック向け — Web制作・運用</div>
@@ -370,7 +380,7 @@ export default function Home() {
 
         {/* ===== Contact ===== */}
         <section id="contact" className="section">
-          <p className="section-title">Contact — お問い合わせ</p>
+          <p className="section-title">Contact</p>
           <div className="contact-grid">
             <div className="contact-details">
               <div className="contact-item">
@@ -392,7 +402,7 @@ export default function Home() {
 
         {/* ===== Policies ===== */}
         <section className="section">
-          <p className="section-title">Policies — 各種ポリシー</p>
+          <p className="section-title">Policies</p>
           <div className="service-grid">
             <a href="/terms" className="service-card" style={{ textDecoration: 'none' }}>
               <h3>利用規約</h3><p>サービスのご利用に関する条件をご確認ください。</p>
