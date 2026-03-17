@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useCallback, useState, type FormEvent } from "react";
+import GravityCanvas from "@/components/GravityCanvas";
 
 /* ===== SVG Icons ===== */
 function IconMedical() {
@@ -29,133 +30,6 @@ function IconWeb() {
       <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10A15.3 15.3 0 0112 2z" />
     </svg>
   );
-}
-
-/* ===== Gravity Canvas ===== */
-function GravityCanvas() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    const c = canvasRef.current;
-    if (!c) return;
-    const parent = c.parentElement!;
-    const rect = parent.getBoundingClientRect();
-    const w = Math.round(rect.width);
-    const h = Math.round(rect.height);
-    c.width = w * 2;
-    c.height = h * 2;
-    c.style.width = w + "px";
-    c.style.height = h + "px";
-    const ctx = c.getContext("2d")!;
-    ctx.setTransform(2, 0, 0, 2, 0, 0);
-
-    type P = { x: number; y: number; r: number; mass: number; vx: number; vy: number; alive: boolean };
-    const ps: P[] = Array.from({ length: 45 }, () => {
-      const r = 2 + Math.random() * 3.5;
-      return {
-        x: Math.random() * w, y: Math.random() * h,
-        r, mass: r * r,
-        vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3,
-        alive: true,
-      };
-    });
-
-    const G = 0.012;
-    const connectDist = 150;
-    const sCx = w / 2, sCy = h / 2 - h * 0.03;
-    const sR = Math.min(w, h) * 0.3;
-    let raf: number;
-
-    const draw = () => {
-      ctx.clearRect(0, 0, w, h);
-      const alive = ps.filter((p) => p.alive);
-
-      alive.forEach((p) => {
-        const dx = p.x - sCx, dy = p.y - sCy;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        const minDist = sR + p.r;
-        if (dist < minDist && dist > 0) {
-          const nx = dx / dist, ny = dy / dist;
-          p.x = sCx + nx * minDist;
-          p.y = sCy + ny * minDist;
-          const dot = p.vx * nx + p.vy * ny;
-          p.vx -= 2 * dot * nx * 0.6;
-          p.vy -= 2 * dot * ny * 0.6;
-        }
-      });
-
-      for (let i = 0; i < alive.length; i++) {
-        for (let j = i + 1; j < alive.length; j++) {
-          const a = alive[i], b = alive[j];
-          const dx = b.x - a.x, dy = b.y - a.y;
-          const distSq = dx * dx + dy * dy;
-          const dist = Math.sqrt(distSq);
-          if (dist < 1) continue;
-          if (dist < a.r + b.r) {
-            const big = a.mass >= b.mass ? a : b;
-            const sm = a.mass >= b.mass ? b : a;
-            const tm = big.mass + sm.mass;
-            big.vx = (big.vx * big.mass + sm.vx * sm.mass) / tm;
-            big.vy = (big.vy * big.mass + sm.vy * sm.mass) / tm;
-            big.x = (big.x * big.mass + sm.x * sm.mass) / tm;
-            big.y = (big.y * big.mass + sm.y * sm.mass) / tm;
-            big.mass = tm; big.r = Math.sqrt(tm);
-            sm.alive = false;
-            continue;
-          }
-          const force = G * a.mass * b.mass / Math.max(distSq, 100);
-          const fx = force * dx / dist, fy = force * dy / dist;
-          a.vx += fx / a.mass; a.vy += fy / a.mass;
-          b.vx -= fx / b.mass; b.vy -= fy / b.mass;
-        }
-      }
-
-      for (let i = 0; i < alive.length; i++) {
-        for (let j = i + 1; j < alive.length; j++) {
-          const dx = alive[i].x - alive[j].x, dy = alive[i].y - alive[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < connectDist) {
-            ctx.beginPath();
-            ctx.moveTo(alive[i].x, alive[i].y);
-            ctx.lineTo(alive[j].x, alive[j].y);
-            ctx.strokeStyle = `rgba(56,189,248,${(1 - dist / connectDist) * 0.25})`;
-            ctx.lineWidth = 0.8;
-            ctx.stroke();
-          }
-        }
-      }
-
-      alive.forEach((p) => {
-        p.vx *= 0.998; p.vy *= 0.998;
-        p.x += p.vx; p.y += p.vy;
-        if (p.x < p.r) { p.x = p.r; p.vx *= -0.5; }
-        if (p.x > w - p.r) { p.x = w - p.r; p.vx *= -0.5; }
-        if (p.y < p.r) { p.y = p.r; p.vy *= -0.5; }
-        if (p.y > h - p.r) { p.y = h - p.r; p.vy *= -0.5; }
-
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(56,189,248,${Math.min(0.45, 0.18 + p.r * 0.012)})`;
-        ctx.fill();
-
-        if (p.r > 8) {
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.r * 2.5, 0, Math.PI * 2);
-          const g = ctx.createRadialGradient(p.x, p.y, p.r * 0.5, p.x, p.y, p.r * 2.5);
-          g.addColorStop(0, "rgba(56,189,248,0.06)");
-          g.addColorStop(1, "rgba(56,189,248,0)");
-          ctx.fillStyle = g;
-          ctx.fill();
-        }
-      });
-
-      raf = requestAnimationFrame(draw);
-    };
-    draw();
-    return () => cancelAnimationFrame(raf);
-  }, []);
-
-  return <canvas ref={canvasRef} style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }} />;
 }
 
 /* ===== Contact Form ===== */

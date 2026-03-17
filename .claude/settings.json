@@ -1,0 +1,9 @@
+{
+  "enabledPlugins": {
+    "fullstack-dev-skills@fullstack-dev-skills": true,
+    "web-design@jezweb-skills": true,
+    "frontend@jezweb-skills": true,
+    "design-assets@jezweb-skills": true,
+    "dev-tools@jezweb-skills": true
+  }
+}

@@ -119,7 +119,7 @@ export default function HpLandingPage() {
             <div className="lp-container hero-grid">
               <div className="hero-copy reveal" ref={addRevealRef}>
                 <p className="eyebrow">開業医専門ホームページ制作</p>
-                <h1>先生の医院を、患者さんに届ける。</h1>
+                <h1>先生の医院を、<br />患者さんに届ける。</h1>
                 <p className="hero-lead">
                   患者さんの8割近くがネットで医院を探す時代。
                   セキュリティ・スマホ対応・SEO/MEOを標準装備した
@@ -135,51 +135,24 @@ export default function HpLandingPage() {
                   <li>医療広告ガイドライン・書面掲示事項に対応</li>
                 </ul>
               </div>
-              <div className="hero-visual reveal" ref={addRevealRef}>
-                <div className="hero-card hero-card-main">
-                  <div className="hero-card-header">
-                    <span className="status-dot"></span>
-                    <span>制作サイト パフォーマンス</span>
-                  </div>
-                  <div className="hero-card-body">
-                    <div className="mock-screen">
-                      <div className="mock-screen-top">
-                        <span>Performance</span>
-                        <span>Accessibility</span>
-                        <span>SEO</span>
-                      </div>
-                      <div className="mock-hero-panel">
-                        <div>
-                          <p className="mock-label">Lighthouse Score</p>
-                          <strong>100 / 100 / 100</strong>
-                        </div>
-                        <span className="mock-badge">全項目最高点</span>
-                      </div>
-                      <div className="mock-metrics">
-                        <article>
-                          <strong>JS出力</strong>
-                          <p>ほぼゼロ</p>
-                        </article>
-                        <article>
-                          <strong>表示速度</strong>
-                          <p>FCP 0.5秒</p>
-                        </article>
-                        <article>
-                          <strong>セキュリティ</strong>
-                          <p>Cloudflare CDN</p>
-                        </article>
-                      </div>
-                    </div>
-                  </div>
+              {/* Hero stats */}
+              <div className="hero-stats reveal" ref={addRevealRef}>
+                <div className="hero-stat">
+                  <span className="hero-stat-number">100</span>
+                  <span className="hero-stat-label">Lighthouse Score</span>
                 </div>
-                <aside className="hero-note" aria-label="補足情報">
-                  <p>WordPressとの違い</p>
-                  <ul>
-                    <li>サーバー処理なし → 改ざんリスクがゼロ</li>
-                    <li>プラグイン更新不要 → 保守コストが低い</li>
-                    <li>CDN配信 → 世界330拠点で高速表示</li>
-                  </ul>
-                </aside>
+                <div className="hero-stat">
+                  <span className="hero-stat-number">0</span>
+                  <span className="hero-stat-label">WordPress脆弱性</span>
+                </div>
+                <div className="hero-stat">
+                  <span className="hero-stat-number">330<small>+</small></span>
+                  <span className="hero-stat-label">CDN拠点数</span>
+                </div>
+                <div className="hero-stat">
+                  <span className="hero-stat-number">2<small>週間</small></span>
+                  <span className="hero-stat-label">最短公開期間</span>
+                </div>
               </div>
             </div>
           </section>
@@ -214,7 +187,7 @@ export default function HpLandingPage() {
             <div className="lp-container">
               <div className="section-heading reveal" ref={addRevealRef}>
                 <p className="section-tag">制作例</p>
-                <h2>実際に動くデモサイトをご覧ください</h2>
+                <h2>制作例をご覧ください</h2>
                 <p>スマホでそのまま操作できます。表示速度・デザイン・導線をお確かめください。<br />※ デモサイト内の医院名・情報はすべて架空のものです。</p>
               </div>
               <div className="demo-grid">
