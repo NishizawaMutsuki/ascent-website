@@ -32,6 +32,50 @@ function IconWeb() {
   );
 }
 
+/* ===== Device Preview ===== */
+function DevicePreview({ url }: { url: string }) {
+  const desktopRef = useRef<HTMLDivElement>(null);
+  const mobileRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const scale = () => {
+      if (desktopRef.current) {
+        const w = desktopRef.current.offsetWidth;
+        const iframe = desktopRef.current.querySelector("iframe");
+        if (iframe) iframe.style.transform = `scale(${w / 1280})`;
+      }
+      if (mobileRef.current) {
+        const w = mobileRef.current.offsetWidth;
+        const iframe = mobileRef.current.querySelector("iframe");
+        if (iframe) iframe.style.transform = `scale(${w / 375})`;
+      }
+    };
+    scale();
+    window.addEventListener("resize", scale);
+    return () => window.removeEventListener("resize", scale);
+  }, []);
+
+  return (
+    <div className="works-devices">
+      <div className="device-desktop">
+        <div className="device-browser-bar">
+          <div className="work-browser-dots"><span /><span /><span /></div>
+          <div className="work-browser-url">{url.replace("https://", "")}</div>
+        </div>
+        <div className="device-screen" ref={desktopRef}>
+          <iframe src={url} title="デモサイト（PC表示）" loading="lazy" />
+        </div>
+      </div>
+      <div className="device-mobile">
+        <div className="device-mobile-notch" />
+        <div className="device-screen-mobile" ref={mobileRef}>
+          <iframe src={url} title="デモサイト（スマホ表示）" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* ===== Contact Form ===== */
 function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
@@ -171,7 +215,7 @@ export default function Home() {
             <div className="stat-label">WordPress 脆弱性</div>
           </div>
           <div className="stat-item">
-            <div className="stat-number">5,000<span style={{ fontSize: '1rem', fontWeight: 400 }}>円〜</span></div>
+            <div className="stat-number">6,000<span style={{ fontSize: '1rem', fontWeight: 400 }}>円〜</span></div>
             <div className="stat-label">月額運用費</div>
           </div>
           <div className="stat-item">
@@ -215,10 +259,10 @@ export default function Home() {
             <div className="team-card reveal" ref={addRef} style={{ animationDelay: "120ms" }}>
               <div className="team-avatar">AT</div>
               <div className="team-info">
-                <div className="team-name">Aoi Tsuzuri</div>
+                <div className="team-name">Aoi Tsuzuura</div>
                 <div className="team-role">共同代表 / 営業・事業開発</div>
                 <p className="team-bio">
-                  早稲田大学卒。クライアントとの関係構築、営業戦略の策定、
+                  早稲田大学法学部在籍。クライアントとの関係構築、営業戦略の策定、
                   事業開発を担当。医療機関のニーズに寄り添った提案を行う。
                 </p>
               </div>
@@ -235,7 +279,7 @@ export default function Home() {
                 icon: <IconMedical />,
                 label: "Medical Web",
                 title: "医療機関向けHP制作",
-                desc: "セキュリティ最優先の静的サイト設計。WordPress不使用で改ざんリスクゼロ。SSL/DDoS防御/WAF標準装備。月額5,000円〜で「Googleに表示される状態」を作ります。",
+                desc: "セキュリティ最優先の静的サイト設計。WordPress不使用で改ざんリスクゼロ。SSL/DDoS防御/WAF標準装備。月額6,000円〜で「Googleに表示される状態」を作ります。",
                 link: "/hp",
                 linkText: "詳しく見る",
               },
@@ -283,60 +327,19 @@ export default function Home() {
         {/* ===== Works ===== */}
         <section id="works" className="section">
           <p className="section-title">Works</p>
-          <div className="works-grid">
-            <div className="work-card reveal" ref={addRef}>
-              <div className="work-browser">
-                <div className="work-browser-dots">
-                  <span /><span /><span />
-                </div>
-                <div className="work-browser-url">demo-clinic-base.pages.dev</div>
-              </div>
-              <div className="work-preview">
-                <div className="work-preview-placeholder">
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="3" width="18" height="18" rx="2" />
-                    <circle cx="8.5" cy="8.5" r="1.5" />
-                    <path d="M21 15l-5-5L5 21" />
-                  </svg>
-                  <span>Base Plan デモサイト</span>
-                </div>
-              </div>
-              <div className="work-info">
-                <div className="tag">ベースプラン</div>
-                <h3>クリニック向け 1ページLP</h3>
-                <p>
-                  月額5,000円〜のシンプルプラン。診療案内・アクセス・予約導線を
-                  1ページに集約した、Google表示に最適化されたデザイン。
-                </p>
-              </div>
+          <div className="works-showcase reveal" ref={addRef}>
+            <div className="works-info">
+              <div className="tag">プレミアムプラン — デモサイト</div>
+              <h3>医院の魅力を最大限に引き出す、プレミアムホームページ制作</h3>
+              <p>
+                患者さまがクリニックを探すとき、最初に見るのはホームページです。
+                診療時間・所在地・電話番号が開いた瞬間に目に入る設計で、
+                全12ページの充実した構成がクリニックの魅力を余すことなく伝えます。
+                スマートフォン完全対応・WEB予約連携・医療広告ガイドライン準拠。
+              </p>
+              <a href="https://demo-premium.ascent-web.jp" target="_blank" rel="noopener noreferrer" className="svc-link">デモサイトを見る &rarr;</a>
             </div>
-
-            <div className="work-card reveal" ref={addRef} style={{ animationDelay: "120ms" }}>
-              <div className="work-browser">
-                <div className="work-browser-dots">
-                  <span /><span /><span />
-                </div>
-                <div className="work-browser-url">demo-clinic-premium.pages.dev</div>
-              </div>
-              <div className="work-preview">
-                <div className="work-preview-placeholder">
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="3" width="18" height="18" rx="2" />
-                    <circle cx="8.5" cy="8.5" r="1.5" />
-                    <path d="M21 15l-5-5L5 21" />
-                  </svg>
-                  <span>Premium Plan デモサイト</span>
-                </div>
-              </div>
-              <div className="work-info">
-                <div className="tag">プレミアムプラン</div>
-                <h3>皮膚科クリニック 複数ページサイト</h3>
-                <p>
-                  月額12,000円〜のフルサイトプラン。8〜15ページ構成で、
-                  診療科目別ページ・医師紹介・FAQ・予約システム連携に対応。
-                </p>
-              </div>
-            </div>
+            <DevicePreview url="https://demo-premium.ascent-web.jp" />
           </div>
         </section>
 
@@ -349,7 +352,7 @@ export default function Home() {
               <h3>医院HP制作</h3>
               <p>
                 セキュリティ最優先の静的サイト設計。WordPress不使用で改ざんリスクゼロ。
-                月額5,000円〜でGoogleに表示される状態を作ります。
+                月額6,000円〜でGoogleに表示される状態を作ります。
               </p>
               <div className="features">
                 <span className="feature-tag">レスポンシブ対応</span>
@@ -387,7 +390,7 @@ export default function Home() {
                 <div><div className="label">事業者名</div><div className="value">Ascent</div></div>
               </div>
               <div className="contact-item">
-                <div><div className="label">共同代表</div><div className="value">Mutsuki Nishizawa / Aoi Tsuzuri</div></div>
+                <div><div className="label">共同代表</div><div className="value">Mutsuki Nishizawa / Aoi Tsuzuura</div></div>
               </div>
               <div className="contact-item">
                 <div><div className="label">メールアドレス</div><div className="value"><a href="mailto:info@ascent-web.jp">info@ascent-web.jp</a></div></div>

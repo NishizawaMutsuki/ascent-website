@@ -18,7 +18,7 @@ export default function Legal() {
             </tr>
             <tr>
               <th>所在地</th>
-              <td>請求があった場合、遅滞なく開示いたします。<br />お問い合わせ先メールアドレスまでご連絡ください。</td>
+              <td>〒182-8585 東京都調布市調布ヶ丘1-5-1<br />電気通信大学 西2号館6階 606号室</td>
             </tr>
             <tr>
               <th>電話番号</th>
@@ -26,7 +26,7 @@ export default function Legal() {
             </tr>
             <tr>
               <th>メールアドレス</th>
-              <td><a href="mailto:nszw1101@gmail.com" style={{ color: 'var(--color-accent)' }}>nszw1101@gmail.com</a></td>
+              <td><a href="mailto:info@ascent-web.jp" style={{ color: 'var(--color-accent)' }}>info@ascent-web.jp</a></td>
             </tr>
             <tr>
               <th>サービスURL</th>
@@ -34,7 +34,7 @@ export default function Legal() {
             </tr>
             <tr>
               <th>販売価格</th>
-              <td>各サービスページに記載（税込価格）<br />クリニック向けHP制作: 初期費用 30,000〜50,000円（税込）/ 月額 5,000〜8,000円（税込）<br />Talk Trainer Proプラン: 月額990円（税込）</td>
+              <td>各サービスページに記載（税込価格）<br />クリニック向けHP制作: 初期費用 30,000〜50,000円（税込）/ 月額 6,000〜8,000円（税込）<br />Talk Trainer Proプラン: 月額990円（税込）</td>
             </tr>
             <tr>
               <th>販売価格以外の<br />必要料金</th>

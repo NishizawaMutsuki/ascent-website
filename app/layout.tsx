@@ -4,12 +4,12 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Ascent — 医療機関向けWeb制作 & AI開発",
   description:
-    "Ascent（アセント）は、医療機関向けホームページ制作とAIアプリケーション開発を行う事業者です。セキュリティ最優先の静的サイト設計で、月額5,000円〜。",
+    "Ascent（アセント）は、医療機関向けホームページ制作とAIアプリケーション開発を行う事業者です。セキュリティ最優先の静的サイト設計で、月額6,000円〜。",
   metadataBase: new URL("https://ascent-web.jp"),
   openGraph: {
     title: "Ascent — 医療機関向けWeb制作 & AI開発",
     description:
-      "テクノロジーで、医療をもっと身近に。セキュリティ最優先の静的サイト設計で、月額5,000円からGoogleに表示される状態を作ります。",
+      "テクノロジーで、医療をもっと身近に。セキュリティ最優先の静的サイト設計で、月額6,000円からGoogleに表示される状態を作ります。",
     url: "https://ascent-web.jp",
     siteName: "Ascent",
     locale: "ja_JP",
@@ -57,7 +57,7 @@ export default function RootLayout({
                 },
                 {
                   "@type": "Person",
-                  name: "Aoi Tsuzuri",
+                  name: "Aoi Tsuzuura",
                   jobTitle: "共同代表 / 営業・事業開発",
                 },
               ],
