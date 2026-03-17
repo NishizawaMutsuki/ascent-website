@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "deploy": "next build && wrangler pages deploy out --project-name ascent-website"
   },
   "dependencies": {
     "next": "^15.5.12",
@@ -16,6 +17,7 @@
     "@types/node": "25.3.3",
     "@types/react": "19.2.14",
     "@types/react-dom": "^19.2.3",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "wrangler": "^4.74.0"
   }
 }
