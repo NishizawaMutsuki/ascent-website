@@ -30,7 +30,7 @@ export default function Legal() {
             </tr>
             <tr>
               <th>サービスURL</th>
-              <td><a href="https://talk-trainer-six.vercel.app" style={{ color: 'var(--color-accent)' }}>https://talk-trainer-six.vercel.app</a></td>
+              <td><a href="https://ascent-web.jp/hp" style={{ color: 'var(--color-accent)' }}>https://ascent-web.jp/hp</a></td>
             </tr>
             <tr>
               <th>販売価格</th>
