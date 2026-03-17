@@ -406,18 +406,22 @@ export default function Home() {
         {/* ===== Policies ===== */}
         <section className="section">
           <p className="section-title">Policies</p>
-          <div className="service-grid">
-            <a href="/terms" className="service-card" style={{ textDecoration: 'none' }}>
-              <h3>利用規約</h3><p>サービスのご利用に関する条件をご確認ください。</p>
+          <div className="policy-list">
+            <a href="/terms" className="policy-item">
+              <span className="policy-name">利用規約</span>
+              <span className="policy-arrow">&rarr;</span>
             </a>
-            <a href="/privacy" className="service-card" style={{ textDecoration: 'none' }}>
-              <h3>プライバシーポリシー</h3><p>個人情報の取り扱いについてご確認ください。</p>
+            <a href="/privacy" className="policy-item">
+              <span className="policy-name">プライバシーポリシー</span>
+              <span className="policy-arrow">&rarr;</span>
             </a>
-            <a href="/legal" className="service-card" style={{ textDecoration: 'none' }}>
-              <h3>特定商取引法に基づく表記</h3><p>販売者情報と取引条件をご確認ください。</p>
+            <a href="/legal" className="policy-item">
+              <span className="policy-name">特定商取引法に基づく表記</span>
+              <span className="policy-arrow">&rarr;</span>
             </a>
-            <a href="/refund" className="service-card" style={{ textDecoration: 'none' }}>
-              <h3>返金・キャンセルポリシー</h3><p>返金とキャンセルの条件をご確認ください。</p>
+            <a href="/refund" className="policy-item">
+              <span className="policy-name">返金・キャンセルポリシー</span>
+              <span className="policy-arrow">&rarr;</span>
             </a>
           </div>
         </section>

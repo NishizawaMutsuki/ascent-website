@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "deploy": "next build && wrangler pages deploy out --project-name ascent-website"
+    "deploy": "next build && wrangler pages deploy out --project-name ascent-website --commit-message deploy"
   },
   "dependencies": {
     "next": "^15.5.12",

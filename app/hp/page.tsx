@@ -2,18 +2,140 @@
 
 import { useState, useEffect, useRef, useCallback, FormEvent } from "react";
 
+function DevicePreview({ url }: { url: string }) {
+  const desktopRef = useRef<HTMLDivElement>(null);
+  const mobileRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const scale = () => {
+      if (desktopRef.current) {
+        const w = desktopRef.current.offsetWidth;
+        const iframe = desktopRef.current.querySelector("iframe");
+        if (iframe) iframe.style.transform = `scale(${w / 1280})`;
+      }
+      if (mobileRef.current) {
+        const w = mobileRef.current.offsetWidth;
+        const iframe = mobileRef.current.querySelector("iframe");
+        if (iframe) iframe.style.transform = `scale(${w / 375})`;
+      }
+    };
+    scale();
+    window.addEventListener("resize", scale);
+    return () => window.removeEventListener("resize", scale);
+  }, []);
+  return (
+    <div className="works-devices">
+      <div className="device-desktop">
+        <div className="device-bar">
+          <div className="device-dots"><span /><span /><span /></div>
+          <div className="device-url">{url.replace("https://", "")}</div>
+        </div>
+        <div className="device-screen" ref={desktopRef}>
+          <iframe src={url} title="PC" loading="lazy" />
+        </div>
+      </div>
+      <div className="device-mobile">
+        <div className="device-notch" />
+        <div className="device-screen-m" ref={mobileRef}>
+          <iframe src={url} title="SP" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+type Demo = { url: string; name: string; desc: string; tags: string[] };
+
+function WorksCarousel({ demos }: { demos: Demo[] }) {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    const onScroll = () => {
+      const scrollLeft = track.scrollLeft;
+      const slideWidth = track.offsetWidth;
+      const idx = Math.round(scrollLeft / slideWidth);
+      setActive(idx);
+    };
+    track.addEventListener("scroll", onScroll, { passive: true });
+    return () => track.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const scrollTo = (idx: number) => {
+    const track = trackRef.current;
+    if (!track) return;
+    track.scrollTo({ left: idx * track.offsetWidth, behavior: "smooth" });
+  };
+
+  return (
+    <div className="works-carousel">
+      <div className="works-track" ref={trackRef}>
+        {demos.map((site, i) => (
+          <div className="works-slide" key={i}>
+            <div className="works-slide-inner">
+              <DevicePreview url={site.url} />
+              <div className="works-caption">
+                <h3>{site.name}</h3>
+                <p>{site.desc}</p>
+                <div className="works-tags">
+                  {site.tags.map((tag, j) => <span key={j}>{tag}</span>)}
+                </div>
+                <a href={site.url} target="_blank" rel="noopener noreferrer" className="works-link">
+                  デモサイトを見る →
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="works-nav">
+        {demos.map((_, i) => (
+          <button
+            key={i}
+            className={`works-dot${active === i ? " is-active" : ""}`}
+            onClick={() => scrollTo(i)}
+            type="button"
+            aria-label={`スライド ${i + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+const demoSites: Demo[] = [
+  {
+    url: "https://demo-premium.ascent-web.jp",
+    name: "プレミアムプラン デモサイト",
+    desc: "全12ページ構成、スマホ完全対応、WEB予約連携、医療広告GL準拠",
+    tags: ["12ページ", "レスポンシブ", "WEB予約", "医療広告GL準拠"],
+  },
+  {
+    url: "https://demo-standard.ascent-web.jp",
+    name: "スタンダードプラン デモサイト",
+    desc: "5〜7ページ構成。診療科別ページ・医師紹介を揃えた本格サイト",
+    tags: ["5〜7ページ", "レスポンシブ", "SEO対応", "診療科別ページ"],
+  },
+];
+
 export default function HpLandingPage() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [headerLoaded, setHeaderLoaded] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [formFeedback, setFormFeedback] = useState("");
   const revealRefs = useRef<(HTMLElement | null)[]>([]);
 
   useEffect(() => {
+    const timer = setTimeout(() => setHeaderLoaded(true), 100);
     const onScroll = () => setIsScrolled(window.scrollY > 10);
     onScroll();
     window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   useEffect(() => {
@@ -30,7 +152,7 @@ export default function HpLandingPage() {
           }
         });
       },
-      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
     );
     revealRefs.current.forEach((el) => {
       if (el) observer.observe(el);
@@ -64,26 +186,11 @@ export default function HpLandingPage() {
     { q: "補助金は使えますか？", a: "個人開業医の先生は小規模事業者持続化補助金（補助率2/3、上限50万円）が活用できる場合があります。申請のサポートも可能です。" },
   ];
 
-  const demoSites = [
-    {
-      name: "ベースプラン デモ（架空の医院）",
-      desc: "1ページ完結型。スマホで即電話できるCTA設計。Lighthouse高スコア。",
-      url: "https://dist-chi-ten-25.vercel.app/",
-      tags: ["1ページ LP", "レスポンシブ", "SSL対応", "構造化データ"],
-    },
-    {
-      name: "プレミアムプラン デモ（架空の医院）",
-      desc: "9ページ構成。診療科別ページ・院長紹介・施設紹介・スライダー。",
-      url: "https://clinic-premium-demo.vercel.app/",
-      tags: ["9ページ", "スライダー", "下層ページ", "WEB予約対応"],
-    },
-  ];
-
   return (
     <div className="lp">
       <div className="page-shell">
-        {/* Header */}
-        <header className={`site-header${isScrolled ? " is-scrolled" : ""}`} id="top">
+        {/* ── Header ── */}
+        <header className={`site-header${headerLoaded ? " is-loaded" : ""}${isScrolled ? " is-scrolled" : ""}`} id="top">
           <div className="lp-container header-inner">
             <a className="brand" href="#top" aria-label="アセント トップへ戻る">
               <span className="brand-mark">A</span>
@@ -98,28 +205,47 @@ export default function HpLandingPage() {
               aria-expanded={menuOpen}
               aria-controls="site-nav"
               onClick={() => setMenuOpen(!menuOpen)}
+              style={{ position: "relative", zIndex: 110 }}
             >
               <span></span><span></span><span></span>
               <span className="sr-only">メニューを開閉</span>
             </button>
             <nav className={`site-nav${menuOpen ? " is-open" : ""}`} id="site-nav" aria-label="主要メニュー">
-              <a href="#demo" onClick={closeMenu}>制作例</a>
-              <a href="#security" onClick={closeMenu}>セキュリティ</a>
+              <a href="#works" onClick={closeMenu}>制作実績</a>
+              <a href="#service" onClick={closeMenu}>サービス</a>
               <a href="#pricing" onClick={closeMenu}>料金</a>
               <a href="#flow" onClick={closeMenu}>流れ</a>
               <a href="#faq" onClick={closeMenu}>FAQ</a>
-              <a href="#contact" className="nav-cta" onClick={closeMenu}>無料相談</a>
+              <div className="nav-cta-group">
+                <a href="#contact" className="nav-cta nav-cta-ghost" onClick={closeMenu}>
+                  <svg className="nav-cta-icon" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M2 3h10v7.5H8.5L5.5 13v-2.5H2V3z" />
+                  </svg>
+                  <span className="nav-cta-label">Contact</span>
+                </a>
+                <a href="https://demo-premium.ascent-web.jp" target="_blank" rel="noopener noreferrer" className="nav-cta nav-cta-primary" onClick={closeMenu}>
+                  <svg className="nav-cta-icon" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2" y="2" width="10" height="8" rx="1" />
+                    <line x1="5" y1="12" x2="9" y2="12" />
+                    <line x1="7" y1="10" x2="7" y2="12" />
+                  </svg>
+                  <span className="nav-cta-label">Demo</span>
+                </a>
+              </div>
             </nav>
           </div>
         </header>
 
         <main>
-          {/* Hero */}
+          {/* ── Hero ── */}
           <section className="lp-hero">
-            <div className="lp-container hero-grid">
+            <div className="lp-container hero-inner">
               <div className="hero-copy reveal" ref={addRevealRef}>
                 <p className="eyebrow">開業医専門ホームページ制作</p>
-                <h1>先生の医院を、<br />患者さんに届ける。</h1>
+                <h1>
+                  先生の想いを伝え、<br />
+                  患者さまに<span className="accent-line">選ばれる</span>クリニックへ。
+                </h1>
                 <p className="hero-lead">
                   患者さんの8割近くがネットで医院を探す時代。
                   セキュリティ・スマホ対応・SEO/MEOを標準装備した
@@ -127,15 +253,9 @@ export default function HpLandingPage() {
                 </p>
                 <div className="hero-actions">
                   <a className="lp-button lp-button-primary" href="#contact">無料で相談する</a>
-                  <a className="lp-button lp-button-secondary" href="#demo">制作例を見る</a>
+                  <a className="lp-button lp-button-secondary" href="#works">制作実績を見る</a>
                 </div>
-                <ul className="hero-points" aria-label="サービスの特徴">
-                  <li>WordPress不使用 — 改ざんリスクゼロの静的サイト</li>
-                  <li>SSL / DDoS防御 / WAF をすべて標準装備</li>
-                  <li>医療広告ガイドライン・書面掲示事項に対応</li>
-                </ul>
               </div>
-              {/* Hero stats */}
               <div className="hero-stats reveal" ref={addRevealRef}>
                 <div className="hero-stat">
                   <span className="hero-stat-number">100</span>
@@ -146,34 +266,61 @@ export default function HpLandingPage() {
                   <span className="hero-stat-label">WordPress脆弱性</span>
                 </div>
                 <div className="hero-stat">
-                  <span className="hero-stat-number">330<small>+</small></span>
-                  <span className="hero-stat-label">CDN拠点数</span>
+                  <span className="hero-stat-number">6,000<small>円〜</small></span>
+                  <span className="hero-stat-label">月額</span>
                 </div>
                 <div className="hero-stat">
                   <span className="hero-stat-number">2<small>週間</small></span>
-                  <span className="hero-stat-label">最短公開期間</span>
+                  <span className="hero-stat-label">最短公開</span>
                 </div>
               </div>
             </div>
           </section>
 
-          {/* Issues */}
-          <section className="lp-section issues" id="issues">
+          {/* ── Works / Portfolio ── */}
+          <section className="lp-section works" id="works">
             <div className="lp-container">
               <div className="section-heading reveal" ref={addRevealRef}>
-                <p className="section-tag">よくある課題</p>
-                <h2>こんなお悩み、ありませんか？</h2>
+                <p className="section-tag-en">Works</p>
+                <h2>制作実績</h2>
+                <p>スマホでそのまま操作できます。表示速度・デザイン・導線をお確かめください。</p>
               </div>
-              <div className="issue-grid">
+              <WorksCarousel demos={demoSites} />
+            </div>
+          </section>
+
+          {/* ── Service Overview ── */}
+          <section className="lp-section service" id="service">
+            <div className="lp-container">
+              <div className="section-heading reveal" ref={addRevealRef}>
+                <p className="section-tag-en">Service</p>
+                <h2>サービス内容</h2>
+              </div>
+              <div className="service-grid">
                 {[
-                  { title: "ホームページがない・壊れている", desc: "Googleで医院名を検索しても出てこない。サイトはあるがSSLエラーで警告が出る。患者さんが不安になって離脱している可能性があります。" },
-                  { title: "スマホで見づらい", desc: "患者さんの大半はスマホで医院を探します。スマホで文字が小さい・ボタンが押しにくいサイトは、それだけで選ばれなくなります。" },
-                  { title: "フォームのセキュリティが不安", desc: "患者の個人情報を暗号化せずに送信しているサイトが多数あります。HTTP通信のフォームは盗聴リスクがあり、早急な対応が必要です。" },
-                  { title: "WordPressの更新が放置されている", desc: "古いバージョンのWordPressは改ざん・マルウェア感染のリスクが高い。プラグインの脆弱性も攻撃の入口になります。" },
-                  { title: "書面掲示事項がウェブに未掲載", desc: "2025年6月から、サイトを持つ医療機関は院内掲示事項のウェブ掲載が義務化されています。未対応の場合、監査で指摘される可能性があります。" },
-                  { title: "サイトの更新が業者任せで高い", desc: "テキスト1行の修正に数万円。更新依頼から反映まで1週間。そんな運用体制では、医院の情報が常に古くなります。" },
+                  {
+                    num: "01",
+                    title: "ファーストビュー設計",
+                    desc: "開いた瞬間に「どんな医院か」が伝わる構成。診療科目・受付時間・アクセスを3秒で把握できるレイアウトを設計します。",
+                  },
+                  {
+                    num: "02",
+                    title: "先生の顔が見えるデザイン",
+                    desc: "院長の写真・メッセージ・経歴を丁寧に配置。患者さんが「この先生に診てもらいたい」と思えるページに仕上げます。",
+                  },
+                  {
+                    num: "03",
+                    title: "専門性を伝えるページ構成",
+                    desc: "診療科目ごとに専用ページを作成。症状・治療法・費用の目安を患者さん目線で分かりやすく整理します。",
+                  },
+                  {
+                    num: "04",
+                    title: "スマホ対応標準装備",
+                    desc: "患者さんの大半はスマホで医院を探します。タップしやすいボタン、読みやすい文字サイズ、高速表示を全プランで標準対応。",
+                  },
                 ].map((item, i) => (
-                  <article className="issue-card reveal" key={i} ref={addRevealRef}>
+                  <article className="service-card reveal" key={i} ref={addRevealRef}>
+                    <span className="service-num">{item.num}</span>
                     <h3>{item.title}</h3>
                     <p>{item.desc}</p>
                   </article>
@@ -182,68 +329,35 @@ export default function HpLandingPage() {
             </div>
           </section>
 
-          {/* Demo Sites */}
-          <section className="lp-section demo-section" id="demo">
-            <div className="lp-container">
-              <div className="section-heading reveal" ref={addRevealRef}>
-                <p className="section-tag">制作例</p>
-                <h2>制作例をご覧ください</h2>
-                <p>スマホでそのまま操作できます。表示速度・デザイン・導線をお確かめください。<br />※ デモサイト内の医院名・情報はすべて架空のものです。</p>
-              </div>
-              <div className="demo-grid">
-                {demoSites.map((site, i) => (
-                  <article className="demo-card reveal" key={i} ref={addRevealRef}>
-                    <div className="demo-card-browser">
-                      <div className="demo-browser-bar">
-                        <span className="demo-dot"></span>
-                        <span className="demo-dot"></span>
-                        <span className="demo-dot"></span>
-                        <span className="demo-url">{site.url.replace('https://', '')}</span>
-                      </div>
-                      <div className="demo-preview">
-                        <iframe
-                          src={site.url}
-                          title={site.name}
-                          loading="lazy"
-                          sandbox="allow-scripts allow-same-origin"
-                        ></iframe>
-                      </div>
-                    </div>
-                    <div className="demo-card-info">
-                      <h3>{site.name}</h3>
-                      <p>{site.desc}</p>
-                      <div className="demo-tags">
-                        {site.tags.map((tag, j) => (
-                          <span className="demo-tag" key={j}>{tag}</span>
-                        ))}
-                      </div>
-                      <a href={site.url} target="_blank" rel="noopener noreferrer" className="lp-button lp-button-secondary demo-link">
-                        デモサイトを開く &#8599;
-                      </a>
-                    </div>
-                  </article>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* Security */}
+          {/* ── Security ── */}
           <section className="lp-section security" id="security">
             <div className="lp-container">
               <div className="section-heading reveal" ref={addRevealRef}>
-                <p className="section-tag">セキュリティ</p>
+                <p className="section-tag-en">Security</p>
                 <h2>患者さんの個人情報を守る、堅牢な基盤。</h2>
-                <p>医療機関のサイトだからこそ、セキュリティは妥協しません。</p>
               </div>
               <div className="security-grid">
                 {[
-                  { icon: "🔒", title: "SSL / HTTPS 標準装備", desc: "すべての通信を暗号化。患者さんの名前・メールアドレスが盗み見されるリスクをゼロにします。" },
-                  { icon: "🛡️", title: "DDoS防御 + WAF", desc: "Cloudflareの世界水準のセキュリティ基盤で、不正アクセスや攻撃を自動でブロックします。" },
-                  { icon: "⚡", title: "WordPress不使用", desc: "静的サイト生成により、サーバー側の処理がありません。改ざん・マルウェア感染のリスクが根本的にゼロです。" },
-                  { icon: "🌐", title: "世界330+拠点のCDN", desc: "Cloudflareの CDN で日本を含む世界中のエッジサーバーから配信。高速かつ安定した表示を実現します。" },
+                  { icon: "lock", title: "SSL / HTTPS 標準装備", desc: "すべての通信を暗号化。患者さんの名前・メールアドレスが盗み見されるリスクをゼロにします。" },
+                  { icon: "shield", title: "DDoS防御 + WAF", desc: "Cloudflareの世界水準のセキュリティ基盤で、不正アクセスや攻撃を自動でブロックします。" },
+                  { icon: "zap", title: "WordPress不使用", desc: "静的サイト生成により、サーバー側の処理がありません。改ざん・マルウェア感染のリスクが根本的にゼロです。" },
+                  { icon: "globe", title: "CDN 330+拠点", desc: "Cloudflareの CDN で日本を含む世界中のエッジサーバーから配信。高速かつ安定した表示を実現します。" },
                 ].map((item, i) => (
                   <article className="security-card reveal" key={i} ref={addRevealRef}>
-                    <span className="security-icon">{item.icon}</span>
+                    <div className="security-icon-wrap">
+                      {item.icon === "lock" && (
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>
+                      )}
+                      {item.icon === "shield" && (
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
+                      )}
+                      {item.icon === "zap" && (
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></svg>
+                      )}
+                      {item.icon === "globe" && (
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><line x1="2" y1="12" x2="22" y2="12" /><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /></svg>
+                      )}
+                    </div>
                     <h3>{item.title}</h3>
                     <p>{item.desc}</p>
                   </article>
@@ -252,12 +366,12 @@ export default function HpLandingPage() {
             </div>
           </section>
 
-          {/* Reasons */}
+          {/* ── Why Us / Differentiators ── */}
           <section className="lp-section reasons" id="reasons">
             <div className="lp-container">
               <div className="section-heading reveal" ref={addRevealRef}>
-                <p className="section-tag">選ばれる理由</p>
-                <h2>開業医専門だから、話が早い。</h2>
+                <p className="section-tag-en">Why Us</p>
+                <h2>選ばれる理由</h2>
               </div>
               <div className="reason-grid">
                 {[
@@ -276,11 +390,11 @@ export default function HpLandingPage() {
             </div>
           </section>
 
-          {/* Pricing */}
+          {/* ── Pricing ── */}
           <section className="lp-section pricing" id="pricing">
             <div className="lp-container">
-              <div className="section-heading reveal" ref={addRevealRef}>
-                <p className="section-tag">料金プラン</p>
+              <div className="section-heading section-heading-center reveal" ref={addRevealRef}>
+                <p className="section-tag-en">Pricing</p>
                 <h2>3つのプランをご用意しています。</h2>
                 <p>すべてのプランにSSL・セキュリティ・保守が含まれます。最低契約期間は12ヶ月です。</p>
               </div>
@@ -399,11 +513,11 @@ export default function HpLandingPage() {
             </div>
           </section>
 
-          {/* Flow */}
+          {/* ── Flow ── */}
           <section className="lp-section flow" id="flow">
             <div className="lp-container">
               <div className="section-heading reveal" ref={addRevealRef}>
-                <p className="section-tag">制作の流れ</p>
+                <p className="section-tag-en">Flow</p>
                 <h2>ご相談から公開まで、6つのステップ</h2>
               </div>
               <div className="flow-grid">
@@ -416,7 +530,7 @@ export default function HpLandingPage() {
                   { step: "STEP 6", title: "運用・保守", desc: "公開後のテキスト更新・セキュリティ監視・サーバー保守を継続的にサポートします。" },
                 ].map((item, i) => (
                   <article className="flow-step reveal" key={i} ref={addRevealRef}>
-                    <span>{item.step}</span>
+                    <span className="flow-badge">{item.step}</span>
                     <h3>{item.title}</h3>
                     <p>{item.desc}</p>
                   </article>
@@ -425,11 +539,11 @@ export default function HpLandingPage() {
             </div>
           </section>
 
-          {/* FAQ */}
+          {/* ── FAQ ── */}
           <section className="lp-section faq" id="faq">
-            <div className="lp-container faq-layout">
+            <div className="lp-container">
               <div className="section-heading reveal" ref={addRevealRef}>
-                <p className="section-tag">FAQ</p>
+                <p className="section-tag-en">FAQ</p>
                 <h2>よくあるご質問</h2>
               </div>
               <div className="faq-list reveal" ref={addRevealRef}>
@@ -453,45 +567,11 @@ export default function HpLandingPage() {
             </div>
           </section>
 
-          {/* Profile */}
-          <section className="lp-section profile" id="profile">
-            <div className="lp-container profile-grid">
-              <div className="profile-copy reveal" ref={addRevealRef}>
-                <p className="section-tag">代表紹介</p>
-                <h2>アセント</h2>
-                <p className="profile-names">代表：西澤、廿浦</p>
-                <p>
-                  アセントは「開業医専門」のウェブ制作です。
-                  医療広告ガイドライン・書面掲示義務・個人情報保護法 —
-                  医療機関特有の制約を理解した上で、先生の医院の強みを患者さんに届けるサイトを作ります。
-                </p>
-                <p>
-                  WordPressではなく静的サイト生成を採用し、セキュリティと表示速度を両立。
-                  ドメインは先生の名義で取得し、解約後もそのままお使いいただける透明な運営を行っています。
-                </p>
-              </div>
-              <div className="profile-card reveal" ref={addRevealRef}>
-                <img
-                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 420'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23e8f2fb'/%3E%3Cstop offset='100%25' stop-color='%23c8def1'/%3E%3C/linearGradient%3E%3ClinearGradient id='bar' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%23143f72'/%3E%3Cstop offset='100%25' stop-color='%23245d98'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='640' height='420' rx='32' fill='url(%23bg)'/%3E%3Crect x='60' y='50' width='520' height='320' rx='24' fill='%23ffffff' opacity='0.94'/%3E%3Ccircle cx='220' cy='160' r='50' fill='%230f3f73' opacity='0.10'/%3E%3Ccircle cx='220' cy='148' r='22' fill='%230f3f73' opacity='0.30'/%3E%3Cpath d='M180 200c12-20 28-30 40-30s28 10 40 30' fill='%230f3f73' opacity='0.30'/%3E%3Ccircle cx='420' cy='160' r='50' fill='%230f3f73' opacity='0.10'/%3E%3Ccircle cx='420' cy='148' r='22' fill='%230f3f73' opacity='0.30'/%3E%3Cpath d='M380 200c12-20 28-30 40-30s28 10 40 30' fill='%230f3f73' opacity='0.30'/%3E%3Crect x='160' y='228' width='120' height='12' rx='6' fill='%230f3f73' opacity='0.22'/%3E%3Crect x='360' y='228' width='120' height='12' rx='6' fill='%230f3f73' opacity='0.22'/%3E%3Crect x='180' y='250' width='80' height='8' rx='4' fill='%230f3f73' opacity='0.12'/%3E%3Crect x='380' y='250' width='80' height='8' rx='4' fill='%230f3f73' opacity='0.12'/%3E%3Crect x='120' y='290' width='400' height='2' rx='1' fill='%230f3f73' opacity='0.08'/%3E%3Crect x='160' y='310' width='320' height='10' rx='5' fill='%230f3f73' opacity='0.10'/%3E%3Crect x='200' y='330' width='240' height='10' rx='5' fill='%230f3f73' opacity='0.08'/%3E%3C/svg%3E"
-                  alt="アセント代表紹介 — 西澤・廿浦"
-                />
-                <div className="profile-card-body">
-                  <strong>大切にしていること</strong>
-                  <ul>
-                    <li>セキュリティを最優先に設計すること</li>
-                    <li>先生の手間をゼロにすること</li>
-                    <li>嘘をつかない透明な運営をすること</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Contact */}
+          {/* ── Contact ── */}
           <section className="lp-section contact" id="contact">
             <div className="lp-container contact-grid">
               <div className="contact-copy reveal" ref={addRevealRef}>
-                <p className="section-tag">お問い合わせ</p>
+                <p className="section-tag-en">Contact</p>
                 <h2>まずはお気軽にご相談ください。</h2>
                 <p>
                   「ホームページがないんだけど」「今のサイトが古くて心配」「セキュリティが不安」 —
@@ -527,7 +607,7 @@ export default function HpLandingPage() {
                     <textarea id="message" name="message" rows={5} placeholder="現状のお悩みやご希望をご記入ください。"></textarea>
                   </div>
                   <button className="lp-button lp-button-primary lp-button-submit" type="submit">送信する</button>
-                  <p className="form-note">※ こちらはデモ用フォームです。お問い合わせはメール（nszw1101@gmail.com）でも受け付けております。</p>
+                  <p className="form-note">※ こちらはデモ用フォームです。お問い合わせはメール（info@ascent-web.jp）でも受け付けております。</p>
                   {formFeedback && <p className="form-feedback" role="status" aria-live="polite">{formFeedback}</p>}
                 </form>
               </div>
@@ -535,34 +615,66 @@ export default function HpLandingPage() {
           </section>
         </main>
 
-        {/* Footer */}
+        {/* ── Footer ── */}
         <footer className="site-footer">
-          <div className="lp-container footer-grid">
-            <div>
-              <a className="brand brand-footer" href="#top">アセント</a>
-              <p>代表者名：西澤、廿浦</p>
-              <p>開業医専門のホームページ制作・運用。セキュリティ最優先の静的サイト設計。</p>
-            </div>
-            <div>
-              <p className="footer-title">サービス</p>
-              <ul className="footer-list">
-                <li>Lite（月額6,000円）</li>
-                <li>Standard（月額12,000円）</li>
-                <li>Premium（月額18,000円）</li>
-              </ul>
-            </div>
-            <div>
-              <p className="footer-title">Information</p>
-              <ul className="footer-list">
-                <li><a href="#contact">お問い合わせ</a></li>
-                <li><a href="/privacy">プライバシーポリシー</a></li>
-                <li><a href="/terms">利用規約</a></li>
-                <li><a href="/legal">特定商取引法</a></li>
-              </ul>
+          {/* CTA bar */}
+          <div className="footer-cta-bar">
+            <a href="#contact" className="footer-cta-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              お問い合わせ
+            </a>
+            <a href="https://demo-premium.ascent-web.jp" target="_blank" rel="noopener noreferrer" className="footer-cta-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              デモを見る
+            </a>
+            <a href="#contact" className="footer-cta-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              資料請求
+            </a>
+          </div>
+
+          {/* Link columns */}
+          <div className="footer-links-area">
+            <div className="lp-container footer-grid">
+              <div>
+                <a className="brand-footer" href="#top">アセント</a>
+                <p className="footer-brand-text">
+                  代表者名：西澤（Mutsuki Nishizawa）、廿浦（Aoi Tsuzuura）<br />
+                  開業医専門のホームページ制作・運用。セキュリティ最優先の静的サイト設計。
+                </p>
+              </div>
+              <div>
+                <p className="footer-title">Service</p>
+                <ul className="footer-list">
+                  <li>Lite（月額6,000円）</li>
+                  <li>Standard（月額12,000円）</li>
+                  <li>Premium（月額18,000円）</li>
+                </ul>
+              </div>
+              <div>
+                <p className="footer-title">Information</p>
+                <ul className="footer-list">
+                  <li><a href="#contact">お問い合わせ</a></li>
+                  <li><a href="/privacy">プライバシーポリシー</a></li>
+                  <li><a href="/terms">利用規約</a></li>
+                  <li><a href="/legal">特定商取引法</a></li>
+                </ul>
+              </div>
+              <div>
+                <p className="footer-title">Company</p>
+                <ul className="footer-list">
+                  <li><a href="https://ascent-web.jp">会社HP</a></li>
+                </ul>
+              </div>
             </div>
           </div>
-          <div className="lp-container footer-bottom">
-            <p>&copy; {new Date().getFullYear()} Ascent. All Rights Reserved.</p>
+
+          {/* Copyright */}
+          <div className="footer-bottom">
+            <div className="lp-container footer-bottom-inner">
+              <p>&copy; {new Date().getFullYear()} Ascent. All Rights Reserved.</p>
+              <a href="https://ascent-web.jp" className="footer-company-link">ascent-web.jp</a>
+            </div>
           </div>
         </footer>
       </div>
