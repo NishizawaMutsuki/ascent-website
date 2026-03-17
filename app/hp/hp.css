@@ -113,6 +113,11 @@
   letter-spacing: 0.05em;
 }
 
+.lp .brand-mark-img {
+  width: 36px;
+  height: 36px;
+}
+
 .lp .brand-text {
   display: flex;
   flex-direction: column;

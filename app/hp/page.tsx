@@ -193,7 +193,7 @@ export default function HpLandingPage() {
         <header className={`site-header${headerLoaded ? " is-loaded" : ""}${isScrolled ? " is-scrolled" : ""}`} id="top">
           <div className="lp-container header-inner">
             <a className="brand" href="#top" aria-label="アセント トップへ戻る">
-              <span className="brand-mark">A</span>
+              <img src="/images/logo-icon.svg" alt="Ascent" className="brand-mark-img" />
               <span className="brand-text">
                 <strong>アセント</strong>
                 <small>Medical Web Design</small>
