@@ -117,6 +117,12 @@ const demoSites: Demo[] = [
     desc: "5〜7ページ構成。診療科別ページ・医師紹介を揃えた本格サイト",
     tags: ["5〜7ページ", "レスポンシブ", "SEO対応", "診療科別ページ"],
   },
+  {
+    url: "https://demo-light.ascent-web.jp",
+    name: "ライトプラン デモサイト",
+    desc: "1ページ完結型。スマホで即電話できるCTA設計、Lighthouse高スコア",
+    tags: ["1ページ LP", "レスポンシブ", "SSL対応", "構造化データ"],
+  },
 ];
 
 export default function HpLandingPage() {
