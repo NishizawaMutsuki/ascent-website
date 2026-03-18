@@ -170,7 +170,16 @@ export default function HpLandingPage() {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    setFormFeedback("デモページのため送信はされません。実装時にはフォーム送信やLINE連携に対応できます。");
+    const form = e.target as HTMLFormElement;
+    const data = new FormData(form);
+    const subject = encodeURIComponent(`【HP制作お問い合わせ】${data.get("clinic") || ""} ${data.get("name")}様`);
+    const body = encodeURIComponent(
+      `お名前: ${data.get("name")}\n医院名: ${data.get("clinic")}\nメール: ${data.get("email")}\n\n${data.get("message")}`
+    );
+    window.location.href = `mailto:info@ascent-web.jp?subject=${subject}&body=${body}`;
+    setFormFeedback("メールクライアントが開きます。そのまま送信してください。");
+    form.reset();
+    setTimeout(() => setFormFeedback(""), 4000);
   };
 
   const faqItems = [
@@ -607,7 +616,7 @@ export default function HpLandingPage() {
                     <textarea id="message" name="message" rows={5} placeholder="現状のお悩みやご希望をご記入ください。"></textarea>
                   </div>
                   <button className="lp-button lp-button-primary lp-button-submit" type="submit">送信する</button>
-                  <p className="form-note">※ こちらはデモ用フォームです。お問い合わせはメール（info@ascent-web.jp）でも受け付けております。</p>
+                  <p className="form-note">※ 送信ボタンを押すとメールクライアントが開きます。直接 info@ascent-web.jp にご連絡いただいても構いません。</p>
                   {formFeedback && <p className="form-feedback" role="status" aria-live="polite">{formFeedback}</p>}
                 </form>
               </div>
