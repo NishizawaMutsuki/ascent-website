@@ -329,12 +329,12 @@ export default function Home() {
           <p className="section-title">Works</p>
           <div className="works-showcase reveal" ref={addRef}>
             <div className="works-info">
-              <div className="tag">プレミアムプラン — デモサイト</div>
-              <h3>医院の魅力を最大限に引き出す、プレミアムホームページ制作</h3>
+              <div className="tag">制作実績 — デモサイト</div>
+              <h3>医院の魅力を最大限に引き出すホームページ制作</h3>
               <p>
                 患者さまがクリニックを探すとき、最初に見るのはホームページです。
                 診療時間・所在地・電話番号が開いた瞬間に目に入る設計で、
-                全12ページの充実した構成がクリニックの魅力を余すことなく伝えます。
+                充実した構成がクリニックの魅力を余すことなく伝えます。
                 スマートフォン完全対応・WEB予約連携・医療広告ガイドライン準拠。
               </p>
               <a href="https://demo-premium.ascent-web.jp" target="_blank" rel="noopener noreferrer" className="svc-link">デモサイトを見る &rarr;</a>
