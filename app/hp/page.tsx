@@ -527,16 +527,17 @@ export default function HpLandingPage() {
             <div className="lp-container">
               <div className="section-heading reveal" ref={addRevealRef}>
                 <p className="section-tag-en">Flow</p>
-                <h2>ご相談から公開まで、6つのステップ</h2>
+                <h2>ご相談から公開まで、7つのステップ</h2>
               </div>
               <div className="flow-grid">
                 {[
                   { step: "STEP 1", title: "お問い合わせ", desc: "フォームまたはお電話で、現状のお悩みをお聞かせください。相談は無料です。" },
                   { step: "STEP 2", title: "ヒアリング（30分）", desc: "医院の特徴・診療科目・ご要望を伺います。訪問またはオンラインで対応。" },
                   { step: "STEP 3", title: "デザイン提案", desc: "実際にスマホで触れるデモサイトをお見せします。デザインは複数案からお選びいただけます。" },
-                  { step: "STEP 4", title: "制作（2〜3週間）", desc: "先生の確認→修正→完成。先生にお願いするのは写真と診療時間の確認だけです。" },
-                  { step: "STEP 5", title: "公開", desc: "ドメイン設定・SSL・Google登録まですべて対応。公開日に最終確認します。" },
-                  { step: "STEP 6", title: "運用・保守", desc: "公開後のテキスト更新・セキュリティ監視・サーバー保守を継続的にサポートします。" },
+                  { step: "STEP 4", title: "制作（約1週間）", desc: "デザイン確定後、約1週間でサイトを構築します。先生にお願いするのは写真と診療時間の確認だけです。" },
+                  { step: "STEP 5", title: "確認・修正（約1週間）", desc: "完成したサイトを先生にご確認いただき、修正点を反映します。納得いただけるまで調整します。" },
+                  { step: "STEP 6", title: "公開", desc: "先生のOKが出たら公開。ドメイン設定・SSL・Google登録まですべて対応します。" },
+                  { step: "STEP 7", title: "運用・保守", desc: "公開後のテキスト更新・セキュリティ監視・サーバー保守を継続的にサポートします。" },
                 ].map((item, i) => (
                   <article className="flow-step reveal" key={i} ref={addRevealRef}>
                     <span className="flow-badge">{item.step}</span>
