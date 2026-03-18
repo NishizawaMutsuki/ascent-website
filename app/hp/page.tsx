@@ -108,8 +108,8 @@ const demoSites: Demo[] = [
   {
     url: "https://demo-premium.ascent-web.jp",
     name: "プレミアムプラン デモサイト",
-    desc: "全12ページ構成、スマホ完全対応、WEB予約連携、医療広告GL準拠",
-    tags: ["12ページ", "レスポンシブ", "WEB予約", "医療広告GL準拠"],
+    desc: "患者からの質問にAIが24時間対応。WEB予約・院長ブログ・オーダーメイド開発も可能。AX（AIトランスフォーメーション）完全対応",
+    tags: ["AIチャットbot", "WEB予約", "院長ブログ", "AX対応"],
   },
   {
     url: "https://demo-standard.ascent-web.jp",
