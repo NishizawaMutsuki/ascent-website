@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" font-family="'Helvetica Neue', Arial, sans-serif">
+  <defs>
+    <linearGradient id="barGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.02"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="720" height="400" rx="12" fill="#f9fafb"/>
+
+  <!-- Title -->
+  <text x="360" y="36" text-anchor="middle" font-size="16" font-weight="700" fill="#111827">ランサムウェア被害報告件数の推移</text>
+
+  <!-- Chart area -->
+  <g transform="translate(80, 56)">
+    <!-- Grid lines -->
+    <line x1="0" y1="0" x2="580" y2="0" stroke="#e5e7eb" stroke-dasharray="4,4"/>
+    <line x1="0" y1="60" x2="580" y2="60" stroke="#e5e7eb" stroke-dasharray="4,4"/>
+    <line x1="0" y1="120" x2="580" y2="120" stroke="#e5e7eb" stroke-dasharray="4,4"/>
+    <line x1="0" y1="180" x2="580" y2="180" stroke="#e5e7eb" stroke-dasharray="4,4"/>
+    <line x1="0" y1="240" x2="580" y2="240" stroke="#e5e7eb" stroke-dasharray="4,4"/>
+    <line x1="0" y1="280" x2="580" y2="280" stroke="#9ca3af"/>
+
+    <!-- Y-axis labels -->
+    <text x="-12" y="5" text-anchor="end" font-size="11" fill="#6b7280">250</text>
+    <text x="-12" y="65" text-anchor="end" font-size="11" fill="#6b7280">200</text>
+    <text x="-12" y="125" text-anchor="end" font-size="11" fill="#6b7280">150</text>
+    <text x="-12" y="185" text-anchor="end" font-size="11" fill="#6b7280">100</text>
+    <text x="-12" y="245" text-anchor="end" font-size="11" fill="#6b7280">50</text>
+    <text x="-12" y="284" text-anchor="end" font-size="11" fill="#6b7280">0</text>
+
+    <!-- Y-axis title -->
+    <text x="-56" y="140" text-anchor="middle" font-size="11" fill="#6b7280" transform="rotate(-90, -56, 140)">件数</text>
+
+    <!-- Bars: 2020H2=21, 2021H1=61, 2021H2=85, 2022H1=114, 2022H2=116, 2023H1=103, 2023H2=94, 2024=222 -->
+    <!-- Bar width=52, gap=20 -->
+
+    <!-- 2020H2: 21 → height=23.5 -->
+    <rect x="10" y="256.5" width="52" height="23.5" rx="4" fill="url(#barGrad)" opacity="0.7"/>
+    <text x="36" y="252" text-anchor="middle" font-size="11" font-weight="600" fill="#1d4ed8">21</text>
+    <text x="36" y="300" text-anchor="middle" font-size="10" fill="#6b7280">2020</text>
+    <text x="36" y="312" text-anchor="middle" font-size="9" fill="#9ca3af">下半期</text>
+
+    <!-- 2021H1: 61 → height=68.3 -->
+    <rect x="82" y="211.7" width="52" height="68.3" rx="4" fill="url(#barGrad)" opacity="0.75"/>
+    <text x="108" y="207" text-anchor="middle" font-size="11" font-weight="600" fill="#1d4ed8">61</text>
+    <text x="108" y="300" text-anchor="middle" font-size="10" fill="#6b7280">2021</text>
+    <text x="108" y="312" text-anchor="middle" font-size="9" fill="#9ca3af">上半期</text>
+
+    <!-- 2021H2: 85 → height=95.2 -->
+    <rect x="154" y="184.8" width="52" height="95.2" rx="4" fill="url(#barGrad)" opacity="0.8"/>
+    <text x="180" y="180" text-anchor="middle" font-size="11" font-weight="600" fill="#1d4ed8">85</text>
+    <text x="180" y="300" text-anchor="middle" font-size="10" fill="#6b7280">2021</text>
+    <text x="180" y="312" text-anchor="middle" font-size="9" fill="#9ca3af">下半期</text>
+
+    <!-- 2022H1: 114 → height=127.7 -->
+    <rect x="226" y="152.3" width="52" height="127.7" rx="4" fill="url(#barGrad)" opacity="0.85"/>
+    <text x="252" y="148" text-anchor="middle" font-size="11" font-weight="600" fill="#1d4ed8">114</text>
+    <text x="252" y="300" text-anchor="middle" font-size="10" fill="#6b7280">2022</text>
+    <text x="252" y="312" text-anchor="middle" font-size="9" fill="#9ca3af">上半期</text>
+
+    <!-- 2022H2: 116 → height=130 -->
+    <rect x="298" y="150" width="52" height="130" rx="4" fill="url(#barGrad)" opacity="0.85"/>
+    <text x="324" y="145" text-anchor="middle" font-size="11" font-weight="600" fill="#1d4ed8">116</text>
+    <text x="324" y="300" text-anchor="middle" font-size="10" fill="#6b7280">2022</text>
+    <text x="324" y="312" text-anchor="middle" font-size="9" fill="#9ca3af">下半期</text>
+
+    <!-- 2023H1: 103 → height=115.4 -->
+    <rect x="370" y="164.6" width="52" height="115.4" rx="4" fill="url(#barGrad)" opacity="0.82"/>
+    <text x="396" y="160" text-anchor="middle" font-size="11" font-weight="600" fill="#1d4ed8">103</text>
+    <text x="396" y="300" text-anchor="middle" font-size="10" fill="#6b7280">2023</text>
+    <text x="396" y="312" text-anchor="middle" font-size="9" fill="#9ca3af">上半期</text>
+
+    <!-- 2023H2: 94 → height=105.3 -->
+    <rect x="442" y="174.7" width="52" height="105.3" rx="4" fill="url(#barGrad)" opacity="0.8"/>
+    <text x="468" y="170" text-anchor="middle" font-size="11" font-weight="600" fill="#1d4ed8">94</text>
+    <text x="468" y="300" text-anchor="middle" font-size="10" fill="#6b7280">2023</text>
+    <text x="468" y="312" text-anchor="middle" font-size="9" fill="#9ca3af">下半期</text>
+
+    <!-- 2024: 222 → height=248.6 -->
+    <rect x="514" y="31.4" width="52" height="248.6" rx="4" fill="#dc2626" opacity="0.9"/>
+    <text x="540" y="25" text-anchor="middle" font-size="13" font-weight="700" fill="#dc2626">222</text>
+    <text x="540" y="300" text-anchor="middle" font-size="10" font-weight="600" fill="#111827">2024</text>
+    <text x="540" y="312" text-anchor="middle" font-size="9" fill="#9ca3af">年間</text>
+  </g>
+
+  <!-- Source -->
+  <text x="360" y="388" text-anchor="middle" font-size="10" fill="#9ca3af">出典：警察庁「サイバー空間をめぐる脅威の情勢等について」各年版を基に作成</text>
+</svg>

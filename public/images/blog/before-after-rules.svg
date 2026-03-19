@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 600" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif">
+  <rect width="750" height="600" fill="#fafafa" rx="8"/>
+
+  <!-- Title -->
+  <text x="375" y="35" text-anchor="middle" font-size="16" font-weight="bold" fill="#2c3e50">症例写真（ビフォーアフター）の掲載ルール</text>
+  <text x="375" y="55" text-anchor="middle" font-size="12" fill="#777">医療広告ガイドラインに基づく「限定解除」の4要件</text>
+
+  <!-- ===== 左側: NG例 ===== -->
+  <g transform="translate(30, 75)">
+    <rect x="0" y="0" width="330" height="380" fill="white" stroke="#e74c3c" stroke-width="2" rx="8"/>
+
+    <!-- NG ヘッダー -->
+    <rect x="0" y="0" width="330" height="44" fill="#e74c3c" rx="8"/>
+    <rect x="0" y="24" width="330" height="20" fill="#e74c3c"/>
+    <text x="165" y="30" text-anchor="middle" font-size="15" font-weight="bold" fill="white">NG例（ガイドライン違反）</text>
+
+    <!-- 擬似写真エリア -->
+    <g transform="translate(25, 60)">
+      <!-- Before -->
+      <rect x="0" y="0" width="125" height="90" fill="#eee" stroke="#ccc" stroke-width="1" rx="4"/>
+      <text x="62" y="40" text-anchor="middle" font-size="20" fill="#bbb">Before</text>
+      <text x="62" y="60" text-anchor="middle" font-size="11" fill="#bbb">写真</text>
+
+      <!-- 矢印 -->
+      <text x="145" y="50" text-anchor="middle" font-size="22" fill="#ccc">→</text>
+
+      <!-- After -->
+      <rect x="155" y="0" width="125" height="90" fill="#eee" stroke="#ccc" stroke-width="1" rx="4"/>
+      <text x="217" y="40" text-anchor="middle" font-size="20" fill="#bbb">After</text>
+      <text x="217" y="60" text-anchor="middle" font-size="11" fill="#bbb">写真</text>
+    </g>
+
+    <!-- 問題点 -->
+    <text x="165" y="178" text-anchor="middle" font-size="12" font-weight="bold" fill="#c0392b">不足している情報</text>
+
+    <g transform="translate(30, 190)">
+      <rect x="0" y="0" width="270" height="30" fill="#fdedec" rx="4"/>
+      <text x="18" y="20" font-size="18" fill="#e74c3c">✕</text>
+      <text x="40" y="20" font-size="11" fill="#c0392b">治療内容・期間の説明がない</text>
+    </g>
+    <g transform="translate(30, 226)">
+      <rect x="0" y="0" width="270" height="30" fill="#fdedec" rx="4"/>
+      <text x="18" y="20" font-size="18" fill="#e74c3c">✕</text>
+      <text x="40" y="20" font-size="11" fill="#c0392b">費用の記載がない</text>
+    </g>
+    <g transform="translate(30, 262)">
+      <rect x="0" y="0" width="270" height="30" fill="#fdedec" rx="4"/>
+      <text x="18" y="20" font-size="18" fill="#e74c3c">✕</text>
+      <text x="40" y="20" font-size="11" fill="#c0392b">リスク・副作用の記載がない</text>
+    </g>
+    <g transform="translate(30, 298)">
+      <rect x="0" y="0" width="270" height="30" fill="#fdedec" rx="4"/>
+      <text x="18" y="20" font-size="18" fill="#e74c3c">✕</text>
+      <text x="40" y="20" font-size="11" fill="#c0392b">個人差がある旨の注記がない</text>
+    </g>
+
+    <!-- 結論 -->
+    <rect x="30" y="340" width="270" height="28" fill="#e74c3c" rx="6"/>
+    <text x="165" y="359" text-anchor="middle" font-size="12" font-weight="bold" fill="white">掲載NG — 行政指導・罰則の対象</text>
+  </g>
+
+  <!-- ===== 右側: OK例 ===== -->
+  <g transform="translate(390, 75)">
+    <rect x="0" y="0" width="330" height="380" fill="white" stroke="#27ae60" stroke-width="2" rx="8"/>
+
+    <!-- OK ヘッダー -->
+    <rect x="0" y="0" width="330" height="44" fill="#27ae60" rx="8"/>
+    <rect x="0" y="24" width="330" height="20" fill="#27ae60"/>
+    <text x="165" y="30" text-anchor="middle" font-size="15" font-weight="bold" fill="white">OK例（限定解除の要件を充足）</text>
+
+    <!-- 擬似写真エリア -->
+    <g transform="translate(25, 60)">
+      <!-- Before -->
+      <rect x="0" y="0" width="125" height="90" fill="#e8f8f5" stroke="#1abc9c" stroke-width="1" rx="4"/>
+      <text x="62" y="40" text-anchor="middle" font-size="20" fill="#1abc9c">Before</text>
+      <text x="62" y="60" text-anchor="middle" font-size="11" fill="#1abc9c">写真</text>
+
+      <!-- 矢印 -->
+      <text x="145" y="50" text-anchor="middle" font-size="22" fill="#1abc9c">→</text>
+
+      <!-- After -->
+      <rect x="155" y="0" width="125" height="90" fill="#e8f8f5" stroke="#1abc9c" stroke-width="1" rx="4"/>
+      <text x="217" y="40" text-anchor="middle" font-size="20" fill="#1abc9c">After</text>
+      <text x="217" y="60" text-anchor="middle" font-size="11" fill="#1abc9c">写真</text>
+    </g>
+
+    <!-- 必須記載項目 -->
+    <text x="165" y="178" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e8449">写真の下に必ず記載する4項目</text>
+
+    <g transform="translate(30, 190)">
+      <rect x="0" y="0" width="270" height="30" fill="#d5f5e3" rx="4"/>
+      <text x="18" y="20" font-size="18" fill="#27ae60">✓</text>
+      <text x="40" y="20" font-size="11" fill="#1e8449">治療内容：レーザー治療（3回）期間6か月</text>
+    </g>
+    <g transform="translate(30, 226)">
+      <rect x="0" y="0" width="270" height="30" fill="#d5f5e3" rx="4"/>
+      <text x="18" y="20" font-size="18" fill="#27ae60">✓</text>
+      <text x="40" y="20" font-size="11" fill="#1e8449">費用：1回あたり15,000円（税込）</text>
+    </g>
+    <g transform="translate(30, 262)">
+      <rect x="0" y="0" width="270" height="30" fill="#d5f5e3" rx="4"/>
+      <text x="18" y="20" font-size="18" fill="#27ae60">✓</text>
+      <text x="40" y="20" font-size="11" fill="#1e8449">リスク：赤み・色素沈着の可能性</text>
+    </g>
+    <g transform="translate(30, 298)">
+      <rect x="0" y="0" width="270" height="30" fill="#d5f5e3" rx="4"/>
+      <text x="18" y="20" font-size="18" fill="#27ae60">✓</text>
+      <text x="40" y="20" font-size="11" fill="#1e8449">※効果には個人差があります</text>
+    </g>
+
+    <!-- 結論 -->
+    <rect x="30" y="340" width="270" height="28" fill="#27ae60" rx="6"/>
+    <text x="165" y="359" text-anchor="middle" font-size="12" font-weight="bold" fill="white">掲載OK — 限定解除の要件を充足</text>
+  </g>
+
+  <!-- ===== 下部: 罰則情報 ===== -->
+  <g transform="translate(45, 475)">
+    <rect x="0" y="0" width="660" height="90" fill="#fff5f5" stroke="#e74c3c" stroke-width="1.5" rx="8"/>
+
+    <text x="330" y="24" text-anchor="middle" font-size="13" font-weight="bold" fill="#c0392b">医療法における罰則規定</text>
+
+    <rect x="20" y="36" width="620" height="22" fill="#fdedec" rx="4"/>
+    <text x="330" y="52" text-anchor="middle" font-size="12" font-weight="bold" fill="#e74c3c">違反時の罰則：6か月以下の懲役 または 30万円以下の罰金（医療法 第87条）</text>
+
+    <text x="330" y="78" text-anchor="middle" font-size="11" fill="#777">まず行政指導（中止・是正命令）→ 従わない場合に罰則適用。HP全体の信頼低下にも直結します。</text>
+  </g>
+
+  <!-- 出典 -->
+  <text x="375" y="590" text-anchor="middle" font-size="10" fill="#999">出典：厚生労働省「医療広告ガイドライン」（令和6年改正）を基に作成 ｜ Ascent Web Engineer（2026年3月）</text>
+</svg>

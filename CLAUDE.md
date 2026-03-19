@@ -2,6 +2,14 @@
 
 開業医専門ホームページ制作サービス「アセント」のウェブサイト。
 
+## デプロイ
+
+- **本番**: Cloudflare Pages（ascent-web.jp）
+- **開発確認**: Vercel（`.vercel/project.json` はローカル開発・プレビュー確認用。本番デプロイには使わない）
+
+本番デプロイは `git push` → Cloudflare Pages の自動ビルドで行う。
+`vercel --prod` は使わないこと。
+
 ## Tech Stack
 
 - Next.js (App Router)
