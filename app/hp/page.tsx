@@ -220,7 +220,7 @@ export default function HpLandingPage() {
               aria-expanded={menuOpen}
               aria-controls="site-nav"
               onClick={() => setMenuOpen(!menuOpen)}
-              style={{ position: "relative", zIndex: 110 }}
+              style={{ position: "relative", zIndex: 210 }}
             >
               <span></span><span></span><span></span>
               <span className="sr-only">メニューを開閉</span>
@@ -231,6 +231,7 @@ export default function HpLandingPage() {
               <a href="#pricing" onClick={closeMenu}>料金</a>
               <a href="#flow" onClick={closeMenu}>流れ</a>
               <a href="#faq" onClick={closeMenu}>FAQ</a>
+              <a href="/hp/blog">ブログ</a>
               <div className="nav-cta-group">
                 <a href="#contact" className="nav-cta nav-cta-ghost" onClick={closeMenu}>
                   <svg className="nav-cta-icon" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -259,7 +260,7 @@ export default function HpLandingPage() {
                 <p className="eyebrow">開業医専門ホームページ制作</p>
                 <h1>
                   先生の想いを伝え、<br />
-                  患者さまに<span className="accent-line">選ばれる</span>クリニックへ。
+                  患者さまに<span className="accent-line">選ばれる</span><span style={{ display: "inline-block" }}>クリニックへ。</span>
                 </h1>
                 <p className="hero-lead">
                   患者さんの8割近くがネットで医院を探す時代。
@@ -670,6 +671,7 @@ export default function HpLandingPage() {
               <div>
                 <p className="footer-title">Information</p>
                 <ul className="footer-list">
+                  <li><a href="/hp/blog">ブログ</a></li>
                   <li><a href="#contact">お問い合わせ</a></li>
                   <li><a href="/privacy">プライバシーポリシー</a></li>
                   <li><a href="/terms">利用規約</a></li>
