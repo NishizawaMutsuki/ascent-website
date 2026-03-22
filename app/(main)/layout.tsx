@@ -38,16 +38,18 @@ function Nav() {
             <AscentLogo />
           </a>
           <a href="/#contact" className="nav-cta">無料相談</a>
-          <button
-            className={`nav-hamburger${isOpen ? " is-open" : ""}`}
-            onClick={toggleMenu}
-            aria-label={isOpen ? "メニューを閉じる" : "メニューを開く"}
-            aria-expanded={isOpen}
-          >
-            <span /><span /><span />
-          </button>
         </div>
       </nav>
+
+      {/* ハンバーガーボタン — nav の外でスタッキングコンテキスト回避 */}
+      <button
+        className={`nav-hamburger${isOpen ? " is-open" : ""}`}
+        onClick={toggleMenu}
+        aria-label={isOpen ? "メニューを閉じる" : "メニューを開く"}
+        aria-expanded={isOpen}
+      >
+        <span /><span /><span />
+      </button>
 
       {/* オーバーレイ（左側コンテンツを暗くする） */}
       <div
@@ -56,18 +58,8 @@ function Nav() {
         aria-hidden="true"
       />
 
-      {/* スライドインパネル — nav の外でスタッキングコンテキスト回避 */}
+      {/* 全画面フェードインパネル — nav の外でスタッキングコンテキスト回避 */}
       <div className={`nav-panel${isOpen ? " is-open" : ""}`}>
-        <button
-          className="nav-panel-close"
-          onClick={closeMenu}
-          aria-label="メニューを閉じる"
-        >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-            <line x1="6" y1="6" x2="18" y2="18" />
-            <line x1="18" y1="6" x2="6" y2="18" />
-          </svg>
-        </button>
         <ul className="nav-panel-links">
           <li><a href="/#about" onClick={closeMenu}>会社概要</a></li>
           <li><a href="/#services" onClick={closeMenu}>サービス</a></li>
