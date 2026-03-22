@@ -31,29 +31,32 @@ function Nav() {
   }, [isOpen]);
 
   return (
-    <nav className="nav">
-      <div className="nav-inner">
-        <a href="/" className="nav-logo-link">
-          <AscentLogo />
-        </a>
-        <ul className={`nav-links${isOpen ? " is-open" : ""}`}>
-          <li><a href="/#about" onClick={closeMenu}>会社概要</a></li>
-          <li><a href="/#services" onClick={closeMenu}>サービス</a></li>
-          <li><a href="/#works" onClick={closeMenu}>実績</a></li>
-          <li><a href="/#products" onClick={closeMenu}>プロダクト</a></li>
-          <li><a href="/#contact" onClick={closeMenu}>お問い合わせ</a></li>
-        </ul>
-        <a href="/#contact" className="nav-cta">無料相談</a>
-        <button
-          className={`nav-hamburger${isOpen ? " is-open" : ""}`}
-          onClick={toggleMenu}
-          aria-label={isOpen ? "メニューを閉じる" : "メニューを開く"}
-          aria-expanded={isOpen}
-        >
-          <span /><span /><span />
-        </button>
-      </div>
-    </nav>
+    <>
+      <nav className="nav">
+        <div className="nav-inner">
+          <a href="/" className="nav-logo-link">
+            <AscentLogo />
+          </a>
+          <a href="/#contact" className="nav-cta">無料相談</a>
+          <button
+            className={`nav-hamburger${isOpen ? " is-open" : ""}`}
+            onClick={toggleMenu}
+            aria-label={isOpen ? "メニューを閉じる" : "メニューを開く"}
+            aria-expanded={isOpen}
+          >
+            <span /><span /><span />
+          </button>
+        </div>
+      </nav>
+      {/* nav の外に配置してスタッキングコンテキストの制約を回避 */}
+      <ul className={`nav-links${isOpen ? " is-open" : ""}`}>
+        <li><a href="/#about" onClick={closeMenu}>会社概要</a></li>
+        <li><a href="/#services" onClick={closeMenu}>サービス</a></li>
+        <li><a href="/#works" onClick={closeMenu}>実績</a></li>
+        <li><a href="/#products" onClick={closeMenu}>プロダクト</a></li>
+        <li><a href="/#contact" onClick={closeMenu}>お問い合わせ</a></li>
+      </ul>
+    </>
   );
 }
 
