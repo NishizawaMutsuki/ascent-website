@@ -48,14 +48,35 @@ function Nav() {
           </button>
         </div>
       </nav>
-      {/* nav の外に配置してスタッキングコンテキストの制約を回避 */}
-      <ul className={`nav-links${isOpen ? " is-open" : ""}`}>
-        <li><a href="/#about" onClick={closeMenu}>会社概要</a></li>
-        <li><a href="/#services" onClick={closeMenu}>サービス</a></li>
-        <li><a href="/#works" onClick={closeMenu}>実績</a></li>
-        <li><a href="/#products" onClick={closeMenu}>プロダクト</a></li>
-        <li><a href="/#contact" onClick={closeMenu}>お問い合わせ</a></li>
-      </ul>
+
+      {/* オーバーレイ（左側コンテンツを暗くする） */}
+      <div
+        className={`nav-overlay${isOpen ? " is-open" : ""}`}
+        onClick={closeMenu}
+        aria-hidden="true"
+      />
+
+      {/* スライドインパネル — nav の外でスタッキングコンテキスト回避 */}
+      <div className={`nav-panel${isOpen ? " is-open" : ""}`}>
+        <button
+          className="nav-panel-close"
+          onClick={closeMenu}
+          aria-label="メニューを閉じる"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+            <line x1="6" y1="6" x2="18" y2="18" />
+            <line x1="18" y1="6" x2="6" y2="18" />
+          </svg>
+        </button>
+        <ul className="nav-panel-links">
+          <li><a href="/#about" onClick={closeMenu}>会社概要</a></li>
+          <li><a href="/#services" onClick={closeMenu}>サービス</a></li>
+          <li><a href="/#works" onClick={closeMenu}>実績</a></li>
+          <li><a href="/#products" onClick={closeMenu}>プロダクト</a></li>
+          <li><a href="/#contact" onClick={closeMenu}>お問い合わせ</a></li>
+        </ul>
+        <a href="/#contact" className="nav-panel-cta" onClick={closeMenu}>無料相談</a>
+      </div>
     </>
   );
 }
