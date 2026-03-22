@@ -183,6 +183,12 @@ body::before {
   transform: rotate(-45deg);
 }
 
+/* Nav panel & overlay — hidden on desktop */
+.nav-overlay,
+.nav-panel {
+  display: none;
+}
+
 /* ===== Top Page Hero (full-screen) ===== */
 .top-hero {
   position: relative;
@@ -1545,6 +1551,7 @@ body::before {
 
   /* --- Overlay (no longer needed for slide, but keeps tap-to-close) --- */
   .nav-overlay {
+    display: block;
     position: fixed;
     inset: 0;
     z-index: 190;
@@ -1560,6 +1567,7 @@ body::before {
 
   /* --- Full-screen Fade-in Panel --- */
   .nav-panel {
+    display: flex;
     position: fixed;
     inset: 0;
     width: 100vw;
