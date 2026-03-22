@@ -1593,8 +1593,7 @@ body::before {
     z-index: 1;
   }
   .nav-panel-logo svg {
-    height: 28px;
-    width: auto;
+    /* Same size as navbar logo — no override needed */
   }
 
   /* Panel nav links */
