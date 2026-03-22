@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" width="900" height="620" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif">
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#00000018"/>
+    </filter>
+    <linearGradient id="headerBlue" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
+    </linearGradient>
+    <linearGradient id="headerGreen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <linearGradient id="headerOrange" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D97706"/>
+      <stop offset="100%" stop-color="#B45309"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="900" height="620" rx="12" fill="#F8FAFC"/>
+
+  <!-- タイトル -->
+  <text x="450" y="38" text-anchor="middle" font-size="18" font-weight="700" fill="#1E293B">クリニック予約方式の比較</text>
+  <text x="450" y="58" text-anchor="middle" font-size="12" fill="#64748B">3つの方式の特徴を理解して、自院に合った仕組みを選びましょう</text>
+
+  <!-- ===== カード1: 順番予約 ===== -->
+  <g transform="translate(20, 78)">
+    <rect width="273" height="530" rx="10" fill="#FFFFFF" filter="url(#shadow)" stroke="#E2E8F0" stroke-width="1"/>
+    <!-- ヘッダー -->
+    <rect width="273" height="56" rx="10" fill="url(#headerBlue)"/>
+    <rect y="46" width="273" height="10" fill="url(#headerBlue)"/>
+    <text x="136" y="30" text-anchor="middle" font-size="11" fill="#DBEAFE" font-weight="500">TYPE 1</text>
+    <text x="136" y="48" text-anchor="middle" font-size="16" fill="#FFFFFF" font-weight="700">順番予約</text>
+
+    <!-- 仕組み -->
+    <text x="20" y="82" font-size="11" font-weight="700" fill="#2563EB">仕組み</text>
+    <rect x="15" y="90" width="243" height="52" rx="6" fill="#EFF6FF"/>
+    <text x="28" y="110" font-size="12" fill="#334155">来院順に番号を発行し、</text>
+    <text x="28" y="128" font-size="12" fill="#334155">順番どおりに診察する方式</text>
+
+    <!-- 患者体験 -->
+    <text x="20" y="164" font-size="11" font-weight="700" fill="#2563EB">患者体験</text>
+    <rect x="15" y="172" width="243" height="52" rx="6" fill="#EFF6FF"/>
+    <text x="28" y="192" font-size="12" fill="#334155">「あと◯人」がリアルタイムで</text>
+    <text x="28" y="210" font-size="12" fill="#334155">わかり、外出して待てる</text>
+
+    <!-- 向いている診療科 -->
+    <text x="20" y="248" font-size="11" font-weight="700" fill="#2563EB">向いている診療科</text>
+    <rect x="15" y="256" width="243" height="56" rx="6" fill="#EFF6FF"/>
+    <text x="28" y="276" font-size="12" fill="#334155">診察時間が読みにくい診療科</text>
+    <text x="28" y="296" font-size="12" font-weight="600" fill="#1E40AF">小児科・耳鼻科・皮膚科</text>
+
+    <!-- メリット -->
+    <text x="20" y="338" font-size="11" font-weight="700" fill="#059669">メリット</text>
+    <rect x="15" y="346" width="243" height="72" rx="6" fill="#ECFDF5"/>
+    <circle cx="30" cy="366" r="4" fill="#059669"/>
+    <text x="40" y="370" font-size="12" fill="#334155">混雑の平準化ができる</text>
+    <circle cx="30" cy="390" r="4" fill="#059669"/>
+    <text x="40" y="394" font-size="12" fill="#334155">待ち時間が可視化される</text>
+    <circle cx="30" cy="414" r="4" fill="#059669"/>
+    <text x="40" y="418" font-size="12" fill="#334155">予約枠の上限がない</text>
+
+    <!-- デメリット -->
+    <text x="20" y="444" font-size="11" font-weight="700" fill="#DC2626">デメリット</text>
+    <rect x="15" y="452" width="243" height="56" rx="6" fill="#FEF2F2"/>
+    <circle cx="30" cy="472" r="4" fill="#DC2626"/>
+    <text x="40" y="476" font-size="12" fill="#334155">正確な診察時間がわからない</text>
+    <circle cx="30" cy="496" r="4" fill="#DC2626"/>
+    <text x="40" y="500" font-size="12" fill="#334155">順番が近づくまで不確実</text>
+  </g>
+
+  <!-- ===== カード2: 時間予約 ===== -->
+  <g transform="translate(313, 78)">
+    <rect width="273" height="530" rx="10" fill="#FFFFFF" filter="url(#shadow)" stroke="#E2E8F0" stroke-width="1"/>
+    <!-- ヘッダー -->
+    <rect width="273" height="56" rx="10" fill="url(#headerGreen)"/>
+    <rect y="46" width="273" height="10" fill="url(#headerGreen)"/>
+    <text x="136" y="30" text-anchor="middle" font-size="11" fill="#D1FAE5" font-weight="500">TYPE 2</text>
+    <text x="136" y="48" text-anchor="middle" font-size="16" fill="#FFFFFF" font-weight="700">時間予約</text>
+
+    <!-- 仕組み -->
+    <text x="20" y="82" font-size="11" font-weight="700" fill="#059669">仕組み</text>
+    <rect x="15" y="90" width="243" height="52" rx="6" fill="#ECFDF5"/>
+    <text x="28" y="110" font-size="12" fill="#334155">「10:00〜」「10:15〜」など</text>
+    <text x="28" y="128" font-size="12" fill="#334155">時間枠を指定して予約する方式</text>
+
+    <!-- 患者体験 -->
+    <text x="20" y="164" font-size="11" font-weight="700" fill="#059669">患者体験</text>
+    <rect x="15" y="172" width="243" height="52" rx="6" fill="#ECFDF5"/>
+    <text x="28" y="192" font-size="12" fill="#334155">予約時間に行けばOK。</text>
+    <text x="28" y="210" font-size="12" fill="#334155">待ち時間が少なく快適</text>
+
+    <!-- 向いている診療科 -->
+    <text x="20" y="248" font-size="11" font-weight="700" fill="#059669">向いている診療科</text>
+    <rect x="15" y="256" width="243" height="72" rx="6" fill="#ECFDF5"/>
+    <text x="28" y="276" font-size="12" fill="#334155">診察時間が一定の診療科</text>
+    <text x="28" y="296" font-size="12" font-weight="600" fill="#047857">心療内科・眼科</text>
+    <text x="28" y="316" font-size="12" fill="#334155">オンライン診療にも最適</text>
+
+    <!-- メリット -->
+    <text x="20" y="354" font-size="11" font-weight="700" fill="#059669">メリット</text>
+    <rect x="15" y="362" width="243" height="56" rx="6" fill="#ECFDF5"/>
+    <circle cx="30" cy="382" r="4" fill="#059669"/>
+    <text x="40" y="386" font-size="12" fill="#334155">患者の予定が立てやすい</text>
+    <circle cx="30" cy="406" r="4" fill="#059669"/>
+    <text x="40" y="410" font-size="12" fill="#334155">待合室の混雑を抑制できる</text>
+
+    <!-- デメリット -->
+    <text x="20" y="444" font-size="11" font-weight="700" fill="#DC2626">デメリット</text>
+    <rect x="15" y="452" width="243" height="56" rx="6" fill="#FEF2F2"/>
+    <circle cx="30" cy="472" r="4" fill="#DC2626"/>
+    <text x="40" y="476" font-size="12" fill="#334155">枠が埋まると予約不可</text>
+    <circle cx="30" cy="496" r="4" fill="#DC2626"/>
+    <text x="40" y="500" font-size="12" fill="#334155">遅延が後続に連鎖しやすい</text>
+  </g>
+
+  <!-- ===== カード3: 時間帯予約 ===== -->
+  <g transform="translate(606, 78)">
+    <rect width="273" height="530" rx="10" fill="#FFFFFF" filter="url(#shadow)" stroke="#E2E8F0" stroke-width="1"/>
+    <!-- ヘッダー -->
+    <rect width="273" height="56" rx="10" fill="url(#headerOrange)"/>
+    <rect y="46" width="273" height="10" fill="url(#headerOrange)"/>
+    <text x="136" y="30" text-anchor="middle" font-size="11" fill="#FEF3C7" font-weight="500">TYPE 3</text>
+    <text x="136" y="48" text-anchor="middle" font-size="16" fill="#FFFFFF" font-weight="700">時間帯予約</text>
+
+    <!-- 仕組み -->
+    <text x="20" y="82" font-size="11" font-weight="700" fill="#D97706">仕組み</text>
+    <rect x="15" y="90" width="243" height="52" rx="6" fill="#FFFBEB"/>
+    <text x="28" y="110" font-size="12" fill="#334155">「10:00〜10:30」など幅のある</text>
+    <text x="28" y="128" font-size="12" fill="#334155">枠に複数人を割り当てる方式</text>
+
+    <!-- 患者体験 -->
+    <text x="20" y="164" font-size="11" font-weight="700" fill="#D97706">患者体験</text>
+    <rect x="15" y="172" width="243" height="52" rx="6" fill="#FFFBEB"/>
+    <text x="28" y="192" font-size="12" fill="#334155">おおよその時間帯がわかり、</text>
+    <text x="28" y="210" font-size="12" fill="#334155">その範囲内で来院すればよい</text>
+
+    <!-- 向いている診療科 -->
+    <text x="20" y="248" font-size="11" font-weight="700" fill="#D97706">向いている診療科</text>
+    <rect x="15" y="256" width="243" height="56" rx="6" fill="#FFFBEB"/>
+    <text x="28" y="276" font-size="12" fill="#334155">幅広い診療科で使いやすい</text>
+    <text x="28" y="296" font-size="12" font-weight="600" fill="#92400E">内科をはじめ汎用性が高い</text>
+
+    <!-- メリット -->
+    <text x="20" y="338" font-size="11" font-weight="700" fill="#059669">メリット</text>
+    <rect x="15" y="346" width="243" height="72" rx="6" fill="#ECFDF5"/>
+    <circle cx="30" cy="366" r="4" fill="#059669"/>
+    <text x="40" y="370" font-size="12" fill="#334155">順番・時間予約のいいとこ取り</text>
+    <circle cx="30" cy="390" r="4" fill="#059669"/>
+    <text x="40" y="394" font-size="12" fill="#334155">予約枠に柔軟性がある</text>
+    <circle cx="30" cy="414" r="4" fill="#059669"/>
+    <text x="40" y="418" font-size="12" fill="#334155">遅延の連鎖が起きにくい</text>
+
+    <!-- デメリット -->
+    <text x="20" y="444" font-size="11" font-weight="700" fill="#DC2626">デメリット</text>
+    <rect x="15" y="452" width="243" height="56" rx="6" fill="#FEF2F2"/>
+    <circle cx="30" cy="472" r="4" fill="#DC2626"/>
+    <text x="40" y="476" font-size="12" fill="#334155">枠内での待ち時間は発生する</text>
+    <circle cx="30" cy="496" r="4" fill="#DC2626"/>
+    <text x="40" y="500" font-size="12" fill="#334155">患者に仕組みの説明が必要</text>
+  </g>
+</svg>

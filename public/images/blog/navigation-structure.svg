@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 560" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif">
-  <rect width="750" height="560" fill="#fafafa" rx="8"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 600" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif">
+  <rect width="750" height="600" fill="#fafafa" rx="8"/>
 
   <!-- Title -->
   <text x="375" y="35" text-anchor="middle" font-size="16" font-weight="bold" fill="#2c3e50">一般皮膚科と美容皮膚科の導線設計例</text>
@@ -14,101 +14,92 @@
   <!-- 分岐線 -->
   <line x1="375" y1="105" x2="375" y2="125" stroke="#bbb" stroke-width="2"/>
   <line x1="170" y1="125" x2="580" y2="125" stroke="#bbb" stroke-width="2"/>
-  <line x1="170" y1="125" x2="170" y2="145" stroke="#2980b9" stroke-width="2"/>
-  <line x1="580" y1="125" x2="580" y2="145" stroke="#8e44ad" stroke-width="2"/>
+  <line x1="170" y1="125" x2="170" y2="150" stroke="#2980b9" stroke-width="2"/>
+  <line x1="580" y1="125" x2="580" y2="150" stroke="#8e44ad" stroke-width="2"/>
 
   <!-- ===== 左: 一般皮膚科 ===== -->
-  <g transform="translate(45, 145)">
+  <g transform="translate(45, 150)">
     <!-- ヘッダー -->
     <rect x="0" y="0" width="250" height="44" fill="#2980b9" rx="8"/>
     <text x="125" y="18" text-anchor="middle" font-size="13" font-weight="bold" fill="white">一般皮膚科</text>
     <text x="125" y="35" text-anchor="middle" font-size="11" fill="#d5e8f7">保険診療</text>
 
     <!-- 疾患別ページ -->
-    <rect x="0" y="60" width="250" height="160" fill="white" stroke="#2980b9" stroke-width="1.5" rx="8"/>
-    <text x="125" y="82" text-anchor="middle" font-size="12" font-weight="bold" fill="#2c3e50">疾患別ページ</text>
+    <rect x="0" y="58" width="250" height="168" fill="white" stroke="#2980b9" stroke-width="1.5" rx="8"/>
+    <text x="125" y="80" text-anchor="middle" font-size="12" font-weight="bold" fill="#2c3e50">疾患別ページ</text>
 
-    <rect x="20" y="95" width="100" height="30" fill="#ebf5fb" rx="6"/>
-    <text x="70" y="115" text-anchor="middle" font-size="11" fill="#2980b9">アトピー</text>
+    <rect x="20" y="93" width="100" height="30" fill="#ebf5fb" rx="6"/>
+    <text x="70" y="113" text-anchor="middle" font-size="11" fill="#2980b9">アトピー</text>
 
-    <rect x="130" y="95" width="100" height="30" fill="#ebf5fb" rx="6"/>
-    <text x="180" y="115" text-anchor="middle" font-size="11" fill="#2980b9">湿疹・かぶれ</text>
+    <rect x="130" y="93" width="100" height="30" fill="#ebf5fb" rx="6"/>
+    <text x="180" y="113" text-anchor="middle" font-size="11" fill="#2980b9">湿疹・かぶれ</text>
 
-    <rect x="20" y="135" width="100" height="30" fill="#ebf5fb" rx="6"/>
-    <text x="70" y="155" text-anchor="middle" font-size="11" fill="#2980b9">じんましん</text>
+    <rect x="20" y="131" width="100" height="30" fill="#ebf5fb" rx="6"/>
+    <text x="70" y="151" text-anchor="middle" font-size="11" fill="#2980b9">じんましん</text>
 
-    <rect x="130" y="135" width="100" height="30" fill="#d4efdf" stroke="#27ae60" stroke-width="1.5" rx="6"/>
-    <text x="180" y="155" text-anchor="middle" font-size="11" font-weight="bold" fill="#27ae60">ニキビ（保険）</text>
+    <rect x="130" y="131" width="100" height="30" fill="#d4efdf" stroke="#27ae60" stroke-width="1.5" rx="6"/>
+    <text x="180" y="151" text-anchor="middle" font-size="11" font-weight="bold" fill="#27ae60">ニキビ（保険）</text>
 
-    <rect x="20" y="175" width="100" height="30" fill="#ebf5fb" rx="6"/>
-    <text x="70" y="195" text-anchor="middle" font-size="11" fill="#2980b9">水虫</text>
+    <rect x="20" y="169" width="100" height="30" fill="#ebf5fb" rx="6"/>
+    <text x="70" y="189" text-anchor="middle" font-size="11" fill="#2980b9">水虫</text>
 
-    <rect x="130" y="175" width="100" height="30" fill="#ebf5fb" rx="6"/>
-    <text x="180" y="195" text-anchor="middle" font-size="11" fill="#2980b9">いぼ・ほくろ</text>
+    <rect x="130" y="169" width="100" height="30" fill="#ebf5fb" rx="6"/>
+    <text x="180" y="189" text-anchor="middle" font-size="11" fill="#2980b9">いぼ・ほくろ</text>
 
     <!-- 予約ボタン -->
-    <rect x="50" y="240" width="150" height="40" fill="#2980b9" rx="20"/>
-    <text x="125" y="265" text-anchor="middle" font-size="13" font-weight="bold" fill="white">WEB予約</text>
+    <rect x="50" y="242" width="150" height="40" fill="#2980b9" rx="20"/>
+    <text x="125" y="267" text-anchor="middle" font-size="13" font-weight="bold" fill="white">WEB予約</text>
   </g>
 
   <!-- ===== 右: 美容皮膚科 ===== -->
-  <g transform="translate(455, 145)">
+  <g transform="translate(455, 150)">
     <!-- ヘッダー -->
     <rect x="0" y="0" width="250" height="44" fill="#8e44ad" rx="8"/>
     <text x="125" y="18" text-anchor="middle" font-size="13" font-weight="bold" fill="white">美容皮膚科</text>
     <text x="125" y="35" text-anchor="middle" font-size="11" fill="#e8daef">自費診療</text>
 
     <!-- 施術別ページ -->
-    <rect x="0" y="60" width="250" height="120" fill="white" stroke="#8e44ad" stroke-width="1.5" rx="8"/>
-    <text x="125" y="82" text-anchor="middle" font-size="12" font-weight="bold" fill="#2c3e50">施術別ページ</text>
+    <rect x="0" y="58" width="250" height="128" fill="white" stroke="#8e44ad" stroke-width="1.5" rx="8"/>
+    <text x="125" y="80" text-anchor="middle" font-size="12" font-weight="bold" fill="#2c3e50">施術別ページ</text>
 
-    <rect x="20" y="95" width="100" height="30" fill="#f5eef8" rx="6"/>
-    <text x="70" y="115" text-anchor="middle" font-size="11" fill="#8e44ad">シミ取り</text>
+    <rect x="20" y="93" width="100" height="30" fill="#f5eef8" rx="6"/>
+    <text x="70" y="113" text-anchor="middle" font-size="11" fill="#8e44ad">シミ取り</text>
 
-    <rect x="130" y="95" width="100" height="30" fill="#fdebd0" stroke="#e67e22" stroke-width="1.5" rx="6"/>
-    <text x="180" y="115" text-anchor="middle" font-size="11" font-weight="bold" fill="#e67e22">ニキビ跡（自費）</text>
+    <rect x="130" y="93" width="100" height="30" fill="#fdebd0" stroke="#e67e22" stroke-width="1.5" rx="6"/>
+    <text x="180" y="113" text-anchor="middle" font-size="11" font-weight="bold" fill="#e67e22">ニキビ跡（自費）</text>
 
-    <rect x="20" y="135" width="100" height="30" fill="#f5eef8" rx="6"/>
-    <text x="70" y="155" text-anchor="middle" font-size="11" fill="#8e44ad">たるみ</text>
+    <rect x="20" y="131" width="100" height="30" fill="#f5eef8" rx="6"/>
+    <text x="70" y="151" text-anchor="middle" font-size="11" fill="#8e44ad">たるみ</text>
 
-    <rect x="130" y="135" width="100" height="30" fill="#f5eef8" rx="6"/>
-    <text x="180" y="155" text-anchor="middle" font-size="11" fill="#8e44ad">医療脱毛</text>
+    <rect x="130" y="131" width="100" height="30" fill="#f5eef8" rx="6"/>
+    <text x="180" y="151" text-anchor="middle" font-size="11" fill="#8e44ad">医療脱毛</text>
 
     <!-- 料金表 -->
-    <rect x="0" y="195" width="250" height="40" fill="white" stroke="#8e44ad" stroke-width="1.5" rx="8"/>
-    <text x="125" y="220" text-anchor="middle" font-size="12" font-weight="bold" fill="#8e44ad">料金表</text>
+    <rect x="0" y="200" width="250" height="40" fill="white" stroke="#8e44ad" stroke-width="1.5" rx="8"/>
+    <text x="125" y="225" text-anchor="middle" font-size="12" font-weight="bold" fill="#8e44ad">料金表</text>
 
     <!-- 予約ボタン -->
-    <rect x="50" y="250" width="150" height="40" fill="#8e44ad" rx="20"/>
-    <text x="125" y="275" text-anchor="middle" font-size="13" font-weight="bold" fill="white">WEB予約・相談</text>
+    <rect x="50" y="256" width="150" height="40" fill="#8e44ad" rx="20"/>
+    <text x="125" y="281" text-anchor="middle" font-size="13" font-weight="bold" fill="white">WEB予約・相談</text>
   </g>
 
-  <!-- 矢印: 一般→疾患別→予約 -->
-  <line x1="170" y1="189" x2="170" y2="205" stroke="#2980b9" stroke-width="1.5" marker-end="url(#arrowBlue)"/>
-  <line x1="170" y1="365" x2="170" y2="385" stroke="#2980b9" stroke-width="1.5" marker-end="url(#arrowBlue)"/>
-
-  <!-- 矢印: 美容→施術別→料金→予約 -->
-  <line x1="580" y1="189" x2="580" y2="205" stroke="#8e44ad" stroke-width="1.5" marker-end="url(#arrowPurple)"/>
-  <line x1="580" y1="325" x2="580" y2="340" stroke="#8e44ad" stroke-width="1.5" marker-end="url(#arrowPurple)"/>
-  <line x1="580" y1="380" x2="580" y2="395" stroke="#8e44ad" stroke-width="1.5" marker-end="url(#arrowPurple)"/>
-
-  <!-- ===== 橋渡しリンク ===== -->
+  <!-- ===== 橋渡しリンク（ボックスを曲線の外に配置）===== -->
   <g>
-    <!-- 橋渡し矢印 (ニキビ保険 ↔ ニキビ跡自費) -->
-    <!-- 左のニキビ(保険): 中心 x=45+130+50=225, y=145+135+15=295 -->
-    <!-- 右のニキビ跡(自費): 中心 x=455+130+50=635, y=145+95+15=255 -->
-    <path d="M 295,295 C 370,270 400,270 585,255" fill="none" stroke="#e67e22" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowOrange)"/>
-    <path d="M 585,265 C 400,280 370,280 295,305" fill="none" stroke="#27ae60" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowGreen2)"/>
+    <!-- 左ニキビ(保険) 中心: 45+180+50=275, 150+131+15=296 → 右端 45+230=275+20=295 -->
+    <!-- 右ニキビ跡(自費) 中心: 455+180+50=685→左端455+130=585, 150+93+15=258 -->
+    <path d="M 295,296 C 340,260 360,240 585,258" fill="none" stroke="#e67e22" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowOrange)"/>
+    <path d="M 585,268 C 360,286 340,306 295,306" fill="none" stroke="#27ae60" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowGreen2)"/>
 
-    <!-- 橋渡しラベル -->
-    <rect x="310" y="248" width="130" height="42" fill="#fef9e7" stroke="#f39c12" stroke-width="1.5" rx="8"/>
-    <text x="375" y="265" text-anchor="middle" font-size="10" font-weight="bold" fill="#e67e22">相互リンクで橋渡し</text>
-    <text x="375" y="280" text-anchor="middle" font-size="9" fill="#7d6608">ニキビ（保険）↔ ニキビ跡（自費）</text>
+    <!-- 橋渡しラベル（曲線の上に配置して貫通を回避） -->
+    <rect x="342" y="218" width="66" height="20" fill="#fafafa" rx="4"/>
+    <rect x="310" y="222" width="130" height="38" fill="#fef9e7" stroke="#f39c12" stroke-width="1.5" rx="8"/>
+    <text x="375" y="238" text-anchor="middle" font-size="10" font-weight="bold" fill="#e67e22">相互リンクで橋渡し</text>
+    <text x="375" y="253" text-anchor="middle" font-size="9" fill="#7d6608">ニキビ(保険) ↔ ニキビ跡(自費)</text>
   </g>
 
   <!-- 下部 解説ボックス -->
-  <g transform="translate(45, 450)">
-    <rect x="0" y="0" width="660" height="76" fill="white" stroke="#2c3e50" stroke-width="1" rx="8"/>
+  <g transform="translate(45, 480)">
+    <rect x="0" y="0" width="660" height="84" fill="white" stroke="#2c3e50" stroke-width="1" rx="8"/>
     <text x="20" y="22" font-size="12" font-weight="bold" fill="#2c3e50">導線設計のポイント</text>
     <text x="20" y="42" font-size="11" fill="#555">1. トップページで「保険 / 自費」の入口を明確に分ける → 患者さんが迷わない</text>
     <text x="20" y="58" font-size="11" fill="#555">2. ニキビのように保険と自費の両方がある疾患は相互リンクでつなぐ → クロスセル効果</text>
@@ -116,7 +107,7 @@
   </g>
 
   <!-- 出典 -->
-  <text x="375" y="550" text-anchor="middle" font-size="10" fill="#999">Ascent Web Engineer 作成（2026年3月）</text>
+  <text x="375" y="590" text-anchor="middle" font-size="10" fill="#999">Ascent Web Engineer 作成（2026年3月）</text>
 
   <!-- Arrow markers -->
   <defs>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function AscentLogo() {
   return (
@@ -22,6 +22,13 @@ function Nav() {
   const [isOpen, setIsOpen] = useState(false);
 
   const closeMenu = () => setIsOpen(false);
+  const toggleMenu = () => setIsOpen((prev) => !prev);
+
+  /* メニュー展開中は背面スクロールをロック */
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [isOpen]);
 
   return (
     <nav className="nav">
@@ -39,8 +46,8 @@ function Nav() {
         <a href="/#contact" className="nav-cta">無料相談</a>
         <button
           className={`nav-hamburger${isOpen ? " is-open" : ""}`}
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="メニューを開く"
+          onClick={toggleMenu}
+          aria-label={isOpen ? "メニューを閉じる" : "メニューを開く"}
           aria-expanded={isOpen}
         >
           <span /><span /><span />

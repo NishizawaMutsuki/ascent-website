@@ -19,6 +19,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${article.title} | アセント ブログ`,
     description: article.summary,
+    alternates: {
+      canonical: `https://ascent-web.jp/hp/blog/${slug}`,
+    },
     openGraph: {
       title: article.title,
       description: article.summary,
@@ -43,6 +46,24 @@ export default async function ArticlePage({ params }: Props) {
 
   return (
     <div className="lp-container">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: article.title,
+            description: article.summary,
+            datePublished: article.date,
+            author: { "@type": "Organization", name: "アセント" },
+            publisher: {
+              "@type": "Organization",
+              name: "アセント",
+              url: "https://ascent-web.jp",
+            },
+          }),
+        }}
+      />
       <Breadcrumbs category={article.category} title={article.title} />
 
       {/* Article header */}

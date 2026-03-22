@@ -14,6 +14,13 @@ export const metadata: Metadata = {
     siteName: "Ascent",
     locale: "ja_JP",
     type: "website",
+    images: [
+      {
+        url: "https://ascent-web.jp/images/og-default.svg",
+        width: 1200,
+        height: 630,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",

@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="480" viewBox="0 0 920 480" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif">
+  <defs>
+    <linearGradient id="headerGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="920" height="480" fill="#ffffff" rx="8"/>
+
+  <!-- Header row -->
+  <rect x="50" y="24" width="820" height="44" fill="url(#headerGrad)" rx="6"/>
+
+  <!-- Header texts -->
+  <text x="130" y="51" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">サービス</text>
+  <text x="265" y="51" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">順番予約</text>
+  <text x="375" y="51" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">時間予約</text>
+  <text x="480" y="51" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">問診</text>
+  <text x="595" y="51" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">オンライン診療</text>
+  <text x="695" y="51" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">LINE</text>
+  <text x="800" y="51" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">カルテ連携</text>
+
+  <!-- Row 1: ドクターキューブ -->
+  <rect x="50" y="68" width="820" height="44" fill="#ffffff"/>
+  <line x1="50" y1="68" x2="870" y2="68" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="65" y="95" fill="#1E293B" font-size="13" font-weight="600">ドクターキューブ</text>
+  <rect x="245" y="80" width="40" height="24" rx="12" fill="#DBEAFE"/>
+  <text x="265" y="97" text-anchor="middle" fill="#2563EB" font-size="14" font-weight="bold">◎</text>
+  <rect x="355" y="80" width="40" height="24" rx="12" fill="#DBEAFE"/>
+  <text x="375" y="97" text-anchor="middle" fill="#2563EB" font-size="14" font-weight="bold">◎</text>
+  <text x="480" y="95" text-anchor="middle" fill="#64748B" font-size="12">外部連携</text>
+  <rect x="575" y="80" width="40" height="24" rx="12" fill="#F1F5F9"/>
+  <text x="595" y="97" text-anchor="middle" fill="#94A3B8" font-size="14" font-weight="bold">×</text>
+  <rect x="675" y="80" width="40" height="24" rx="12" fill="#D1FAE5"/>
+  <text x="695" y="97" text-anchor="middle" fill="#059669" font-size="14" font-weight="bold">○</text>
+  <text x="800" y="95" text-anchor="middle" fill="#1E293B" font-size="12">幅広い</text>
+
+  <!-- Row 2: アイチケット -->
+  <rect x="50" y="112" width="820" height="44" fill="#F8FAFC"/>
+  <line x1="50" y1="112" x2="870" y2="112" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="65" y="139" fill="#1E293B" font-size="13" font-weight="600">アイチケット</text>
+  <rect x="245" y="124" width="40" height="24" rx="12" fill="#DBEAFE"/>
+  <text x="265" y="141" text-anchor="middle" fill="#2563EB" font-size="14" font-weight="bold">◎</text>
+  <rect x="355" y="124" width="40" height="24" rx="12" fill="#FFF7ED"/>
+  <text x="375" y="141" text-anchor="middle" fill="#D97706" font-size="14" font-weight="bold">△</text>
+  <text x="480" y="139" text-anchor="middle" fill="#64748B" font-size="12">外部連携</text>
+  <rect x="575" y="124" width="40" height="24" rx="12" fill="#F1F5F9"/>
+  <text x="595" y="141" text-anchor="middle" fill="#94A3B8" font-size="14" font-weight="bold">×</text>
+  <rect x="675" y="124" width="40" height="24" rx="12" fill="#D1FAE5"/>
+  <text x="695" y="141" text-anchor="middle" fill="#059669" font-size="14" font-weight="bold">○</text>
+  <text x="800" y="139" text-anchor="middle" fill="#1E293B" font-size="12">ORCA中心</text>
+
+  <!-- Row 3: デジスマ診療 -->
+  <rect x="50" y="156" width="820" height="44" fill="#ffffff"/>
+  <line x1="50" y1="156" x2="870" y2="156" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="65" y="183" fill="#1E293B" font-size="13" font-weight="600">デジスマ診療</text>
+  <rect x="245" y="168" width="40" height="24" rx="12" fill="#D1FAE5"/>
+  <text x="265" y="185" text-anchor="middle" fill="#059669" font-size="14" font-weight="bold">○</text>
+  <rect x="355" y="168" width="40" height="24" rx="12" fill="#D1FAE5"/>
+  <text x="375" y="185" text-anchor="middle" fill="#059669" font-size="14" font-weight="bold">○</text>
+  <text x="480" y="183" text-anchor="middle" fill="#059669" font-size="12" font-weight="600">内蔵</text>
+  <rect x="575" y="168" width="40" height="24" rx="12" fill="#D1FAE5"/>
+  <text x="595" y="185" text-anchor="middle" fill="#059669" font-size="14" font-weight="bold">○</text>
+  <rect x="675" y="168" width="40" height="24" rx="12" fill="#D1FAE5"/>
+  <text x="695" y="185" text-anchor="middle" fill="#059669" font-size="14" font-weight="bold">○</text>
+  <text x="800" y="183" text-anchor="middle" fill="#64748B" font-size="11">自社カルテ専用</text>
+
+  <!-- Row 4: メディカル革命 -->
+  <rect x="50" y="200" width="820" height="44" fill="#F8FAFC"/>
+  <line x1="50" y1="200" x2="870" y2="200" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="65" y="227" fill="#1E293B" font-size="13" font-weight="600">メディカル革命</text>
+  <rect x="245" y="212" width="40" height="24" rx="12" fill="#DBEAFE"/>
+  <text x="265" y="229" text-anchor="middle" fill="#2563EB" font-size="14" font-weight="bold">◎</text>
+  <rect x="355" y="212" width="40" height="24" rx="12" fill="#DBEAFE"/>
+  <text x="375" y="229" text-anchor="middle" fill="#2563EB" font-size="14" font-weight="bold">◎</text>
+  <text x="480" y="227" text-anchor="middle" fill="#64748B" font-size="12">外部連携</text>
+  <rect x="575" y="212" width="40" height="24" rx="12" fill="#D1FAE5"/>
+  <text x="595" y="229" text-anchor="middle" fill="#059669" font-size="14" font-weight="bold">○</text>
+  <rect x="675" y="212" width="40" height="24" rx="12" fill="#D1FAE5"/>
+  <text x="695" y="229" text-anchor="middle" fill="#059669" font-size="14" font-weight="bold">○</text>
+  <text x="800" y="227" text-anchor="middle" fill="#1E293B" font-size="12">幅広い</text>
+
+  <!-- Row 5: CLINICS -->
+  <rect x="50" y="244" width="820" height="44" fill="#ffffff"/>
+  <line x1="50" y1="244" x2="870" y2="244" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="65" y="271" fill="#1E293B" font-size="13" font-weight="600">CLINICS</text>
+  <rect x="245" y="256" width="40" height="24" rx="12" fill="#F1F5F9"/>
+  <text x="265" y="273" text-anchor="middle" fill="#94A3B8" font-size="14" font-weight="bold">×</text>
+  <rect x="355" y="256" width="40" height="24" rx="12" fill="#DBEAFE"/>
+  <text x="375" y="273" text-anchor="middle" fill="#2563EB" font-size="14" font-weight="bold">◎</text>
+  <text x="480" y="271" text-anchor="middle" fill="#059669" font-size="12" font-weight="600">内蔵</text>
+  <rect x="575" y="256" width="40" height="24" rx="12" fill="#DBEAFE"/>
+  <text x="595" y="273" text-anchor="middle" fill="#2563EB" font-size="14" font-weight="bold">◎</text>
+  <rect x="675" y="256" width="40" height="24" rx="12" fill="#F1F5F9"/>
+  <text x="695" y="273" text-anchor="middle" fill="#94A3B8" font-size="14" font-weight="bold">×</text>
+  <text x="800" y="271" text-anchor="middle" fill="#64748B" font-size="11">自社カルテ専用</text>
+
+  <!-- Row 6: 3Bees -->
+  <rect x="50" y="288" width="820" height="44" fill="#F8FAFC"/>
+  <line x1="50" y1="288" x2="870" y2="288" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="65" y="315" fill="#1E293B" font-size="13" font-weight="600">3Bees</text>
+  <rect x="245" y="300" width="40" height="24" rx="12" fill="#DBEAFE"/>
+  <text x="265" y="317" text-anchor="middle" fill="#2563EB" font-size="14" font-weight="bold">◎</text>
+  <rect x="355" y="300" width="40" height="24" rx="12" fill="#DBEAFE"/>
+  <text x="375" y="317" text-anchor="middle" fill="#2563EB" font-size="14" font-weight="bold">◎</text>
+  <text x="480" y="315" text-anchor="middle" fill="#059669" font-size="12" font-weight="600">内蔵</text>
+  <rect x="575" y="300" width="40" height="24" rx="12" fill="#F1F5F9"/>
+  <text x="595" y="317" text-anchor="middle" fill="#94A3B8" font-size="14" font-weight="bold">×</text>
+  <rect x="675" y="300" width="40" height="24" rx="12" fill="#D1FAE5"/>
+  <text x="695" y="317" text-anchor="middle" fill="#059669" font-size="14" font-weight="bold">○</text>
+  <text x="800" y="315" text-anchor="middle" fill="#1E293B" font-size="12">ORCA等</text>
+
+  <!-- Row 7: ヨヤクル -->
+  <rect x="50" y="332" width="820" height="44" fill="#ffffff"/>
+  <line x1="50" y1="332" x2="870" y2="332" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="65" y="359" fill="#1E293B" font-size="13" font-weight="600">ヨヤクル</text>
+  <rect x="245" y="344" width="40" height="24" rx="12" fill="#DBEAFE"/>
+  <text x="265" y="361" text-anchor="middle" fill="#2563EB" font-size="14" font-weight="bold">◎</text>
+  <rect x="355" y="344" width="40" height="24" rx="12" fill="#D1FAE5"/>
+  <text x="375" y="361" text-anchor="middle" fill="#059669" font-size="14" font-weight="bold">○</text>
+  <text x="480" y="359" text-anchor="middle" fill="#64748B" font-size="12">外部連携</text>
+  <rect x="575" y="344" width="40" height="24" rx="12" fill="#F1F5F9"/>
+  <text x="595" y="361" text-anchor="middle" fill="#94A3B8" font-size="14" font-weight="bold">×</text>
+  <rect x="675" y="344" width="40" height="24" rx="12" fill="#D1FAE5"/>
+  <text x="695" y="361" text-anchor="middle" fill="#059669" font-size="14" font-weight="bold">○</text>
+  <text x="800" y="359" text-anchor="middle" fill="#64748B" font-size="12">一部</text>
+
+  <!-- Row 8: EPARK -->
+  <rect x="50" y="376" width="820" height="44" fill="#F8FAFC"/>
+  <line x1="50" y1="376" x2="870" y2="376" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="65" y="403" fill="#1E293B" font-size="13" font-weight="600">EPARK</text>
+  <rect x="245" y="388" width="40" height="24" rx="12" fill="#D1FAE5"/>
+  <text x="265" y="405" text-anchor="middle" fill="#059669" font-size="14" font-weight="bold">○</text>
+  <rect x="355" y="388" width="40" height="24" rx="12" fill="#DBEAFE"/>
+  <text x="375" y="405" text-anchor="middle" fill="#2563EB" font-size="14" font-weight="bold">◎</text>
+  <text x="480" y="403" text-anchor="middle" fill="#059669" font-size="12" font-weight="600">あり</text>
+  <rect x="575" y="388" width="40" height="24" rx="12" fill="#D1FAE5"/>
+  <text x="595" y="405" text-anchor="middle" fill="#059669" font-size="14" font-weight="bold">○</text>
+  <rect x="675" y="388" width="40" height="24" rx="12" fill="#D1FAE5"/>
+  <text x="695" y="405" text-anchor="middle" fill="#059669" font-size="14" font-weight="bold">○</text>
+  <text x="800" y="403" text-anchor="middle" fill="#1E293B" font-size="12">ORCA等</text>
+
+  <!-- Bottom border -->
+  <line x1="50" y1="420" x2="870" y2="420" stroke="#E5E7EB" stroke-width="1"/>
+
+  <!-- Table outer border -->
+  <rect x="50" y="24" width="820" height="396" fill="none" stroke="#CBD5E1" stroke-width="1.5" rx="6"/>
+
+  <!-- Column dividers -->
+  <line x1="210" y1="24" x2="210" y2="420" stroke="#E5E7EB" stroke-width="1"/>
+  <line x1="320" y1="24" x2="320" y2="420" stroke="#E5E7EB" stroke-width="1"/>
+  <line x1="430" y1="24" x2="430" y2="420" stroke="#E5E7EB" stroke-width="1"/>
+  <line x1="530" y1="24" x2="530" y2="420" stroke="#E5E7EB" stroke-width="1"/>
+  <line x1="660" y1="24" x2="660" y2="420" stroke="#E5E7EB" stroke-width="1"/>
+  <line x1="730" y1="24" x2="730" y2="420" stroke="#E5E7EB" stroke-width="1"/>
+
+  <!-- Legend -->
+  <g transform="translate(50, 440)">
+    <text x="0" y="14" fill="#64748B" font-size="12" font-weight="600">凡例:</text>
+    <rect x="50" y="2" width="24" height="20" rx="10" fill="#DBEAFE"/>
+    <text x="62" y="17" text-anchor="middle" fill="#2563EB" font-size="12" font-weight="bold">◎</text>
+    <text x="82" y="16" fill="#64748B" font-size="11">特に強い</text>
+    <rect x="150" y="2" width="24" height="20" rx="10" fill="#D1FAE5"/>
+    <text x="162" y="17" text-anchor="middle" fill="#059669" font-size="12" font-weight="bold">○</text>
+    <text x="182" y="16" fill="#64748B" font-size="11">対応</text>
+    <rect x="230" y="2" width="24" height="20" rx="10" fill="#FFF7ED"/>
+    <text x="242" y="17" text-anchor="middle" fill="#D97706" font-size="12" font-weight="bold">△</text>
+    <text x="262" y="16" fill="#64748B" font-size="11">限定的</text>
+    <rect x="320" y="2" width="24" height="20" rx="10" fill="#F1F5F9"/>
+    <text x="332" y="17" text-anchor="middle" fill="#94A3B8" font-size="12" font-weight="bold">×</text>
+    <text x="352" y="16" fill="#64748B" font-size="11">非対応</text>
+  </g>
+</svg>

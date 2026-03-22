@@ -1,121 +1,118 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 620" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif">
-  <rect width="750" height="620" fill="#fafafa" rx="8"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 700" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif">
+  <rect width="750" height="700" fill="#f9fafb" rx="8"/>
 
   <!-- Title -->
-  <text x="375" y="35" text-anchor="middle" font-size="16" font-weight="bold" fill="#2c3e50">皮膚科の患者さん — HPから予約までの心理フロー</text>
+  <text x="375" y="38" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a1a1a">皮膚科の患者さん — HPから予約までの心理フロー</text>
 
-  <!-- Step 1: 症状に気づく -->
-  <g transform="translate(275, 55)">
-    <rect x="0" y="0" width="200" height="56" fill="#e8f6f3" stroke="#1abc9c" stroke-width="2" rx="28"/>
-    <text x="100" y="25" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a7a6d">1. 症状に気づく</text>
-    <text x="100" y="43" text-anchor="middle" font-size="11" fill="#555">「顔が赤い…」「かゆい…」</text>
+  <!-- ===== Step 1 ===== -->
+  <g transform="translate(250, 65)">
+    <rect x="0" y="0" width="250" height="60" fill="#f0faf8" stroke="#1abc9c" stroke-width="1.5" rx="30"/>
+    <text x="125" y="26" text-anchor="middle" font-size="14" font-weight="bold" fill="#148f77">1. 症状に気づく</text>
+    <text x="125" y="46" text-anchor="middle" font-size="12" fill="#666">「顔が赤い…」「かゆい…」</text>
   </g>
 
   <!-- Arrow 1→2 -->
-  <line x1="375" y1="111" x2="375" y2="135" stroke="#bbb" stroke-width="2" marker-end="url(#arrowGray)"/>
+  <line x1="375" y1="125" x2="375" y2="150" stroke="#ccc" stroke-width="2"/>
+  <polygon points="369,148 375,158 381,148" fill="#ccc"/>
 
-  <!-- Step 2: スマホで検索 -->
-  <g transform="translate(275, 135)">
-    <rect x="0" y="0" width="200" height="56" fill="#e8f6f3" stroke="#1abc9c" stroke-width="2" rx="28"/>
-    <text x="100" y="25" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a7a6d">2. スマホで検索</text>
-    <text x="100" y="43" text-anchor="middle" font-size="11" fill="#555">「皮膚科 近く」</text>
+  <!-- ===== Step 2 ===== -->
+  <g transform="translate(250, 160)">
+    <rect x="0" y="0" width="250" height="60" fill="#f0faf8" stroke="#1abc9c" stroke-width="1.5" rx="30"/>
+    <text x="125" y="26" text-anchor="middle" font-size="14" font-weight="bold" fill="#148f77">2. スマホで検索</text>
+    <text x="125" y="46" text-anchor="middle" font-size="12" fill="#666">「皮膚科 近く」</text>
   </g>
 
   <!-- Arrow 2→3 -->
-  <line x1="375" y1="191" x2="375" y2="215" stroke="#bbb" stroke-width="2" marker-end="url(#arrowGray)"/>
+  <line x1="375" y1="220" x2="375" y2="245" stroke="#ccc" stroke-width="2"/>
+  <polygon points="369,243 375,253 381,243" fill="#ccc"/>
 
-  <!-- Step 3: HPを訪問 -->
-  <g transform="translate(275, 215)">
-    <rect x="0" y="0" width="200" height="42" fill="#d5e8f7" stroke="#2980b9" stroke-width="2" rx="21"/>
-    <text x="100" y="27" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a5276">3. HPを訪問</text>
+  <!-- ===== Step 3 ===== -->
+  <g transform="translate(250, 255)">
+    <rect x="0" y="0" width="250" height="48" fill="#e8f0fe" stroke="#4a90d9" stroke-width="1.5" rx="24"/>
+    <text x="125" y="30" text-anchor="middle" font-size="14" font-weight="bold" fill="#2c5f9e">3. HPを訪問</text>
   </g>
 
-  <!-- 3つの不安 ブランチ -->
-  <line x1="375" y1="257" x2="375" y2="280" stroke="#e74c3c" stroke-width="2"/>
-  <line x1="160" y1="280" x2="590" y2="280" stroke="#e74c3c" stroke-width="2"/>
-  <line x1="160" y1="280" x2="160" y2="295" stroke="#e74c3c" stroke-width="2"/>
-  <line x1="375" y1="280" x2="375" y2="295" stroke="#e74c3c" stroke-width="2"/>
-  <line x1="590" y1="280" x2="590" y2="295" stroke="#e74c3c" stroke-width="2"/>
+  <!-- Arrow 3→不安ラベル (single red) -->
+  <line x1="375" y1="303" x2="375" y2="325" stroke="#d9534f" stroke-width="2"/>
+  <polygon points="369,323 375,333 381,323" fill="#d9534f"/>
 
   <!-- 不安ラベル -->
-  <text x="375" y="275" text-anchor="middle" font-size="11" font-weight="bold" fill="#e74c3c">3つの不安が発生</text>
-
-  <!-- 不安1 -->
-  <g transform="translate(70, 295)">
-    <rect x="0" y="0" width="180" height="52" fill="#fdedec" stroke="#e74c3c" stroke-width="1.5" rx="8"/>
-    <text x="90" y="22" text-anchor="middle" font-size="11" font-weight="bold" fill="#c0392b">不安 1</text>
-    <text x="90" y="40" text-anchor="middle" font-size="11" fill="#555">「この症状、診てもらえる？」</text>
+  <g transform="translate(285, 335)">
+    <rect x="0" y="0" width="180" height="30" fill="#fdecea" stroke="#d9534f" stroke-width="1.2" rx="15"/>
+    <text x="90" y="20" text-anchor="middle" font-size="12" font-weight="bold" fill="#d9534f">3つの不安が発生</text>
   </g>
 
-  <!-- 不安2 -->
-  <g transform="translate(285, 295)">
-    <rect x="0" y="0" width="180" height="52" fill="#fdedec" stroke="#e74c3c" stroke-width="1.5" rx="8"/>
-    <text x="90" y="22" text-anchor="middle" font-size="11" font-weight="bold" fill="#c0392b">不安 2</text>
-    <text x="90" y="40" text-anchor="middle" font-size="11" fill="#555">「いくらかかる？」</text>
+  <!-- 不安ラベル→分岐 (red) -->
+  <line x1="375" y1="365" x2="375" y2="380" stroke="#d9534f" stroke-width="1.5"/>
+  <line x1="140" y1="380" x2="610" y2="380" stroke="#d9534f" stroke-width="1.5"/>
+  <line x1="140" y1="380" x2="140" y2="395" stroke="#d9534f" stroke-width="1.5"/>
+  <line x1="375" y1="380" x2="375" y2="395" stroke="#d9534f" stroke-width="1.5"/>
+  <line x1="610" y1="380" x2="610" y2="395" stroke="#d9534f" stroke-width="1.5"/>
+
+  <!-- ===== 不安 1 ===== -->
+  <g transform="translate(50, 395)">
+    <rect x="0" y="0" width="180" height="56" fill="#fdecea" stroke="#d9534f" stroke-width="1.2" rx="8"/>
+    <text x="90" y="24" text-anchor="middle" font-size="12" font-weight="bold" fill="#c0392b">不安 1</text>
+    <text x="90" y="44" text-anchor="middle" font-size="11" fill="#555">「この症状、診てもらえる？」</text>
   </g>
 
-  <!-- 不安3 -->
-  <g transform="translate(500, 295)">
-    <rect x="0" y="0" width="180" height="52" fill="#fdedec" stroke="#e74c3c" stroke-width="1.5" rx="8"/>
-    <text x="90" y="22" text-anchor="middle" font-size="11" font-weight="bold" fill="#c0392b">不安 3</text>
-    <text x="90" y="40" text-anchor="middle" font-size="11" fill="#555">「恥ずかしい…」</text>
+  <!-- ===== 不安 2 ===== -->
+  <g transform="translate(285, 395)">
+    <rect x="0" y="0" width="180" height="56" fill="#fdecea" stroke="#d9534f" stroke-width="1.2" rx="8"/>
+    <text x="90" y="24" text-anchor="middle" font-size="12" font-weight="bold" fill="#c0392b">不安 2</text>
+    <text x="90" y="44" text-anchor="middle" font-size="11" fill="#555">「いくらかかる？」</text>
   </g>
 
-  <!-- 7つの工夫 帯 -->
-  <g transform="translate(100, 375)">
-    <rect x="0" y="0" width="550" height="50" fill="#2980b9" rx="10"/>
-    <text x="275" y="22" text-anchor="middle" font-size="14" font-weight="bold" fill="white">HPの「7つの工夫」で不安を解消</text>
-    <text x="275" y="40" text-anchor="middle" font-size="11" fill="#d5e8f7">疾患説明 / 費用目安 / 院内写真 / プライバシー配慮 / 症例写真 / 医師紹介 / 導線設計</text>
+  <!-- ===== 不安 3 ===== -->
+  <g transform="translate(520, 395)">
+    <rect x="0" y="0" width="180" height="56" fill="#fdecea" stroke="#d9534f" stroke-width="1.2" rx="8"/>
+    <text x="90" y="24" text-anchor="middle" font-size="12" font-weight="bold" fill="#c0392b">不安 3</text>
+    <text x="90" y="44" text-anchor="middle" font-size="11" fill="#555">「恥ずかしい…」</text>
   </g>
 
-  <!-- 不安 → 7つの工夫 矢印 -->
-  <line x1="160" y1="347" x2="160" y2="375" stroke="#e74c3c" stroke-width="1.5" stroke-dasharray="4,3"/>
-  <line x1="375" y1="347" x2="375" y2="375" stroke="#e74c3c" stroke-width="1.5" stroke-dasharray="4,3"/>
-  <line x1="590" y1="347" x2="590" y2="375" stroke="#e74c3c" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <!-- 不安→工夫 (dashed red) -->
+  <line x1="140" y1="451" x2="140" y2="480" stroke="#d9534f" stroke-width="1.2" stroke-dasharray="5,4"/>
+  <line x1="375" y1="451" x2="375" y2="480" stroke="#d9534f" stroke-width="1.2" stroke-dasharray="5,4"/>
+  <line x1="610" y1="451" x2="610" y2="480" stroke="#d9534f" stroke-width="1.2" stroke-dasharray="5,4"/>
 
-  <!-- 分岐: 解消 or 離脱 -->
-  <line x1="375" y1="425" x2="375" y2="450" stroke="#bbb" stroke-width="2"/>
-  <line x1="220" y1="450" x2="530" y2="450" stroke="#bbb" stroke-width="2"/>
-  <line x1="220" y1="450" x2="220" y2="470" stroke="#27ae60" stroke-width="2" marker-end="url(#arrowGreen)"/>
-  <line x1="530" y1="450" x2="530" y2="470" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrowRed)"/>
-
-  <!-- 結果ラベル -->
-  <text x="220" y="465" text-anchor="middle" font-size="10" fill="#27ae60" font-weight="bold">不安が解消</text>
-  <text x="530" y="465" text-anchor="middle" font-size="10" fill="#e74c3c" font-weight="bold">不安が残る</text>
-
-  <!-- Step 4: 予約する -->
-  <g transform="translate(130, 480)">
-    <rect x="0" y="0" width="180" height="52" fill="#d5f5e3" stroke="#27ae60" stroke-width="2" rx="26"/>
-    <text x="90" y="22" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e8449">4. 予約する</text>
-    <text x="90" y="40" text-anchor="middle" font-size="11" fill="#555">「ここなら安心」</text>
+  <!-- ===== 7つの工夫 帯 ===== -->
+  <g transform="translate(75, 480)">
+    <rect x="0" y="0" width="600" height="56" fill="#3a7bd5" rx="10"/>
+    <text x="300" y="24" text-anchor="middle" font-size="15" font-weight="bold" fill="white">HPの「7つの工夫」で不安を解消</text>
+    <text x="300" y="44" text-anchor="middle" font-size="11" fill="#c8ddf5">疾患説明 / 費用目安 / 院内写真 / プライバシー配慮 / 症例写真 / 医師紹介 / 導線設計</text>
   </g>
 
-  <!-- Step 5: 離脱する -->
-  <g transform="translate(440, 480)">
-    <rect x="0" y="0" width="180" height="52" fill="#f9e4e4" stroke="#e74c3c" stroke-width="2" rx="26"/>
-    <text x="90" y="22" text-anchor="middle" font-size="14" font-weight="bold" fill="#c0392b">5. 離脱する</text>
-    <text x="90" y="40" text-anchor="middle" font-size="11" fill="#555">「他のクリニックを探そう」</text>
+  <!-- 工夫→分岐 (gray) -->
+  <line x1="375" y1="536" x2="375" y2="556" stroke="#ccc" stroke-width="2"/>
+  <line x1="220" y1="556" x2="530" y2="556" stroke="#ccc" stroke-width="2"/>
+
+  <!-- 左: 解消→予約 (green) -->
+  <line x1="220" y1="556" x2="220" y2="585" stroke="#27ae60" stroke-width="2"/>
+  <polygon points="214,583 220,593 226,583" fill="#27ae60"/>
+  <text x="220" y="580" text-anchor="middle" font-size="10" font-weight="bold" fill="#27ae60" dy="-8">不安が解消</text>
+
+  <!-- 右: 残る→離脱 (red) -->
+  <line x1="530" y1="556" x2="530" y2="585" stroke="#d9534f" stroke-width="2"/>
+  <polygon points="524,583 530,593 536,583" fill="#d9534f"/>
+  <text x="530" y="580" text-anchor="middle" font-size="10" font-weight="bold" fill="#d9534f" dy="-8">不安が残る</text>
+
+  <!-- ===== Step 4: 予約する ===== -->
+  <g transform="translate(130, 598)">
+    <rect x="0" y="0" width="180" height="56" fill="#e8f5e9" stroke="#27ae60" stroke-width="1.5" rx="28"/>
+    <text x="90" y="24" text-anchor="middle" font-size="15" font-weight="bold" fill="#1b7a3d">4. 予約する</text>
+    <text x="90" y="44" text-anchor="middle" font-size="12" fill="#555">「ここなら安心」</text>
   </g>
 
-  <!-- 強調キャプション -->
-  <g transform="translate(100, 555)">
-    <rect x="0" y="0" width="550" height="34" fill="#fef9e7" stroke="#f39c12" stroke-width="1" rx="6"/>
-    <text x="275" y="22" text-anchor="middle" font-size="12" fill="#7d6608">ポイント：HP上で「3つの不安」を先回りして解消する設計が、予約率を大きく左右します</text>
+  <!-- ===== Step 5: 離脱する ===== -->
+  <g transform="translate(440, 598)">
+    <rect x="0" y="0" width="180" height="56" fill="#fdecea" stroke="#d9534f" stroke-width="1.5" rx="28"/>
+    <text x="90" y="24" text-anchor="middle" font-size="15" font-weight="bold" fill="#c0392b">5. 離脱する</text>
+    <text x="90" y="44" text-anchor="middle" font-size="12" fill="#555">「他のクリニックを探そう」</text>
   </g>
 
-  <!-- 出典 -->
-  <text x="375" y="610" text-anchor="middle" font-size="10" fill="#999">Ascent Web Engineer 作成（2026年3月）</text>
-
-  <!-- Arrow markers -->
-  <defs>
-    <marker id="arrowGray" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
-      <path d="M0,0 L8,3 L0,6 Z" fill="#bbb"/>
-    </marker>
-    <marker id="arrowGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
-      <path d="M0,0 L8,3 L0,6 Z" fill="#27ae60"/>
-    </marker>
-    <marker id="arrowRed" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
-      <path d="M0,0 L8,3 L0,6 Z" fill="#e74c3c"/>
-    </marker>
-  </defs>
+  <!-- ===== キャプション ===== -->
+  <g transform="translate(100, 672)">
+    <rect x="0" y="0" width="550" height="24" fill="#fef9e7" rx="4"/>
+    <text x="275" y="17" text-anchor="middle" font-size="11" fill="#7d6608">ポイント：HP上で「3つの不安」を先回りして解消する設計が、予約率を大きく左右します</text>
+  </g>
 </svg>

@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "ブログ | アセント — 開業医専門ホームページ制作",
   description:
     "内科・皮膚科・整形外科など診療科別のホームページ制作ポイントや、集患・SEO・医療広告ガイドラインの最新情報をお届けします。",
+  alternates: {
+    canonical: "https://ascent-web.jp/hp/blog",
+  },
 };
 
 export default function BlogPage() {
