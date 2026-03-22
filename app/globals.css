@@ -1539,7 +1539,8 @@ body::before {
     top: 0;
     right: 0;
     bottom: 0;
-    width: 100vw;
+    width: 75vw;
+    max-width: 360px;
     background: rgb(10, 15, 26);
     z-index: 200;
     display: flex;
