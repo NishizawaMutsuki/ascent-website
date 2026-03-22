@@ -37,6 +37,13 @@ function Nav() {
           <a href="/" className="nav-logo-link">
             <AscentLogo />
           </a>
+          <ul className="nav-links">
+            <li><a href="/#about">会社概要</a></li>
+            <li><a href="/#services">サービス</a></li>
+            <li><a href="/#works">実績</a></li>
+            <li><a href="/#products">プロダクト</a></li>
+            <li><a href="/#contact">お問い合わせ</a></li>
+          </ul>
           <a href="/#contact" className="nav-cta">無料相談</a>
         </div>
       </nav>
