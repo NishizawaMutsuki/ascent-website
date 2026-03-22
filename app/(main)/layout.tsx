@@ -60,6 +60,9 @@ function Nav() {
 
       {/* 全画面フェードインパネル — nav の外でスタッキングコンテキスト回避 */}
       <div className={`nav-panel${isOpen ? " is-open" : ""}`}>
+        <a href="/" className="nav-panel-logo" onClick={closeMenu}>
+          <AscentLogo />
+        </a>
         <ul className="nav-panel-links">
           <li><a href="/#about" onClick={closeMenu}>会社概要</a></li>
           <li><a href="/#services" onClick={closeMenu}>サービス</a></li>
