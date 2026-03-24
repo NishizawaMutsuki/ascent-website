@@ -77,28 +77,40 @@ function DevicePreview({ url }: { url: string }) {
 }
 
 /* ===== Contact Form ===== */
+const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? "";
+
 function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("sending");
     const form = e.currentTarget;
     const data = new FormData(form);
+    data.append("access_key", WEB3FORMS_KEY);
+    data.append("subject", `【お問い合わせ】${data.get("company")} ${data.get("name")}様`);
+    data.append("from_name", "Ascent Website");
 
-    const subject = encodeURIComponent(`【お問い合わせ】${data.get("company")} ${data.get("name")}様`);
-    const body = encodeURIComponent(
-      `お名前: ${data.get("name")}\n会社・医院名: ${data.get("company")}\nメール: ${data.get("email")}\nご相談内容: ${data.get("type")}\n\n${data.get("message")}`
-    );
-    window.location.href = `mailto:info@ascent-web.jp?subject=${subject}&body=${body}`;
-    setStatus("sent");
-    form.reset();
-    setTimeout(() => setStatus("idle"), 4000);
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: data,
+      });
+      if (res.ok) {
+        setStatus("sent");
+        form.reset();
+        setTimeout(() => setStatus("idle"), 4000);
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
     <form className="contact-form" onSubmit={handleSubmit}>
-      <h3>お問い合わせフォーム</h3>
+      <h3>無料相談フォーム</h3>
       <div className="form-group">
         <label htmlFor="cf-name">お名前 *</label>
         <input id="cf-name" name="name" type="text" required />
@@ -127,10 +139,10 @@ function ContactForm() {
         {status === "sending" ? "送信中..." : "送信する"}
       </button>
       {status === "sent" && (
-        <div className="form-message success">メールクライアントが開きます。そのまま送信してください。</div>
+        <div className="form-message success" role="alert">送信が完了しました。営業日2日以内にご返信いたします。</div>
       )}
       {status === "error" && (
-        <div className="form-message error">送信に失敗しました。直接メールでお問い合わせください。</div>
+        <div className="form-message error" role="alert">送信に失敗しました。お手数ですが info@ascent-web.jp まで直接ご連絡ください。</div>
       )}
     </form>
   );
@@ -192,7 +204,7 @@ export default function Home() {
             医療機関向けWeb制作とAI開発で、地域医療の成長を支援します。
           </p>
           <div className="top-hero-actions">
-            <a href="#contact" className="top-btn top-btn-primary">お問い合わせ</a>
+            <a href="#contact" className="top-btn top-btn-primary">無料相談</a>
             <a href="#services" className="top-btn top-btn-ghost">事業内容を見る &rarr;</a>
           </div>
         </div>
@@ -207,20 +219,20 @@ export default function Home() {
       <div className="stats-bar" ref={addRef}>
         <div className="stats-grid reveal" ref={addRef}>
           <div className="stat-item">
-            <div className="stat-number">100</div>
-            <div className="stat-label">Lighthouse スコア</div>
-          </div>
-          <div className="stat-item">
-            <div className="stat-number">0</div>
-            <div className="stat-label">WordPress 脆弱性</div>
+            <div className="stat-number">2<span style={{ fontSize: '1rem', fontWeight: 400 }}>週間</span></div>
+            <div className="stat-label">最短公開期間</div>
           </div>
           <div className="stat-item">
             <div className="stat-number">6,000<span style={{ fontSize: '1rem', fontWeight: 400 }}>円〜</span></div>
             <div className="stat-label">月額運用費</div>
           </div>
           <div className="stat-item">
-            <div className="stat-number">2<span style={{ fontSize: '1rem', fontWeight: 400 }}>週間</span></div>
-            <div className="stat-label">最短公開期間</div>
+            <div className="stat-number">0<span style={{ fontSize: '1rem', fontWeight: 400 }}>件</span></div>
+            <div className="stat-label">セキュリティ事故</div>
+          </div>
+          <div className="stat-item">
+            <div className="stat-number">100<span style={{ fontSize: '1rem', fontWeight: 400 }}>点</span></div>
+            <div className="stat-label">Google表示速度スコア</div>
           </div>
         </div>
       </div>
@@ -346,19 +358,19 @@ export default function Home() {
           <p className="section-title">Products</p>
           <div className="product-link-grid">
             <a href="/hp" className="product-link-card reveal" ref={addRef}>
-              <div className="tag">クリニック向け — Web制作・運用</div>
+              <div className="tag">クリニック向け — 3プランから選択</div>
               <h3>医院HP制作</h3>
               <p>
-                セキュリティ最優先の静的サイト設計。WordPress不使用で改ざんリスクゼロ。
-                月額6,000円〜でGoogleに表示される状態を作ります。
+                ベーシック・プレミアム・フルカスタムの3プランをご用意。
+                初期費用と月額費用、各プランの機能比較をご確認いただけます。
               </p>
               <div className="features">
-                <span className="feature-tag">レスポンシブ対応</span>
-                <span className="feature-tag">SEO / MEO</span>
-                <span className="feature-tag">SSL / WAF</span>
-                <span className="feature-tag">医療広告GL対応</span>
+                <span className="feature-tag">料金プラン</span>
+                <span className="feature-tag">制作の流れ</span>
+                <span className="feature-tag">デモサイト</span>
+                <span className="feature-tag">よくある質問</span>
               </div>
-              <span className="product-link-arrow">詳しく見る &rarr;</span>
+              <span className="product-link-arrow">プラン・料金を見る &rarr;</span>
             </a>
 
             <a href="/products/talk-trainer" className="product-link-card reveal" ref={addRef} style={{ animationDelay: "120ms" }}>

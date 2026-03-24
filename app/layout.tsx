@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://ascent-web.jp/images/og-default.svg",
+        url: "https://ascent-web.jp/images/og-default.png",
         width: 1200,
         height: 630,
       },
