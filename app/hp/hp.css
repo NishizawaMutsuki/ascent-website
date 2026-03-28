@@ -32,9 +32,10 @@
 .lp *, .lp *::before, .lp *::after { box-sizing: border-box; }
 .lp img { max-width: 100%; display: block; }
 .lp a { color: inherit; text-decoration: none; }
-.lp p { margin: 0; }
-.lp h1, .lp h2, .lp h3, .lp h4 { margin: 0; }
+.lp p { margin: 0; text-wrap: pretty; word-break: auto-phrase; }
+.lp h1, .lp h2, .lp h3, .lp h4 { margin: 0; text-wrap: balance; word-break: auto-phrase; }
 .lp ul { list-style: none; padding: 0; margin: 0; }
+.lp li, .lp dd, .lp figcaption { text-wrap: pretty; word-break: auto-phrase; }
 .lp .sr-only {
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
   overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
