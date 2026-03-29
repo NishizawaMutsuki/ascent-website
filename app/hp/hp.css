@@ -539,33 +539,45 @@
   pointer-events: none;
 }
 
-/* Laptop hinge */
+/* Laptop hinge — thin dark strip connecting lid to base */
 .lp .device-laptop-hinge {
   width: 100%;
-  height: 8px;
-  background: linear-gradient(to bottom, #1a1a1c, #2d2d2f);
+  height: 6px;
+  background: linear-gradient(to bottom, #1a1a1c, #303032);
   border-radius: 0 0 2px 2px;
 }
 
-/* Laptop base / keyboard area */
+/* Laptop base / keyboard area — trapezoid with perspective */
 .lp .device-laptop-base {
   width: 108%;
-  height: 14px;
-  background: linear-gradient(to bottom, #c0c0c4, #a8a8ac);
-  border-radius: 0 0 8px 8px;
+  height: 10px;
+  background: linear-gradient(to bottom, #d1d1d5, #b8b8bc);
+  border-radius: 0 0 6px 6px;
   position: relative;
+  transform: perspective(360px) rotateX(-12deg);
+  transform-origin: top center;
+}
+
+.lp .device-laptop-base::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(255,255,255,0.4);
 }
 
 .lp .device-laptop-base::after {
   content: "";
   position: absolute;
-  bottom: 0;
+  bottom: 2px;
   left: 50%;
   transform: translateX(-50%);
-  width: 18%;
-  height: 4px;
-  background: rgba(0,0,0,0.08);
-  border-radius: 4px 4px 0 0;
+  width: 16%;
+  height: 3px;
+  background: rgba(0,0,0,0.06);
+  border-radius: 3px 3px 0 0;
 }
 
 /* ===== Works Carousel ===== */
