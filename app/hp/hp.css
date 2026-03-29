@@ -480,21 +480,6 @@
   border-radius: 12px 12px 0 0;
   padding: 12px 12px 0;
   position: relative;
-  margin-bottom: 22px;
-}
-
-/* Hinge + base drawn as pseudo-elements on the lid */
-.lp .device-laptop-lid::after {
-  content: "";
-  position: absolute;
-  bottom: -22px;
-  left: -1px;
-  right: -1px;
-  height: 22px;
-  background:
-    linear-gradient(to bottom, #1a1a1c, #303032) top / 100% 6px no-repeat,
-    linear-gradient(to bottom, #d1d1d5, #b8b8bc) bottom / 100% 16px no-repeat;
-  clip-path: polygon(0% 0%, 100% 0%, 100% 6px, 100% 6px, 97% 100%, 3% 100%, 0% 6px, 0% 6px);
 }
 
 .lp .device-laptop-camera {
@@ -554,10 +539,20 @@
   pointer-events: none;
 }
 
-/* Hinge + base elements kept for HTML compat but hidden (drawn via ::after on lid) */
-.lp .device-laptop-hinge,
+/* Hinge — inside lid, below screen */
+.lp .device-laptop-hinge {
+  height: 6px;
+  margin: 0 -12px;
+  background: linear-gradient(to bottom, #1a1a1c, #303032);
+}
+
+/* Laptop base — trapezoid keyboard area, inside lid */
 .lp .device-laptop-base {
-  display: none;
+  height: 12px;
+  margin: 0 -12px;
+  background: linear-gradient(to bottom, #d1d1d5, #b8b8bc);
+  clip-path: polygon(1% 0%, 99% 0%, 96% 100%, 4% 100%);
+  border-radius: 0 0 12px 12px;
 }
 
 /* ===== Works Carousel ===== */

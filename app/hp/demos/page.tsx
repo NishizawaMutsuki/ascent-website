@@ -153,9 +153,9 @@ function DemoCarousel({ section }: { section: PlanSection }) {
                     <div className="device-screen" ref={(el) => { desktopRefs.current[i] = el; }}>
                       <iframe src={demo.url} title={`${demo.name} PC`} loading="lazy" />
                     </div>
+                    <div className="device-laptop-hinge" />
+                    <div className="device-laptop-base" />
                   </div>
-                  <div className="device-laptop-hinge" />
-                  <div className="device-laptop-base" />
                 </div>
                 {/* SP - Phone frame */}
                 <div className="device-mobile">

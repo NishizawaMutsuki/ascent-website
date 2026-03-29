@@ -34,9 +34,9 @@ function DevicePreview({ url }: { url: string }) {
           <div className="device-screen" ref={desktopRef}>
             <iframe src={url} title="PC" loading="lazy" />
           </div>
+          <div className="device-laptop-hinge" />
+          <div className="device-laptop-base" />
         </div>
-        <div className="device-laptop-hinge" />
-        <div className="device-laptop-base" />
       </div>
       <div className="device-mobile">
         <div className="device-notch" />
