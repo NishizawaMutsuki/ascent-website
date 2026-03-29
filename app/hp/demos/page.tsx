@@ -142,22 +142,28 @@ function DemoCarousel({ section }: { section: PlanSection }) {
                   padding: "0 2px",
                 }}
               >
-                {/* PC */}
+                {/* PC - Laptop frame */}
                 <div className="device-desktop" style={{ flex: 1, minWidth: 0 }}>
-                  <div className="device-bar">
-                    <div className="device-dots"><span /><span /><span /></div>
-                    <div className="device-url">{demo.url.replace("https://", "")}</div>
+                  <div className="device-laptop-lid">
+                    <div className="device-laptop-camera" />
+                    <div className="device-bar">
+                      <div className="device-dots"><span /><span /><span /></div>
+                      <div className="device-url">{demo.url.replace("https://", "")}</div>
+                    </div>
+                    <div className="device-screen" ref={(el) => { desktopRefs.current[i] = el; }}>
+                      <iframe src={demo.url} title={`${demo.name} PC`} loading="lazy" />
+                    </div>
                   </div>
-                  <div className="device-screen" ref={(el) => { desktopRefs.current[i] = el; }}>
-                    <iframe src={demo.url} title={`${demo.name} PC`} loading="lazy" />
-                  </div>
+                  <div className="device-laptop-hinge" />
+                  <div className="device-laptop-base" />
                 </div>
-                {/* SP */}
-                <div className="device-mobile" style={{ marginLeft: 0, boxShadow: "0 4px 24px rgba(0,0,0,0.1)", flexShrink: 0 }}>
+                {/* SP - Phone frame */}
+                <div className="device-mobile">
                   <div className="device-notch" />
                   <div className="device-screen-m" ref={(el) => { mobileRefs.current[i] = el; }}>
                     <iframe src={demo.url} title={`${demo.name} SP`} loading="lazy" />
                   </div>
+                  <div className="device-home-indicator" />
                 </div>
               </div>
             ))}
