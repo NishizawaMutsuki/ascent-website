@@ -547,35 +547,23 @@
   border-radius: 0 0 2px 2px;
 }
 
-/* Laptop base / keyboard area — trapezoid with perspective */
+/* Laptop base — trapezoid via clip-path to look like keyboard receding */
 .lp .device-laptop-base {
-  width: 108%;
-  height: 10px;
+  width: 100%;
+  height: 16px;
   background: linear-gradient(to bottom, #d1d1d5, #b8b8bc);
-  border-radius: 0 0 6px 6px;
+  clip-path: polygon(0% 0%, 100% 0%, 97% 100%, 3% 100%);
   position: relative;
-  transform: perspective(360px) rotateX(-12deg);
-  transform-origin: top center;
-}
-
-.lp .device-laptop-base::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: rgba(255,255,255,0.4);
 }
 
 .lp .device-laptop-base::after {
   content: "";
   position: absolute;
-  bottom: 2px;
+  bottom: 3px;
   left: 50%;
   transform: translateX(-50%);
   width: 16%;
-  height: 3px;
+  height: 4px;
   background: rgba(0,0,0,0.06);
   border-radius: 3px 3px 0 0;
 }
