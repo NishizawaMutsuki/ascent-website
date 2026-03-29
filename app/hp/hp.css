@@ -469,16 +469,15 @@
 .lp .device-desktop {
   flex: 1;
   min-width: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  transform: perspective(1800px) rotateX(2deg);
+  transform-origin: center bottom;
 }
 
 .lp .device-laptop-lid {
   width: 100%;
   background: #232526;
-  border-radius: 12px 12px 0 0;
-  padding: 12px 12px 0;
+  border-radius: 16px;
+  padding: 14px 14px 20px;
   position: relative;
 }
 
@@ -497,7 +496,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  border-radius: 6px 6px 0 0;
+  border-radius: 4px 4px 0 0;
 }
 
 .lp .device-dots {
@@ -529,6 +528,7 @@
   aspect-ratio: 16 / 10;
   overflow: hidden;
   background: #fff;
+  border-radius: 0 0 4px 4px;
 }
 
 .lp .device-screen iframe {
@@ -539,20 +539,10 @@
   pointer-events: none;
 }
 
-/* Hinge — inside lid, below screen */
-.lp .device-laptop-hinge {
-  height: 6px;
-  margin: 0 -12px;
-  background: linear-gradient(to bottom, #1a1a1c, #303032);
-}
-
-/* Laptop base — trapezoid keyboard area, inside lid */
+/* Hinge + base hidden — perspective on device-desktop handles the laptop look */
+.lp .device-laptop-hinge,
 .lp .device-laptop-base {
-  height: 12px;
-  margin: 0 -12px;
-  background: linear-gradient(to bottom, #d1d1d5, #b8b8bc);
-  clip-path: polygon(1% 0%, 99% 0%, 96% 100%, 4% 100%);
-  border-radius: 0 0 12px 12px;
+  display: none;
 }
 
 /* ===== Works Carousel ===== */
